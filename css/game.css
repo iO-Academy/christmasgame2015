@@ -1,0 +1,16 @@
+#container {
+    width: 1000px;
+    height: 500px;
+    margin: 0 auto;
+    background: grey;
+}
+
+.on {
+    background: red;
+    width: 100px;
+    height: 100px;
+    position: relative;
+    left: 50px;
+    top: 50px;
+    cursor: pointer;
+}
