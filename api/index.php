@@ -118,7 +118,7 @@ if (!empty($_POST['action'])) {
             $response = array(
                 'success' => true,
                 'message' => 'Success',
-                'details' => json_encode($details)
+                'details' => $details
             );
             break;
         default:
