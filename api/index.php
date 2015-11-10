@@ -110,16 +110,37 @@ if (!empty($_POST['action'])) {
             break;
         case 'getDetails':
             $user = $_SESSION['id'];
-            $query = 'SELECT `level`, `attempts`, `time`, `try` FROM `levels` WHERE `user` = ' . $user . ' ORDER BY `try`, `level`;';
-            $conn = $db->prepare($query);
-            $conn->execute();
-            $details = $conn->fetchAll(PDO::FETCH_ASSOC);
 
-            $response = array(
-                'success' => true,
-                'message' => 'Success',
-                'details' => $details
-            );
+            try {
+                $query = 'SELECT `level`, `attempts`, `time`, `try` FROM `levels` WHERE `user` = ' . $user;
+
+                if ($_POST['level']) {
+                    $level = $_POST['level'];
+                    $query .= ' AND `level` = ' . $level;
+                }
+
+                if ($_POST['curAttempt'] == '1') {
+                    $attempt = $_SESSION['attempts'];
+                    $query .= ' AND `try` = ' . $attempt;
+                }
+
+                $query .= ' ORDER BY `try`, `level`;';
+
+                $conn = $db->prepare($query);
+                $conn->execute();
+                $details = $conn->fetchAll(PDO::FETCH_ASSOC);
+
+                $response = array(
+                    'success' => true,
+                    'message' => 'Success',
+                    'details' => $details
+                );
+            } catch(Exception $e) {
+                $response = array(
+                    'success' => false,
+                    'message' => 'Unexpected error, please try again'
+                );
+            }
             break;
         default:
             $response['message'] = 'Invalid action passed';
