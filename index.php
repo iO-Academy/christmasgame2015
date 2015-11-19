@@ -1,7 +1,9 @@
-<?php
-/**
- * Created by PhpStorm.
- * User: mporam
- * Date: 05/11/2015
- * Time: 17:48
- */
+<html>
+	<head>
+		<link type="text/css" href="css/layout.css" rel="stylesheet" media="all">
+		<title>Mayden Christmas Game 2015</title>
+	</head>
+	<body>
+		<div id="game"></div>
+	</body>
+</html>
