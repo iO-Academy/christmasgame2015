@@ -78,7 +78,7 @@ if (!empty($_POST['action'])) {
                 $previousSave = $conn->fetch();
 
                 if ($previousSave) {
-                    $response['message'] = 'Error occured: level already saved';
+                    $response['message'] = 'Error occurred: level already saved';
                     break;
                 }
 
