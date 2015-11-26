@@ -100,10 +100,18 @@ if (!empty($_POST['action'])) {
                     $totalTime = $conn->fetch(PDO::FETCH_ASSOC);
                     $totalTime = $totalTime['time'];
 
-                    $query = 'UPDATE `users` SET `pb` = ' . $totalTime . ' WHERE `id` = ' . $user . ';';
-                    $db->exec($query);
+                    $query = 'SELECT `pb` FROM `users` WHERE `id` = ' . $user . ';';
+                    $conn = $db->prepare($query);
+                    $conn->execute();
+                    $pb = $conn->fetch(PDO::FETCH_ASSOC);
+                    $response['totalTime'] = $pb['pb'];
 
-                    $response['totalTime'] = $totalTime;
+                    if ($totalTime < $response['totalTime']) {
+                        $query = 'UPDATE `users` SET `pb` = ' . $totalTime . ' WHERE `id` = ' . $user . ';';
+                        $db->exec($query);
+                        $response['totalTime'] = $totalTime;
+                    }
+
                 }
             } catch (Exception $e) {
                 $response = array(
