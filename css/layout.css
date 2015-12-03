@@ -1,6 +1,14 @@
+/*
+* Colors
+* #737373
+* #F27324
+*/
+
 #game {
 	width: 729px;
 	height: 600px;
 	margin: 0 auto;
 	border: 1px solid #000000;
+	font-family: 'Roboto', sans-serif;
+	font-size: 14px;
 }
