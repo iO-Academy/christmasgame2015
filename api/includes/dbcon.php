@@ -1,7 +1,7 @@
 <?php
-$servername = "192.168.20.56";
+$servername = "192.168.20.50";
 $username = "root";
-$database = "christmasGame";
+
 $password = "";
 
 try {
