@@ -23,6 +23,14 @@ $(function () {
         }
         else {
             $("#err3").slideUp('close');
-        });
+        };
+    })
+
+    //validating that the device is not touch screen
+    var isTouchDevice = 'ontouchstart'
+
+    if (isTouchDevice in document.getElementById('game')) {
+        document.getElementById('game').html('<p class="touchDevice"> Error! This game is for use on a device without a touchscreen</p>')
     }
-}
+
+})
