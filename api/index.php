@@ -78,7 +78,7 @@ if (!empty($_POST['action'])) {
                 $previousSave = $conn->fetch();
 
                 if ($previousSave) {
-                    $response['message'] = 'Error occured: level already saved';
+                    $response['message'] = 'Error occurred: level already saved';
                     break;
                 }
 
@@ -93,18 +93,30 @@ if (!empty($_POST['action'])) {
                 );
 
                 if (5 == $level) {
-                    $query = 'SELECT SUM(`time`) FROM `levels` WHERE `user` = ' . $user . ' AND `try` = ' . $try . ';';
+                    // add all level times together and save
+                    $query = 'SELECT SUM(`time`) AS \'time\' FROM `levels` WHERE `user` = ' . $user . ' AND `try` = ' . $try . ';';
                     $conn = $db->prepare($query);
                     $conn->execute();
-                    $totalTime = $conn->fetch();
+                    $totalTime = $conn->fetch(PDO::FETCH_ASSOC);
+                    $totalTime = $totalTime['time'];
 
-                    $response['totalTime'] = $totalTime[0];
-                    // add all level times together and save
+                    $query = 'SELECT `pb` FROM `users` WHERE `id` = ' . $user . ';';
+                    $conn = $db->prepare($query);
+                    $conn->execute();
+                    $pb = $conn->fetch(PDO::FETCH_ASSOC);
+                    $response['totalTime'] = $pb['pb'];
+
+                    if ($totalTime < $response['totalTime']) {
+                        $query = 'UPDATE `users` SET `pb` = ' . $totalTime . ' WHERE `id` = ' . $user . ';';
+                        $db->exec($query);
+                        $response['totalTime'] = $totalTime;
+                    }
+
                 }
             } catch (Exception $e) {
                 $response = array(
                     'success' => false,
-                    'message' => 'An unexpected error occurred'
+                    'message' => 'An unexpected error occurred' // $e->getMessage()
                 );
             }
             break;
@@ -126,6 +138,26 @@ if (!empty($_POST['action'])) {
 
                 $query .= ' ORDER BY `try`, `level`;';
 
+                $conn = $db->prepare($query);
+                $conn->execute();
+                $details = $conn->fetchAll(PDO::FETCH_ASSOC);
+
+                $response = array(
+                    'success' => true,
+                    'message' => 'Success',
+                    'details' => $details
+                );
+            } catch(Exception $e) {
+                $response = array(
+                    'success' => false,
+                    'message' => 'Unexpected error, please try again'
+                );
+            }
+            break;
+        case 'getLeaderboard':
+
+            try {
+                $query = 'SELECT `userName`, `attempts`, `pb` FROM `users` WHERE pb IS NOT NULL ORDER BY `pb` ASC LIMIT 5;';
                 $conn = $db->prepare($query);
                 $conn->execute();
                 $details = $conn->fetchAll(PDO::FETCH_ASSOC);
