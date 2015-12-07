@@ -32,7 +32,8 @@ $(function(){
      */
     $finish.on('completedLevel', function(){
         alert("You have completed level '$levelNumber'")
-        $messageDisplayBox.replaceWith("'congratulationsMessage'");
+        $messageDisplayBox.replaceWith("'congratulationsMessage'")
+        function resetAttemptsCounter() {}
         })
 
 })

@@ -41,7 +41,6 @@ $(function(){
         alert("You have died! Please try again! Click the start area to start")
         $messageDisplayBox.replaceWith("'commiserationsMessageAndInstructions'")
         $gameBoxDiv.trigger('stop')
-        $gameBoxDiv.trigger('addOneToAttempts')
         $gameBoxDiv.trigger('restartLevel')
     })
 

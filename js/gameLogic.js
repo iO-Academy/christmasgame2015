@@ -16,6 +16,8 @@ $(function () {
     var levelNumber = 1
     var congratulationsMessage = $('<p>Some html shit about congrats</p>')
     var $startBox = $('someHTMLEntityNotDecided')
+    var gameover = 2
+    var genericError = "error, error"
 
     /**
      *startGame funcitonality
@@ -65,28 +67,55 @@ $(function () {
             'level': levelNumber,
             'attempts': attemptsCount,
             'time': ticks
-        }, function () {
+        }, // put data here from ajax into endOfGame
+            function () {
             //success function
             levelNumber++
-            if (gameOver(levelNumber)) {
-                //show expanded div + gameover congrats ...
-            } else {
-                loadLevel(levelNumber)
+            if (levelNumber === gameover) {
+                $messageDisplayBox.replaceWith('#endOfGame').css({opacity: 0})
+                $messageDisplayBox.animate({
+                    opacity: "100",
+                    width: "600px",
+                    height: "400px",
+                    right: "0px",
+                    top: "0px"
+                }).fail(function() {
+                    $messageDisplayBox.replaceWith(genericError);
+                })
             }
-        });
+        else
+        {
+            loadLevel(levelNumber)
+        }
+    });
 
-    })
+})
+
+/**
+ * ajax get request for next level and puts result into $gameBoxDiv
+ *
+ * @param levelNumber
+ */
+
+function loadLevel(levelNumber) {
+    $.get(('templates/level' + levelNumber + '.html'),
+        function (data) {
+            $gameBoxDiv.replaceWith(data)
+            attemptsCount = 0
+            $gameBoxDiv.trigger('resetClock')
+        })
+}
 
 
-    $('.die').mouseover(function () {
-        $gameBoxDiv.trigger('death')
-    })
+$('.die').mouseover(function () {
+    $gameBoxDiv.trigger('death')
+})
 
-    $gameBoxDiv.on('death', function () {
-        $gameBoxDiv.trigger('stopClock')
-        $messageDisplayBox.replaceWith("You have died! Please try again! Click the start area to start")
-        $gameBoxDiv.trigger('restartLevel')
-        $('.die').off('death')
+$gameBoxDiv.on('death', function () {
+    $gameBoxDiv.trigger('stopClock')
+    $messageDisplayBox.replaceWith("You Wolly! Please try again! Click the start area to start")
+    $gameBoxDiv.trigger('restartLevel')
+    $('.die').off('death')
 
-    })
+})
 })
