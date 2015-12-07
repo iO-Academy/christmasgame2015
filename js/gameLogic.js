@@ -1,18 +1,20 @@
+var $gameBoxDiv = $('#mazeContainer')
+var $startSafeZone = $('someHTMLEntityIDNotDecided#startSafeZone')
+var $finishSafeZone = $('someHTMLEntityIDNotDecided#finishSafeZone')
+var $messageDisplayBox = $('someHTMLEntityIDNotDecidedForMessage')
+var attemptsCount
+var $finishBox = $('someHTMLEntityNotDecided')
+var levelNumber = 1
+var congratulationsMessage = $('<p>Some html shit about congrats</p>')
+var $startBox = $('someHTMLEntityNotDecided')
+var gameover = 2
+var genericError = "error, error"
+
+
 $(function () {
     /**
      * Game Logic!!
      */
-    var $gameBoxDiv = $('#mazeContainer')
-    var $startSafeZone = $('someHTMLEntityIDNotDecided#startSafeZone')
-    var $finishSafeZone = $('someHTMLEntityIDNotDecided#finishSafeZone')
-    var $messageDisplayBox = $('someHTMLEntityIDNotDecidedForMessage')
-    var attemptsCount
-    var $finishBox = $('someHTMLEntityNotDecided')
-    var levelNumber = 1
-    var congratulationsMessage = $('<p>Some html shit about congrats</p>')
-    var $startBox = $('someHTMLEntityNotDecided')
-    var gameover = 2
-    var genericError = "error, error"
 
     /**
      *startGame funcitonality
@@ -36,7 +38,7 @@ $(function () {
      * @type {*|jQuery|HTMLElement}
      */
 
-    $startBox.click(function () {
+    $startBox.click(function() {
         //Start Clock
         $gameBoxDiv.trigger('startClock')
         //increase attempt counter by 1
@@ -44,11 +46,11 @@ $(function () {
         //disable start zone
         $startSafeZone.off('click')
         //triggers death event
-        $('.die').mouseover(function () {
+        $('.die').mouseover(function() {
             $gameBoxDiv.trigger('death')
         })
         //triggers complete event
-        $finishSafeZone.mouseover(function () {
+        $finishSafeZone.mouseover(function() {
             $gameBoxDiv.trigger('completedLevel')
         })
     })
@@ -56,7 +58,7 @@ $(function () {
     /**
      * Success functionality
      */
-    $finishBox.mouseover(function () {
+    $finishBox.mouseover(function() {
         //todo remove post test
         alert("You have completed level 'levelNumber'")
         //change message box to display level congrats
@@ -71,7 +73,7 @@ $(function () {
                 'attempts': attemptsCount,
                 'time': ticks
             }, // put data here from ajax into endOfGame
-            function (data) {
+            function(data) {
                 //success function
                 levelNumber++
                 if (levelNumber === gameover) {
@@ -82,18 +84,18 @@ $(function () {
                         height: "400px",
                         right: "0px",
                         top: "0px"
-                    }).fail(function () {
-                        $messageDisplayBox.replaceWith(genericError);
                     })
                 }
                 else {
                     loadLevel(levelNumber);
                 }
-            });
+            }
+        ).fail(function() {
+            $('#game').replaceWith(genericError);
+        })
     })
 
-
-    $('.die').mouseover(function () {
+    $('.die').mouseover(function() {
         $gameBoxDiv.trigger('death')
     })
     /*
@@ -109,3 +111,18 @@ $(function () {
         $('.die').off('death')
     })
 })
+/**
+ *startGame funcitonality
+ */
+/**
+ * ajax get request for next level and puts result into $gameBoxDiv
+ *
+ * @param levelNumber
+ */
+function loadLevel(levelNumber) {
+    $('#game').load('templates/level' + levelNumber + '.php',
+        function() {
+            attemptsCount = 0
+            $gameBoxDiv.trigger('resetClock')
+        })
+}
