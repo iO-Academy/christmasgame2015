@@ -5,3 +5,11 @@ function validateEmail(userEmail) {
     }
     return true
 }
+
+function validateName(userName) {
+    var testName = /[a-zA-Z\.\s\-]/
+    if (!testName.test(userName)) {
+        return false
+    }
+    return true
+}
