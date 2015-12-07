@@ -6,16 +6,17 @@
 		<script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
         <script src="js/cookies.js"></script>
 		<script src="js/splash.js"></script>
-		<script>
-			//validating that the device is not touch screeng
-			var isTouchDevice = 'ontouchstart' in document.getElementById('game')
-			if (isTouchDevice) {
-				document.getElementById('game').innerHTML = '<p class="touchDevice"> Error! This game is for use on a device without a touchscreen</p>'
-			}
-		</script>
+
 		<title>Mayden Christmas Game 2015</title>
 	</head>
 	<body>
 		<div id="game"></div>
 	</body>
+	<script>
+		//validating that the device is not touch screeng
+		var isTouchDevice = 'ontouchstart' in document.getElementById('game')
+		if (isTouchDevice) {
+			document.getElementById('game').innerHTML = '<p class="touchDevice"> Error! This game is for use on a device without a touchscreen</p>'
+		}
+	</script>g
 </html>
