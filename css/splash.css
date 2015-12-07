@@ -20,7 +20,7 @@
     color: #004f76;
 }
 
-input {
+[type = text], [type = email] {
     width: 300px;
     height: 25px;
     margin-bottom: 40px;

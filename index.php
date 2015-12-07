@@ -3,6 +3,7 @@
 		<link href='https://fonts.googleapis.com/css?family=Roboto:400,700' rel='stylesheet' type='text/css'>
 		<link type="text/css" href="css/layout.css" rel="stylesheet" media="all">
 		<link type="text/css" href="css/splash.css" rel="stylesheet" media="all">
+        <link type="text/css" href="css/popup.css" rel="stylesheet" media="all">
 		<script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
         <script src="js/cookies.js"></script>
         <script src="js/validate.js"></script>
@@ -13,7 +14,7 @@
 	</head>
 	<body>
 		<div id="game">
-<?php include("templates/splash.html") ?>
+<?php include("templates/gameVisual.html") ?>
         </div>
 	</body>
 	<script>
