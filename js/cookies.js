@@ -10,7 +10,14 @@ function getChristmasGameCookie() {
     var cookieName = cookie[0].split('=')
     if (cookieName[0] == "christmasGameUser") {
         var user = cookieName[1].split(',')
-        return user
+        if (
+            user.length == 2 &&
+            validateName(user[0]) &&
+            validateEmail(user[1])
+        ) {
+            return user
+        }
+
     }
     return false
 }
