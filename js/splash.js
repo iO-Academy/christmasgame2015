@@ -20,11 +20,10 @@ $(function () {
             }, function () {
                 // if Success then set cookie and load first level
                 setChristmasGameCookie(userName, userEmail);
-                LoadLevel(1);
+                loadLevel(1);
             }).fail(function(){
-                $messageDisplayBox.replaceWith("error : there appears  to be a problem!");
+                $messageDisplayBox.replaceWith("Error: There appears to be a problem!");
             });
         }
-        return false;
     });
 })
