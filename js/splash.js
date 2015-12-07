@@ -22,7 +22,7 @@ $(function () {
                 setChristmasGameCookie(userName, userEmail);
                 LoadLevel(1);
             }).fail(function(){
-                $messageDisplayBox.replaceWith(“error : there appears  to be a problem!");
+                $messageDisplayBox.replaceWith("error : there appears  to be a problem!");
             });
         }
         return false;

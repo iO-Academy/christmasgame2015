@@ -7,7 +7,7 @@ function validateEmail(userEmail) {
 }
 
 function validateName(userName) {
-    var testName = /[A-z\.\s\-]/
+    var testName = /^[a-zA-Z\.\'\s\-]+$/;
     if (!testName.test(userName)) {
         return false
     }
