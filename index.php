@@ -13,11 +13,11 @@
 	</head>
 	<body>
 		<div id="game">
-
+<?php include("templates/splash.html") ?>
         </div>
 	</body>
 	<script>
-		//validating that the device is not touch screeng
+		//validating that the device is not touch screen
 		var isTouchDevice = 'ontouchstart' in document.getElementById('game')
 		if (isTouchDevice) {
 			document.getElementById('game').innerHTML = '<p class="touchDevice"> Error! This game is for use on a device without a touchscreen</p>'
