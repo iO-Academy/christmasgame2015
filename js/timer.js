@@ -22,7 +22,7 @@ function seconds2time(seconds) {
 
 function startClock() {
     clock = setInterval(function () {
-        document.getElementById('#seconds').text(seconds2time(++ticks));
+        document.getElementById('seconds').innerHTML = seconds2time(++ticks);
     }, 1000);
 }
 
@@ -33,6 +33,6 @@ function stopClock() {
 function resetClock() {
     clearInterval(clock);
     ticks = 0;
-    document.getElementById('#seconds').text("00:00");
+    document.getElementById('seconds').innerHTML = "00:00";
 }
 
