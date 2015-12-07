@@ -13,27 +13,11 @@
 	</head>
 	<body>
 		<div id="game">
-			<img src="img/game_background.png">
-			<div id="mazeContainer" class="gameLevelVisual">
-			</div>
-
-			<div id="message" class="gameLevelVisual">
-			</div>
-
-			<div id="timer" class="gameLevelVisual">
-				<?php include 'clock.html'; ?>
-			</div>
-
-			<div id="entryTally" class="gameLevelVisual">
-				<p>Attempts:</p>
-				<div id="tally">
-					01
-				</div>
-			</div>
+			<?php include("templates/splash.html") ?>
         </div>
 	</body>
 	<script>
-		//validating that the device is not touch screeng
+		//validating that the device is not touch screen
 		var isTouchDevice = 'ontouchstart' in document.getElementById('game')
 		if (isTouchDevice) {
 			document.getElementById('game').innerHTML = '<p class="touchDevice"> Error! This game is for use on a device without a touchscreen</p>'

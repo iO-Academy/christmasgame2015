@@ -23,7 +23,7 @@
 input {
     width: 300px;
     height:25px;
-    margin-bottom: 20px;
+    margin-bottom: 40px;
 }
 
 #submit {
@@ -62,24 +62,24 @@ input {
 #welcomeBack {
     font-size: 37px;
     position: absolute;
-    bottom:160px;
+    bottom:230px;
     font-weight: bold;
     color: #004f76;
 }
 
 #err1 {
     height:20px;
-    bottom:158px;
+    top:41px;
 }
 
 #err2 {
-     bottom: 95px;
+     top: 122px;
      height: 35px;
  }
 
 #err3 {
     height:20px;
-    bottom:158px;
+    top:41px;
     padding: 3px;
 }
 
