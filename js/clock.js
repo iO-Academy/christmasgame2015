@@ -1,6 +1,7 @@
 $(function () {
     var ticks = 0;
     var clock;
+    var attemptsCount = 0;
 
     function seconds2time(seconds) {
         var hours = Math.floor(seconds / 3600);
@@ -41,7 +42,7 @@ $(function () {
             //    $('#minutes').text(++mins);
             //    ticks = 0;
             //}
-        }, 10);
+        }, 1000);
     });
 
 
@@ -54,6 +55,7 @@ $(function () {
         clearInterval(clock);
         ticks = 0;
         $('#seconds').text("0:00");
+        attemptsCount = 0;
     });
 
 });
