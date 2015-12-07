@@ -6,7 +6,11 @@ $(function () {
 
     var cookieValues = getChristmasGameCookie()
     if (cookieValues){
-        $('#form').prepend("Welcome back!")
+        var firstName = ""
+        if(cookieValues[0].length < 13) {
+           firstName = cookieValues[0]
+        }
+        $('#form').prepend("<p id='welcomeBack'>Welcome back " + firstName + "!</p>")
         $('#userName').val(cookieValues[0])
         $('#userEmail').val(cookieValues[1])
     }
@@ -15,7 +19,8 @@ $(function () {
         e.preventDefault();
         userName = $('#userName').val()
         userEmail = $('#userEmail').val()
-        if (!userName) {
+        $('#err2, #err1, #err3').remove()
+        if (userName.length == 0) {
             $('#userName').after(
                 '<div class="err" id="err1">' +
                 'Required field' +
@@ -26,18 +31,27 @@ $(function () {
         else {
             $("#err1").slideUp('slow');
         }
-        // to be fixed by Pete
-        var testEmail = /[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}/igm;
-        if (!testEmail.test(userEmail)) {
+
+        if (userName.length > 100) {
+            $('#userName').after(
+                '<div class="err" id="err3">' +
+                'Max length is 100' +
+                '</div>');
+            $('#err3').slideDown('slow');
+            console.log('field1 is empty');
+        }
+        else {
+            $("#err3").slideUp('slow');
+        }
+
+        if (!validateEmail(userEmail)) {
             $('#userEmail').after(
                 '<div class="err" id="err2">' +
                 'Valid email required' +
                 '</div>');
             $('#err2').slideDown('slow');
-            console.log('email is invalid');
         }
         else {
-
             $("#err2").slideUp('slow');
             $.post('api/index.php', {
                 'action': 'createUser',
