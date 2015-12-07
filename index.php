@@ -13,7 +13,23 @@
 	</head>
 	<body>
 		<div id="game">
+			<img src="img/game_background.png">
+			<div id="mazeContainer" class="gameLevelVisual">
+			</div>
 
+			<div id="message" class="gameLevelVisual">
+			</div>
+
+			<div id="timer" class="gameLevelVisual">
+				<?php include 'clock.html'; ?>
+			</div>
+
+			<div id="entryTally" class="gameLevelVisual">
+				<p>Attempts:</p>
+				<div id="tally">
+					01
+				</div>
+			</div>
         </div>
 	</body>
 	<script>
