@@ -1,4 +1,42 @@
-$(function(){
+$(function () {
+    /**
+     * change this var to whatever the start element is
+     * @type {*|jQuery|HTMLElement}
+     */
+    var $startBox = $('someHTMLEntityNotDecided')
+
+    /**
+     *startGame funcitonality
+     */
+    $startBox.click(function () {
+        //Start Clock
+        $gameBoxDiv.trigger('startClock')
+        //increase attempt counter by 1
+        $('#tally').trigger('addOneToAttempts')
+        //disable start zone
+        $('#startSafeZone').off('click')
+        //triggers death event
+        $('.die').mouseover(function () {
+            $gameBoxDiv.trigger('death')
+        })
+        //triggers complete event
+        $('#finishSafeZone').mouseover(function () {
+            $gameBoxDiv.trigger('completedLevel')
+        })
+    })
+
+    $('#tally').on('addOneToAttempts', function () {
+        $('#tally').text(++counter)
+    })
+
+    /**
+     * Success functionality
+     */
+
+    $finish.mouseover(function() {
+        $finish.trigger('completedLevel')
+    })
+
     /**
      * //todo NEXT LEVEL
      * display visuals of level
@@ -41,16 +79,6 @@ $(function(){
      * 'start' is the custom event to start the timer
      *
      */
-
-    $gameBoxDiv.on('restartLevel', function(){
-        $messageDisplayBox.replaceWith("'instructionsMessageAndInstructions'")
-        $startBox.click(function() {
-            $gameBoxDiv.trigger('start')
-            $gameBoxDiv.trigger('addOneToAttempts')
-        })
-    })
-
-
 
 
 })
