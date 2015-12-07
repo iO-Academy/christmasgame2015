@@ -42,12 +42,17 @@
 	right: 145px;
 	width: 100px;
 	height: 100px;
+	text-align: center;
+	padding-top: 3px;
 }
 
-#timerDigits {
-	top: 40px;
-	right: 50px;
-	position: absolute;
+#timerDigits > span {
+    color: #F27324;
+    font-size: 25px;
+    position: relative;
+	right: 3px;
+    border-bottom: solid 2px black;
+    border-top: solid 2px #000000;
 }
 
 #entryTally {
@@ -59,6 +64,7 @@
 	text-align: center;
 	padding-top: 3px;
 }
+
 #tally {
 	color: #F27324;
 	font-size: 36px;
