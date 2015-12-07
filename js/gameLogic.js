@@ -8,13 +8,23 @@ $(function(){
      * reset level attempts
      *
      */
+    var $gameBoxDiv = $('#game')
+    var $messageDisplayBox = $('#message')
+    var $startBox = $('#startBox')
 
+    var counter = 0
 
-    function loadLevel(levelNumber) {
-        //todo load level files
-        /*resets time*/
-        $gameBoxDiv.trigger('reset')
-    }
+    $('.die').mouseover(function() {
+        $gameBoxDiv.trigger('death')
+    })
+
+    $gameBoxDiv.on('death', function(){
+        alert("You have died! Please try again! Click the start area to start")
+        $messageDisplayBox.replaceWith("'commiserationsMessageAndInstructions'")
+        $gameBoxDiv.trigger('stop')
+        counter++
+        $gameBoxDiv.trigger('restartLevel')
+    })
 
     /**
      * 'restartLevel' custom event is used to replace messagebox with instructions and prepare the game for the player to try again.
@@ -24,13 +34,6 @@ $(function(){
      * //TODO set vars based on logic and html
      * //TODO test manually
      *
-     *
-     */
-
-    var $gameBoxDiv = $('#game')
-    var $messageDisplayBox = $('#message')
-    var instructionsMessageAndInstructions = '<div>Instructions HTML Here</div>'
-    var $startBox = $('.#startBox')
 
     /**
      * changes the message box contents.
