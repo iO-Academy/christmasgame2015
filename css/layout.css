@@ -56,4 +56,10 @@
 	right: 28px;
 	width: 120px;
 	height: 120px;
+	text-align: center;
+	padding-top: 3px;
+}
+#tally {
+	color: #F27324;
+	font-size: 36px;
 }
