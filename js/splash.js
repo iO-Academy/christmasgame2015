@@ -19,6 +19,7 @@ $(function () {
         else {
             $("#err1").slideUp('slow');
         }
+        // to be fixed by Pete
         var testEmail = /[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}/igm;
         if (!testEmail.test(userEmail)) {
             $('#userEmail').after(
@@ -29,6 +30,7 @@ $(function () {
             console.log('email is invalid');
         }
         else {
+
             $("#err2").slideUp('slow');
             $.post('api/index.php', {
                 'action': 'createUser',
@@ -38,7 +40,6 @@ $(function () {
                 setChristmasGameCookie(userName, userEmail);
             });
         }
-
 
         return false;
     });
