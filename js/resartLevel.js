@@ -1,9 +1,7 @@
 $(function(){
     /**
      * //TODO .die class needs to be applied to all imgs which will induce a death
-     * //TODO set $gameBoxDiv to mirror html
-     * //TODO set $messageDisplayBox to mirror html
-     * //TODO set commiserationsMessageDisplayBox html
+     * //TODO set gameBoxDiv to mirror html
      *
      * 'death' custom event is used to trigger counter reset, and adds one to the attempts counter
      *
@@ -42,7 +40,6 @@ $(function(){
         $messageDisplayBox.replaceWith("'commiserationsMessageAndInstructions'")
         $gameBoxDiv.trigger('pause')
         $gameBoxDiv.trigger('addOneToAttempts')
-        $gameBoxDiv.trigger('restartLevel')
     })
 
 })
