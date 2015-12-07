@@ -43,6 +43,13 @@ $(function () {
         else {
             $("#err3").slideUp('slow');
         }
+        if(!validateName(userName)) {
+            $('#userName').after(
+                '<div class="err" id="err4">' +
+                'Valid characters only' +
+                '</div>');
+            $('#err4').slideDown('slow');
+        }
 
         if (!validateEmail(userEmail)) {
             $('#userEmail').after(
