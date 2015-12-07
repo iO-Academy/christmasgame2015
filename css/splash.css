@@ -1,4 +1,7 @@
-
+/*
+    created by charlie
+    css to create the splash.html
+*/
 .err {
     display: none;
     position: absolute;
@@ -43,7 +46,17 @@ input {
 #winText {
     position: absolute;
     top: 150px;
-    left:440px;
+    left:460px;
     font-size: 70px;
     color: #F27324;
+}
+
+#prizeText {
+    position: absolute;
+    top: 218px;
+    left:460px;
+    font-size: 17px;
+    color: #004f76;
+    text-align: center;
+    font-weight: bold;
 }

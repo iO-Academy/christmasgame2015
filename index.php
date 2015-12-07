@@ -11,6 +11,8 @@
 	</head>
 	<body>
 		<div id="game">
+
+
         </div>
 	</body>
 	<script>
