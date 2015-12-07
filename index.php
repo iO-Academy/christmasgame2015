@@ -4,9 +4,10 @@
     <link type="text/css" href="css/layout.css" rel="stylesheet" media="all">
     <link type="text/css" href="css/splash.css" rel="stylesheet" media="all">
     <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
-    <script src="js/cookies.js"></script>
-    <script src="js/validate.js"></script>
-    <script src="js/splash.js"></script>
+    <script src="js/gameLogic.js" type="text/javascript"></script>
+    <script src="js/cookies.js" type="text/javascript"></script>
+    <script src="js/validate.js" type="text/javascript"></script>
+    <script src="js/splash.js" type="text/javascript"></script>
 
     <title>Mayden Christmas Game 2015</title>
 </head>

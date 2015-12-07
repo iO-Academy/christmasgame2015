@@ -17,6 +17,19 @@ $(function () {
     /**
      *startGame funcitonality
      */
+    /**
+     * ajax get request for next level and puts result into $gameBoxDiv
+     *
+     * @param levelNumber
+     */
+    function loadLevel(levelNumber) {
+        $.get(('templates/level' + levelNumber + '.html'),
+            function (data) {
+                $gameBoxDiv.replaceWith(data)
+                attemptsCount = 0
+                $gameBoxDiv.trigger('resetClock')
+            })
+    }
 
     /**
      * TODO change this $startBox var to whatever the start element is
@@ -78,19 +91,7 @@ $(function () {
                 }
             });
     })
-    /**
-     * ajax get request for next level and puts result into $gameBoxDiv
-     *
-     * @param levelNumber
-     */
-    function loadLevel(levelNumber) {
-        $.get(('templates/level' + levelNumber + '.html'),
-            function (data) {
-                $gameBoxDiv.replaceWith(data)
-                attemptsCount = 0
-                $gameBoxDiv.trigger('resetClock')
-            })
-    }
+
 
     $('.die').mouseover(function () {
         $gameBoxDiv.trigger('death')
