@@ -29,7 +29,7 @@ $(function () {
             function (data) {
                 $gameBoxDiv.replaceWith(data)
                 attemptsCount = 0
-                $gameBoxDiv.trigger('resetClock')
+                resetClock();
             })
     }
 
@@ -40,7 +40,7 @@ $(function () {
 
     $startBox.click(function() {
         //Start Clock
-        $gameBoxDiv.trigger('startClock')
+        startClock();
         //increase attempt counter by 1
         $('#tally').text(++attemptsCount)
         //disable start zone
@@ -64,7 +64,7 @@ $(function () {
         //change message box to display level congrats
         $messageDisplayBox.replaceWith("'congratulationsMessage'")
         //stops the clock
-        $gameBoxDiv.trigger('stopClock')
+        stopClock();
         //disable death
         $('.die').off('mouseover')
         $.post('api/index.php', {
@@ -105,7 +105,7 @@ $(function () {
      * For now, proceed.
      */
     $gameBoxDiv.on('death', function () {
-        $gameBoxDiv.trigger('stopClock')
+        stopClock()
         $startSafeZone.on('click')
         $messageDisplayBox.replaceWith("You have died! Please try again! Click the start area to start")
         $('.die').off('death')
@@ -123,6 +123,6 @@ function loadLevel(levelNumber) {
     $('#game').load('templates/level' + levelNumber + '.php',
         function() {
             attemptsCount = 0
-            $gameBoxDiv.trigger('resetClock')
+            resetClock()
         })
 }
