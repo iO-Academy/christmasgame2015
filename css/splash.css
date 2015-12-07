@@ -3,26 +3,26 @@
     display: none;
     position: absolute;
     background-color: #b94a48;
-    right: 0px;
+    right: 0;
 }
 
 #splashbackground {
     position: relative;
-    widows:100%;
     height: 100%;
+    background-image: url("../img/form_background.png");
 }
 
 #form {
     position: absolute;
     top: 140px;
-    left:30px;
+    left: 30px;
     z-index: 5;
     color: #004f76;
 }
 
 input {
     width: 300px;
-    height:25px;
+    height: 25px;
     margin-bottom: 40px;
 }
 
@@ -31,20 +31,20 @@ input {
     width: 100px;
     -moz-border-radius: 5px;
     -webkit-border-radius: 5px;
-    border-radius:6px;
-    color: #fff;
+    border-radius: 6px;
+    color: #ffffff;
     font-family: 'Roboto', sans-serif;
     font-size: 20px;
     text-decoration: none;
     cursor: pointer;
-    border:none;
+    border: none;
 
 }
 
 #winText {
     position: absolute;
     top: 150px;
-    left:460px;
+    left: 460px;
     font-size: 70px;
     color: #F27324;
 }
@@ -52,7 +52,7 @@ input {
 #prizeText {
     position: absolute;
     top: 218px;
-    left:460px;
+    left: 460px;
     font-size: 17px;
     color: #004f76;
     text-align: center;
@@ -62,37 +62,36 @@ input {
 #welcomeBack {
     font-size: 37px;
     position: absolute;
-    bottom:230px;
+    bottom: 230px;
     font-weight: bold;
     color: #004f76;
 }
 
 #err1 {
-    height:20px;
-    top:41px;
+    height: 20px;
+    top: 41px;
 }
 
 #err2 {
-     top: 122px;
-     height: 35px;
- }
+    top: 122px;
+    height: 35px;
+}
 
 #err3 {
-    height:20px;
-    top:41px;
+    height: 20px;
+    top: 41px;
     padding: 3px;
 }
 
 .err {
-
     position: absolute;
     background-color: #004f76;
     color: white;
-    width:120px;
+    width: 120px;
     text-align: center;
     border-radius: 6px;
-    right:5px;
-    padding-bottom:3px;
+    right: 5px;
+    padding-bottom: 3px;
 
 }
 
