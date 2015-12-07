@@ -92,13 +92,12 @@ input {
 .err {
     position: absolute;
     background-color: #004f76;
-    color: white;
+    color: #ffffff;
     width: 120px;
     text-align: center;
     border-radius: 6px;
     right: 5px;
     padding-bottom: 3px;
-
 }
 
 
