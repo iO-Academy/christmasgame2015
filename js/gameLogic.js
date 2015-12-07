@@ -1,9 +1,8 @@
-$(function(){
-
+$(function () {
 
 
     $messageDisplayBox.replaceWith("'instructionsMessageAndInstructions'")
-    $startBox.click(function() {
+    $startBox.click(function () {
         //Start Clock
         $gameBoxDiv.trigger('startClock')
         //increase attempt counter by 1
@@ -11,16 +10,16 @@ $(function(){
         //disable start zone
         $('#startSafeZone').off('click')
         //triggers death event
-        $('.die').mouseover(function() {
+        $('.die').mouseover(function () {
             $gameBoxDiv.trigger('death')
         })
         //triggers complete event
-        $('#finishSafeZone').mouseover(function() {
+        $('#finishSafeZone').mouseover(function () {
             $gameBoxDiv.trigger('completedLevel')
         })
     })
 
-    $('#tally').on('addOneToAttempts', function(){
+    $('#tally').on('addOneToAttempts', function () {
         $('#tally').text(++counter)
     })
 
@@ -63,9 +62,6 @@ $(function(){
      * 'start' is the custom event to start the timer
      *
      */
-
-
-
 
 
 })
