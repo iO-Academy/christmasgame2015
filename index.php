@@ -14,7 +14,7 @@
 	</head>
 	<body>
 		<div id="game">
-<?php include("templates/gameVisual.html") ?>
+<?php include("templates/gameVisual.html.html") ?>
         </div>
 	</body>
 	<script>
