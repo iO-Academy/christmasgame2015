@@ -1,3 +1,8 @@
+/**
+ * set a christamsGame cookie
+ * @param userName
+ * @param userEmail
+ */
 function setChristmasGameCookie(userName, userEmail) {
     var d = new Date()
     d.setTime(d.getTime() + (365*24*60*60*1000))
@@ -5,6 +10,10 @@ function setChristmasGameCookie(userName, userEmail) {
     document.cookie = "christmasGameUser=" + userName + "," + userEmail + ";" + expires
 }
 
+/**
+ * get a cookie with a christmasGameUser name
+ * @returns mixed
+ */
 function getChristmasGameCookie() {
     var cookie = document.cookie.split(';')
     var cookieName = cookie[0].split('=')
