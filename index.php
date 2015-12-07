@@ -6,7 +6,6 @@
 		<script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
         <script src="js/cookies.js"></script>
         <script src="js/validate.js"></script>
-		<script src="js/clock.js" type="text/javascript"></script>
 		<script src="js/splash.js"></script>
 
 		<title>Mayden Christmas Game 2015</title>
