@@ -70,6 +70,15 @@ if (!empty($_POST['action'])) {
             $time = $_POST['time'];
             $user = $_SESSION['id'];
             $try = $_SESSION['attempts'];
+			
+			if (empty($user) || empty($try)) {
+                $response = array(
+                    'success' => false,
+                    'message' => 'User not registered'
+                );
+				break;
+			}
+			
 
             try {
                 $query = 'SELECT 1 FROM `levels` WHERE `user` = ' . $user . ' AND `try` = ' . $try . ' AND `level` = ' . $level . ';';
@@ -100,16 +109,26 @@ if (!empty($_POST['action'])) {
                     $totalTime = $conn->fetch(PDO::FETCH_ASSOC);
                     $totalTime = $totalTime['time'];
 
+                    $query = 'SELECT SUM(`attempts`) AS \'attempts\' FROM `levels` WHERE `user` = ' . $user . ' AND `try` = ' . $try . ';';
+                    $conn = $db->prepare($query);
+                    $conn->execute();
+                    $totalAttempts = $conn->fetch(PDO::FETCH_ASSOC);
+                    $response['totalAttempts'] = $totalAttempts['attempts'];
+
                     $query = 'SELECT `pb` FROM `users` WHERE `id` = ' . $user . ';';
                     $conn = $db->prepare($query);
                     $conn->execute();
                     $pb = $conn->fetch(PDO::FETCH_ASSOC);
-                    $response['totalTime'] = $pb['pb'];
+                    $pb = $pb['pb'];
 
-                    if ($totalTime < $response['totalTime']) {
+                    if (!empty($totalTime) && !empty($pb) && $totalTime < $pb) {
                         $query = 'UPDATE `users` SET `pb` = ' . $totalTime . ' WHERE `id` = ' . $user . ';';
                         $db->exec($query);
                         $response['totalTime'] = $totalTime;
+                    } else if (!empty($pb)) {
+                    	$response['totalTime'] = $pb;
+                    } else {
+                    	$response['totalTime'] = $totalTime;
                     }
 
                 }
