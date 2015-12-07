@@ -9,8 +9,8 @@ $(function () {
 
     $('form').submit(function (e) {
         e.preventDefault();
-        userName = $('#userName').val()
-        userEmail = $('#userEmail').val()
+        var userName = $('#userName').val()
+        var userEmail = $('#userEmail').val()
         $('.err').remove()
         if (userName.length == 0) {
             $('#userName').after(
@@ -19,7 +19,6 @@ $(function () {
                 '</div>');
             $('#err1').slideDown('slow');
         }
-
 
         if (userName.length > 100) {
             $('#userName').after(
@@ -36,8 +35,8 @@ $(function () {
                 '</div>');
             $('#err2').slideDown('slow');
         }
+        
         else {
-            $("#err2").slideUp('slow');
             $.post('api/index.php', {
                 'action': 'createUser',
                 'userName': userName,
