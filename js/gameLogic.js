@@ -80,12 +80,16 @@ $(function () {
     $('.die').mouseover(function () {
         $gameBoxDiv.trigger('death')
     })
-
+    /*
+    * When the user dies this function is called.
+    * It does exactly what it says in the function, if you've got this far and cannot work out what this does then it's
+    * even more of a waste of my time explaining it for you.
+    * For now, proceed.
+    */
     $gameBoxDiv.on('death', function () {
         $gameBoxDiv.trigger('stopClock')
         $startSafeZone.on('click')
         $messageDisplayBox.replaceWith("You have died! Please try again! Click the start area to start")
         $('.die').off('death')
-        $gameBoxDiv.trigger('mouseover')
     })
 })
