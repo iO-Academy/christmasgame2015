@@ -26,7 +26,6 @@ function getChristmasGameCookie() {
         ) {
             return user
         }
-
     }
     return false
 }
