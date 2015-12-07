@@ -4,6 +4,12 @@
 
 $(function () {
 
+    var cookieValues = getChristmasGameCookie()
+    if (cookieValues){
+        $('#userName').val(cookieValues[0])
+        $('#userEmail').val(cookieValues[1])
+    }
+
     $('form').submit(function (e) {
         e.preventDefault();
         userName = $('#userName').val()
