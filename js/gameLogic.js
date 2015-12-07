@@ -1,4 +1,29 @@
 $(function(){
+
+
+
+    $messageDisplayBox.replaceWith("'instructionsMessageAndInstructions'")
+    $startBox.click(function() {
+        //Start Clock
+        $gameBoxDiv.trigger('startClock')
+        //increase attempt counter by 1
+        $('#tally').trigger('addOneToAttempts')
+        //disable start zone
+        $('#startSafeZone').off('click')
+        //triggers death event
+        $('.die').mouseover(function() {
+            $gameBoxDiv.trigger('death')
+        })
+        //triggers complete event
+        $('#finishSafeZone').mouseover(function() {
+            $gameBoxDiv.trigger('completedLevel')
+        })
+    })
+
+    $('#tally').on('addOneToAttempts', function(){
+        $('#tally').text(++counter)
+    })
+
     /**
      * //todo NEXT LEVEL
      * display visuals of level
@@ -39,13 +64,6 @@ $(function(){
      *
      */
 
-    $gameBoxDiv.on('restartLevel', function(){
-        $messageDisplayBox.replaceWith("'instructionsMessageAndInstructions'")
-        $startBox.click(function() {
-            $gameBoxDiv.trigger('start')
-            $gameBoxDiv.trigger('addOneToAttempts')
-        })
-    })
 
 
 
