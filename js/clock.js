@@ -1,6 +1,3 @@
-/**
- * Created by peterwilkins on 05/12/2015.
- */
 $(function () {
     var ticks = 0;
     var clock;

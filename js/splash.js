@@ -6,6 +6,7 @@ $(function () {
 
     var cookieValues = getChristmasGameCookie()
     if (cookieValues){
+        $('#form').prepend("Welcome back!")
         $('#userName').val(cookieValues[0])
         $('#userEmail').val(cookieValues[1])
     }
