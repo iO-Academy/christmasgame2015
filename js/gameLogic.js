@@ -1,12 +1,12 @@
 var $gameBoxDiv = $('#mazeContainer')
-var $startSafeZone = $('someHTMLEntityIDNotDecided#startSafeZone')
+var $startSafeZone = $('#startArea')
 var $finishSafeZone = $('someHTMLEntityIDNotDecided#finishSafeZone')
 var $messageDisplayBox = $('someHTMLEntityIDNotDecidedForMessage')
 var attemptsCount
 var $finishBox = $('someHTMLEntityNotDecided')
 var levelNumber = 1
 var congratulationsMessage = $('<p>Some html shit about congrats</p>')
-var $startBox = $('someHTMLEntityNotDecided')
+var $startBox = $('#startArea')
 var gameover = 2
 var genericError = "error, error"
 

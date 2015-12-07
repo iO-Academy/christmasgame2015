@@ -1,5 +1,6 @@
 <img src="img/game_background.png">
 <div id="mazeContainer" class="gameLevelVisual">
+    <div id="startArea"></div>
 </div>
 
 <div id="message" class="gameLevelVisual">
