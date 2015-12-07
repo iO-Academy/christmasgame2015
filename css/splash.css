@@ -83,6 +83,12 @@ input {
     padding: 3px;
 }
 
+#err4 {
+    height: 40px;
+    top: 41px;
+    padding: 3px;
+}
+
 .err {
     position: absolute;
     background-color: #004f76;
