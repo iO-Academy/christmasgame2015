@@ -44,7 +44,7 @@ $(function () {
             //    $('#minutes').text(++mins);
             //    ticks = 0;
             //}
-        }, 10);
+        }, 1000);
     });
 
 

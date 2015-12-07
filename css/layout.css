@@ -44,6 +44,12 @@
 	height: 100px;
 }
 
+#timerDigits {
+	top: 40px;
+	right: 50px;
+	position: absolute;
+}
+
 #entryTally {
 	top: 270px;
 	border-radius: 100%;
