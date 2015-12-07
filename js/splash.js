@@ -16,9 +16,6 @@ $(function () {
         }
         else {
             $("#err1").slideUp('slow');
-        }
-       g
-
             $("#err2").slideUp('slow');
             console.log('I\'m here!')
             $.post('api/index.php', {
@@ -30,7 +27,6 @@ $(function () {
                 console.log('hiya');
             });
         }
-
 
         return false;
     });
