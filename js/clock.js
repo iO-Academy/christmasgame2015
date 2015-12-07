@@ -21,21 +21,21 @@ $(function () {
     }
 
     $('#start').click(function () {
-        $(document).trigger('start');
+        $(document).trigger('startClock');
         console.log("start clock");
     });
 
     $('#stop').click(function () {
-        $(document).trigger('stop');
+        $(document).trigger('stopClock');
         console.log("stop clock");
     });
 
     $('#reset').click(function () {
         console.log("reset clock");
-        $(document).trigger('reset');
+        $(document).trigger('resetClock');
     });
 
-    $(document).on('start', function () {
+    $(document).on('startClock', function () {
         clock = setInterval(function () {
             $('#seconds').text(seconds2time(++ticks));
             //if (ticks === 60) {
@@ -46,11 +46,11 @@ $(function () {
     });
 
 
-    $(document).on('stop', function () {
+    $(document).on('stopClock', function () {
         clearInterval(clock);
     });
 
-    $(document).on('reset', function () {
+    $(document).on('resetClock', function () {
 
         clearInterval(clock);
         ticks = 0;
