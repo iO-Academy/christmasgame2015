@@ -1,7 +1,7 @@
 /**
  * set a christamsGame cookie
- * @param userName
- * @param userEmail
+ * @param String userName    name inputted by the user
+ * @param String userEmail   email inputted by the user
  */
 function setChristmasGameCookie(userName, userEmail) {
     var d = new Date()
@@ -12,7 +12,7 @@ function setChristmasGameCookie(userName, userEmail) {
 
 /**
  * get a cookie with a christmasGameUser name
- * @returns mixed
+ * @returns mixed array with user's name and email values
  */
 function getChristmasGameCookie() {
     var cookie = document.cookie.split(';')
