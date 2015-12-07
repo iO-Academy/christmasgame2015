@@ -20,5 +20,5 @@
 		if (isTouchDevice) {
 			document.getElementById('game').innerHTML = '<p class="touchDevice"> Error! This game is for use on a device without a touchscreen</p>'
 		}
-	</script>g
+	</script>
 </html>
