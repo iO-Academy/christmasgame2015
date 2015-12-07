@@ -4,9 +4,18 @@
 
 $(function () {
 
+    var cookieValues = getChristmasGameCookie()
+    if (cookieValues){
+        $('#form').prepend("Welcome back!")
+        $('#userName').val(cookieValues[0])
+        $('#userEmail').val(cookieValues[1])
+    }
+
     $('form').submit(function (e) {
         e.preventDefault();
-        if (!$('#userName').val()) {
+        userName = $('#userName').val()
+        userEmail = $('#userEmail').val()
+        if (!userName) {
             $('#userName').after(
                 '<div class="err" id="err1">' +
                 'Required field' +
@@ -17,20 +26,27 @@ $(function () {
         else {
             $("#err1").slideUp('slow');
         }
-       g
+        // to be fixed by Pete
+        var testEmail = /[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}/igm;
+        if (!testEmail.test(userEmail)) {
+            $('#userEmail').after(
+                '<div class="err" id="err2">' +
+                'Valid email required' +
+                '</div>');
+            $('#err2').slideDown('slow');
+            console.log('email is invalid');
+        }
+        else {
 
             $("#err2").slideUp('slow');
-            console.log('I\'m here!')
             $.post('api/index.php', {
                 'action': 'createUser',
-                'userName': $('#userName').val(),
-                'userEmail': $('#userEmail').val()
-            }, function (data, dataObj) {
-                console.log(data);
-                console.log('hiya');
+                'userName': userName,
+                'userEmail': userEmail,
+            }, function () {
+                setChristmasGameCookie(userName, userEmail);
             });
         }
-
 
         return false;
     });

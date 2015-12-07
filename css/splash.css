@@ -1,5 +1,62 @@
+/*
+    created by charlie
+    css to create the splash.html
+*/
 .err {
     display: none;
     position: absolute;
     background-color: #b94a48;
+    right: 0px;
+}
+
+#splashbackground {
+    position: relative;
+    widows:100%;
+    height: 100%;
+}
+
+#form {
+    position: absolute;
+    top: 140px;
+    left:30px;
+    z-index: 5;
+}
+
+input {
+    width: 300px;
+    height:25px;
+    margin-bottom: 20px;
+}
+
+#submit {
+    background-color: #F27324;
+    width: 100px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius:6px;
+    color: #fff;
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+    text-decoration: none;
+    cursor: pointer;
+    border:none;
+
+}
+
+#winText {
+    position: absolute;
+    top: 150px;
+    left:460px;
+    font-size: 70px;
+    color: #F27324;
+}
+
+#prizeText {
+    position: absolute;
+    top: 218px;
+    left:460px;
+    font-size: 17px;
+    color: #004f76;
+    text-align: center;
+    font-weight: bold;
 }
