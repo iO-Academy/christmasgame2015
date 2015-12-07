@@ -11,7 +11,7 @@
 	</head>
 	<body>
 		<div id="game">
-            <?php include('templates/splash.html') ?>
+
         </div>
 	</body>
 	<script>
