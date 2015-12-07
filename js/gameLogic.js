@@ -61,7 +61,7 @@ $(function () {
         //stops the clock
         $gameBoxDiv.trigger('stopClock')
         //disable death
-        $('.die').off('death')
+        $('.die').off('mouseover')
         $.post('api/index.php', {
             'action': 'saveLevel',
             'level': levelNumber,
@@ -91,11 +91,13 @@ $(function () {
 
 })
 
+
 /**
  * ajax get request for next level and puts result into $gameBoxDiv
  *
  * @param levelNumber
  */
+
 
 function loadLevel(levelNumber) {
     $.get(('templates/level' + levelNumber + '.html'),
@@ -107,15 +109,19 @@ function loadLevel(levelNumber) {
 }
 
 
-$('.die').mouseover(function () {
-    $gameBoxDiv.trigger('death')
-})
-
-$gameBoxDiv.on('death', function () {
-    $gameBoxDiv.trigger('stopClock')
-    $messageDisplayBox.replaceWith("You Wolly! Please try again! Click the start area to start")
-    $gameBoxDiv.trigger('restartLevel')
-    $('.die').off('death')
-
-})
+    $('.die').mouseover(function () {
+        $gameBoxDiv.trigger('death')
+    })
+    /*
+    * When the user dies this function is called.
+    * It does exactly what it says in the function, if you've got this far and cannot work out what this does then it's
+    * even more of a waste of my time explaining it for you.
+    * For now, proceed.
+    */
+    $gameBoxDiv.on('death', function () {
+        $gameBoxDiv.trigger('stopClock')
+        $startSafeZone.on('click')
+        $messageDisplayBox.replaceWith("You have died! Please try again! Click the start area to start")
+        $('.die').off('death')
+    })
 })
