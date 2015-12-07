@@ -4,7 +4,7 @@
 
 $(function () {
 
-    $('#submit').submit(function (e) {
+    $('form').submit(function (e) {
         e.preventDefault();
         if (!$('#userName').val()) {
             $('#userName').after(
@@ -17,28 +17,24 @@ $(function () {
         else {
             $("#err1").slideUp('slow');
         }
-        var testEmail = /[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}/igm;
-        if (!testEmail.test($('#email').val())) {
-            $('#userEmail').after(
-                '<div class="err" id="err2">' +
-                'Valid email required' +
-                '</div>');
-            $('#err2').slideDown('slow');
-            console.log('email is invalid');
-        }
-        else {
+       g
+
             $("#err2").slideUp('slow');
-            $.post('../api/index.php', {
-                action: 'createUser',
-                userName: $('#userName').val(),
-                userEmail: $('#userEmail').val()
-            }, function (data) {
+            console.log('I\'m here!')
+            $.post('api/index.php', {
+                'action': 'createUser',
+                'userName': $('#userName').val(),
+                'userEmail': $('#userEmail').val()
+            }, function (data, dataObj) {
                 console.log(data);
+                console.log('hiya');
             });
         }
 
 
         return false;
     });
+
+
 
 })
