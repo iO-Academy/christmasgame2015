@@ -1,7 +1,13 @@
 $(function () {
+    /**
+     * change this var to whatever the start element is
+     * @type {*|jQuery|HTMLElement}
+     */
+    var $startBox = $('someHTMLEntityNotDecided')
 
-
-    $messageDisplayBox.replaceWith("'instructionsMessageAndInstructions'")
+    /**
+     *startGame funcitonality
+     */
     $startBox.click(function () {
         //Start Clock
         $gameBoxDiv.trigger('startClock')
@@ -21,6 +27,14 @@ $(function () {
 
     $('#tally').on('addOneToAttempts', function () {
         $('#tally').text(++counter)
+    })
+
+    /**
+     * Success functionality
+     */
+
+    $finish.mouseover(function() {
+        $finish.trigger('completedLevel')
     })
 
     /**
