@@ -59,7 +59,7 @@ $(function () {
         //stops the clock
         $gameBoxDiv.trigger('stopClock')
         //disable death
-        $('.die').off('death')
+        $('.die').off('mouseover')
         $.post('api/index.php', {
             'action': 'saveLevel',
             'level': levelNumber,
@@ -74,7 +74,6 @@ $(function () {
                 loadLevel(levelNumber)
             }
         });
-
     })
 
 
@@ -84,9 +83,9 @@ $(function () {
 
     $gameBoxDiv.on('death', function () {
         $gameBoxDiv.trigger('stopClock')
+        $startSafeZone.on('click')
         $messageDisplayBox.replaceWith("You have died! Please try again! Click the start area to start")
-        $gameBoxDiv.trigger('restartLevel')
         $('.die').off('death')
-
+        $gameBoxDiv.trigger('mouseover')
     })
 })
