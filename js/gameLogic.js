@@ -1,40 +1,89 @@
 $(function () {
     /**
-     * change this var to whatever the start element is
-     * @type {*|jQuery|HTMLElement}
+     * Game Logic!!
      */
-    var $startBox = $('someHTMLEntityNotDecided')
 
+    /**
+     * change this var to represent id on game wrapper div
+     */
+
+    var $gameBoxDiv = $('someHTMLEntityIDNotDecided')
+    var $startSafeZone = $('someHTMLEntityIDNotDecided#startSafeZone')
+    var $finishSafeZone = $('someHTMLEntityIDNotDecided#finishSafeZone')
+    var $messageDisplayBox = $('someHTMLEntityIDNotDecidedForMessage')
+    var attemptsCount
     /**
      *startGame funcitonality
      */
+
+    /**
+     * change this $startBox var to whatever the start element is
+     * @type {*|jQuery|HTMLElement}
+     */
+
+    var $startBox = $('someHTMLEntityNotDecided')
+
     $startBox.click(function () {
         //Start Clock
         $gameBoxDiv.trigger('startClock')
         //increase attempt counter by 1
         $('#tally').trigger('addOneToAttempts')
         //disable start zone
-        $('#startSafeZone').off('click')
+        $startSafeZone.off('click')
         //triggers death event
         $('.die').mouseover(function () {
             $gameBoxDiv.trigger('death')
         })
         //triggers complete event
-        $('#finishSafeZone').mouseover(function () {
+        $finishSafeZone.mouseover(function () {
             $gameBoxDiv.trigger('completedLevel')
         })
     })
 
     $('#tally').on('addOneToAttempts', function () {
-        $('#tally').text(++counter)
+        $('#tally').text(++attemptsCount)
     })
 
     /**
      * Success functionality
      */
 
-    $finish.mouseover(function() {
-        $finish.trigger('completedLevel')
+    /**
+     * change this $finishBox var to whatever the start element is
+     */
+
+    var $finishBox = $('someHTMLEntityNotDecided')
+    var $levelNumber = 1
+    var congratulationsMessage = $('<p>Some html shit about congrats</p>')
+
+
+
+
+
+    $finishBox.mouseover(function () {
+        //todo remove post test
+        alert("You have completed level '$levelNumber'")
+        //change message box to display level congrats
+        $messageDisplayBox.replaceWith("'congratulationsMessage'")
+        //stops the clock
+        $gameBoxDiv.trigger('stopClock')
+        //disable death
+        $('.die').off(mouseover)
+        $.post('api/index.php', {
+            'action': 'saveLevel',
+            'level': $levelNumber,
+            'attempts': attemptsCount,
+            'time': ticks
+        },function(){
+            //success function
+            $levelNumber ++
+            if (gameOver($levelNumber)){
+                //show expanded div + gameover congrats ...
+            } else {
+                loadLevel($levelNumber)
+            }
+        });
+
     })
 
     /**
@@ -48,10 +97,16 @@ $(function () {
      */
 
 
-    function loadLevel(levelNumber) {
+
+    function loadLevel($levelNumber) {
         //todo load level files
+
+        $.get(('templates/level'+$levelNumber+'.html'), function( data ) {
+            $gameBoxDiv.html( data );});
+
+        attemptsCount = 0;
         /*resets time*/
-        $gameBoxDiv.trigger('reset')
+        $gameBoxDiv.trigger('resetClock');
     }
 
     /**
