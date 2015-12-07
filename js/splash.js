@@ -4,41 +4,41 @@
 
 $(function () {
 
-    $('#target').submit(function (e) {
+    $('#submit').submit(function (e) {
         e.preventDefault();
-
         if (!$('#userName').val()) {
-            $("#err1").alert('close');
             $('#userName').after(
-                '<div class="alert alert-danger alert-dismissable err" id="err1">' +
-                '<button type="button" class="close" ' +
-                'data-dismiss="alert" aria-hidden="true">' +
-                '&times;' +
-                '</button>' +
+                '<div class="err" id="err1">' +
                 'Required field' +
                 '</div>');
             $('#err1').slideDown('slow');
             console.log('field1 is empty');
         }
         else {
-            $("#err1").slideUp('close');
+            $("#err1").slideUp('slow');
         }
         var testEmail = /[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}/igm;
         if (!testEmail.test($('#email').val())) {
-            $("#err2").alert('close');
-            $('#email').after(
-                '<div class="alert alert-danger alert-dismissable err" id="err3">' +
-                '<button type="button" class="close" ' +
-                'data-dismiss="alert" aria-hidden="true">' +
-                '&times;' +
-                '</button>' +
+            $('#userEmail').after(
+                '<div class="err" id="err2">' +
                 'Valid email required' +
                 '</div>');
             $('#err2').slideDown('slow');
             console.log('email is invalid');
         }
         else {
-            $("#err2").slideUp('close');
+            $("#err2").slideUp('slow');
+            $.post('../api/index.php', {
+                action: 'createUser',
+                userName: $('#userName').val(),
+                userEmail: $('#userEmail').val()
+            }, function (data) {
+                console.log(data);
+            });
         }
+
+
+        return false;
     });
-});
+
+})
