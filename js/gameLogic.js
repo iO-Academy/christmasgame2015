@@ -5,7 +5,7 @@ var $finishBox = $('someHTMLEntityNotDecided');
 var levelNumber = 1;
 var congratulationsMessage = '<p>Some html shit about congrats</p>';
 var $startSafeZone = $('#startArea');
-var gameover = 2;
+var gameOver = 2;
 var genericError = "error, error";
 var attemptsCount;
 
@@ -48,6 +48,10 @@ function startGame() {
     $('.die').on('death', gameDeath)
 }
 
+/**
+ * animates display message box to a larger box,
+ * currently only called on game complete
+ */
 function animateDisplayMessageBox() {
     $messageDisplayBox.animate({
         opacity: "100",
@@ -57,6 +61,7 @@ function animateDisplayMessageBox() {
         top: "0px"
     })
 }
+
 function finishGame() {
 //todo remove, after testing
     alert("You have completed level 'levelNumber'");
@@ -76,7 +81,7 @@ function finishGame() {
             if (data.success) {
                 //success function
                 levelNumber++;
-                if (levelNumber === gameover) {
+                if (levelNumber === gameOver) {
                     $messageDisplayBox.replaceWith('#endOfGame').css({opacity: 0});
                     animateDisplayMessageBox();
                 }
