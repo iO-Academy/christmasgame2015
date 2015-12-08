@@ -1,6 +1,6 @@
 var $gameBoxDiv = $('#mazeContainer');
 var $finishSafeZone = $('someHTMLEntityIDNotDecided#finishSafeZone');
-var $messageDisplayBox = $('someHTMLEntityIDNotDecidedForMessage');
+var $messageDisplayBox = $('#message');
 var $finishBox = $('someHTMLEntityNotDecided');
 var levelNumber = 1;
 var congratulationsMessage = '<p>Some html shit about congrats</p>';
@@ -91,14 +91,14 @@ function finishGame() {
     )
 }
 
-
-function gameDeath() {
-    stopClock();
-    $startSafeZone.on('click', startGame);
-    $messageDisplayBox.replaceWith("You have died! Please try again! Click the start area to start");
-    $('.die').off('death')
-}
 $(function () {
+
+    $gameBoxDiv.on('death', function() {
+        stopClock();
+        $startSafeZone.on('click', startGame);
+        $messageDisplayBox.replaceWith("You have died! Please try again! Click the start area to start");
+        $('.die').off('death')
+    });
 
     $startSafeZone.click(startGame);
 
