@@ -10,9 +10,10 @@ var genericError = "Sorry there is a problem, please try again later";
 var attemptsCount;
 
 /**
- * ajax request for next level
- *
- * @param levelNumber
+ * loads next level, checks level number is valid
+ * if first level also loads game visuals
+ * Displays generic error is load fails
+ * @number levelNumber
  */
 
 //todo validation if file doesn't exist
@@ -28,7 +29,7 @@ function loadLevel(levelNumber) {
         $gameBoxDiv.load('templates/level' + levelNumber + '.php',
             function( response, status) {
                 if ( status == "error" ) {
-                    $gameBoxDiv.html("<p> On no! There was an error, please refresh the page</p>");
+                    $messageDisplayBox.replaceWith(genericError);
                 }
                 attemptsCount = 0;
                 resetClock()
