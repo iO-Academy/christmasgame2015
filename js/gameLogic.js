@@ -1,3 +1,5 @@
+//todo create events for popout expand instructions, and a close method
+//Start Clock
 var $gameDiv
 var $gameBoxDiv
 var $messageDisplayBox
@@ -9,8 +11,8 @@ var $startSafeZone
 var lastLevel = 2
 var genericError = "Sorry there is a problem, please try reloading the page"
 var attemptsCount = 0
-var smallInstructions = "<div id='smallInstructions' class='popUp instructions'><br><br><br><br><span class='messageTitle'>Instructions</span><br><br><div class='buttons'><input type='button' value='Open'' class='expand popBut'></div></div>"
 
+var smallInstructions = "<div id='smallInstructions' class='popUp instructions'><br><br><br><br><span class='messageTitle'>Instructions</span><br><br><div class='buttons'><input type='button' value='Open' class='expand popBut'></div></div>"
 /**
  * loads next level, checks level number is valid
  * if first level also loads game visuals
@@ -50,7 +52,6 @@ function loadLevel(levelNumber) {
  * starts a clock, add one to attempts counter, stops listening to click in start safe zone, listening for death event
  */
 function startLevel() {
-//Start Clock
     startClock()
     //increase attempt counter by 1
     $('#tally').text(++attemptsCount)
@@ -100,6 +101,7 @@ function finishLevel() {
  * stop the clock, enable start button, displays message, todo turns off death
  */
 function gameDeath() {
+    $messageDisplayBox = $('#message')
     stopClock();
     $startSafeZone.on('click', startLevel);
     $messageDisplayBox.html("You have died! Please try again! Click the start area to start");
