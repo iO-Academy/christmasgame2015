@@ -107,7 +107,7 @@ $(function() {
     $startSafeZone = $('#startArea')
     $finishSafeZone = $('someHTMLEntityIDNotDecided#finishSafeZone')
     $finishBox = $('someHTMLEntityNotDecided')
-    $quit = $('#quit')
+    $quit = $('.quit')
     /**
      * triggered on death event
      * stops clock, doesn't reset
