@@ -74,7 +74,7 @@ function finishLevel() {
     //stops the clock
     stopClock()
     //disable death
-    $('.die').off('mouseover')
+    $('.die').off('death')
     $.post('api/index.php', {
             'action': 'saveLevel',
             'level': levelNumber,
@@ -129,8 +129,8 @@ $(function () {
     })
     //triggers death event
 
-    $('.die').mouseover(gameDeath)
-    //enables the death eventg
+    $('.die').mouseover('death')
+    //enables the death event
     $gameBoxDiv.on('death', function () {
         gameDeath()
     })
