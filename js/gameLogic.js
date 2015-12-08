@@ -5,8 +5,7 @@ var $gameBoxDiv
 var $messageDisplayBox
 var $finishBox
 var levelNumber = 1
-var congratulationsMessage = '<div id="smallInstructions" class="popUp instructions"><span class="messageTitle">Instructions</span></div>'
-var completedLevelMessage = '<p>Some html about completing level</p>'
+var completedLevelMessage = '<div class="popUp instructions messageTitle">Some html about completing level</div>'
 var $startSafeZone
 var lastLevel = 2
 var genericError = "Sorry there is a problem, please try reloading the page"
@@ -83,7 +82,9 @@ function finishLevel() {
                 //success function
                 levelNumber++
                 if (levelNumber === lastLevel) {
-                    $messageDisplayBox.html(congratulationsMessage).css({opacity: 0})
+                    $messageDisplayBox.html('<div class="popUp instructions messageTitle">Congratulations, you beat the game!' +
+                        '<div>Your time: ' + seconds2time(ticks) + '</div>' +
+                        '<div>Number of attempts: ' + attemptsCount + '</div></div>')
                 }
                 else {
                     loadLevel(levelNumber)
@@ -91,13 +92,11 @@ function finishLevel() {
             }
             else {
                 $messageDisplayBox.html(genericError)
-                console.log('1')
             }
         }
-    ).fail(function (data) {
+    ).fail(function () {
         $messageDisplayBox.html(genericError)
-        console.log(data)
-        })
+    })
 }
 /**
  * stop the clock, enable start button, displays message, todo turns off death

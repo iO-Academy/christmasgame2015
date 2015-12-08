@@ -9,7 +9,6 @@
         <script src="js/gameLogic.js" type="text/javascript"></script>
         <script src="js/cookies.js" type="text/javascript"></script>
         <script src="js/validate.js" type="text/javascript"></script>
-        <script src="js/clock.js" type="text/javascript"></script>
         <script src="js/splash.js" type="text/javascript"></script>
         <title>Mayden Christmas Game 2015</title>
     </head>
