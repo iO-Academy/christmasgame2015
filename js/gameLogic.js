@@ -112,21 +112,17 @@ $(function () {
      * disables the death event
      */
     $gameBoxDiv.on('death', function() {
-        stopClock()
-        $startSafeZone.on('click', startGame)
-        $messageDisplayBox.replaceWith("You have died! Please try again! Click the start area to start")
-        $('.die').off('death')
-    })
+        stopClock();
+        $startSafeZone.on('click', startGame);
+        $messageDisplayBox.replaceWith("You have died! Please try again! Click the start area to start");
+        $gameBoxDiv.off('death')
+    });
     //triggers start event
     $startSafeZone.click(startGame)
     //triggers finish event
     $finishBox.mouseover(finishGame)
     //triggers death event
-    $('.die').mouseover(gameDeath)
-    //triggers complete event
-    $finishSafeZone.mouseover(function () {
-        $gameBoxDiv.trigger('completedLevel')
-    })
+    $('.die').mouseover(gameDeath);
     //enables the death eventg
     $gameBoxDiv.on('death', function () {
         gameDeath()
