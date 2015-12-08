@@ -1,4 +1,4 @@
-var $gameDiv = $('#game')
+var $gameDiv
 var $gameBoxDiv = $('#mazeContainer')
 var $finishSafeZone = $('someHTMLEntityIDNotDecided#finishSafeZone')
 var $messageDisplayBox = $('#message')
@@ -18,10 +18,12 @@ var attemptsCount
  * @param number levelNumber
  */
 function loadLevel(levelNumber) {
+
     if (levelNumber > 0 && levelNumber <= lastLevel) {
         if (levelNumber === 1) {
-            $gameDiv.load('templates/gameVisual.html', function(response, status) {
+            $('#game').load('templates/gameVisual.html', function(response, status) {
                     if (status == "error") {
+                        console.log(status)
                         $messageDisplayBox.html(genericError)
                     }
                 })
@@ -99,6 +101,7 @@ function gameDeath() {
     $gameBoxDiv.off('death')
 }
 $(function() {
+    $gameDiv = $('#game')
     /**
      * triggered on death event
      * stops clock, doesn't reset
