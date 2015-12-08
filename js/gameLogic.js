@@ -1,15 +1,14 @@
 var $gameDiv
-var $gameBoxDiv = $('#mazeContainer')
-var $finishSafeZone = $('someHTMLEntityIDNotDecided#finishSafeZone')
-var $messageDisplayBox = $('#message')
-var $finishBox = $('someHTMLEntityNotDecided')
+var $gameBoxDiv
+var $messageDisplayBox
+var $finishBox
 var levelNumber = 1
 var congratulationsMessage = '<p>Some html about congrats</p>'
 var completedLevelMessage = '<p>Some html about completing level</p>'
-var $startSafeZone = $('#startArea')
+var $startSafeZone
 var lastLevel = 2
 var genericError = "Sorry there is a problem, please try reloading the page"
-var attemptsCount
+var attemptsCount = 0
 
 /**
  * loads next level, checks level number is valid
@@ -21,7 +20,7 @@ function loadLevel(levelNumber) {
 
     if (levelNumber > 0 && levelNumber <= lastLevel) {
         if (levelNumber === 1) {
-            $('#game').load('templates/gameVisual.html', function(response, status) {
+            $('#game').load('templates/gameVisual.php', function(response, status) {
                     if (status == "error") {
                         console.log(status)
                         $messageDisplayBox.html(genericError)
@@ -73,7 +72,7 @@ function finishLevel() {
             'time': ticks
         }, // put data here from ajax into endOfGame
         function(data) {
-            if (success in data && data.success) {
+            if ('success' in data && data.success) {
                 //success function
                 levelNumber++
                 if (levelNumber === lastLevel) {
@@ -102,6 +101,11 @@ function gameDeath() {
 }
 $(function() {
     $gameDiv = $('#game')
+    $gameBoxDiv = $('#mazeContainer')
+    $messageDisplayBox = $('#message')
+    $startSafeZone = $('#startArea')
+    $finishSafeZone = $('someHTMLEntityIDNotDecided#finishSafeZone')
+    $finishBox = $('someHTMLEntityNotDecided')
     /**
      * triggered on death event
      * stops clock, doesn't reset
