@@ -1,24 +1,25 @@
 <html>
+<<<<<<< HEAD
     <head>
+=======
+ <head>
         <link href='https://fonts.googleapis.com/css?family=Roboto:400,700' rel='stylesheet' type='text/css'>
         <link type="text/css" href="css/layout.css" rel="stylesheet" media="all">
         <link type="text/css" href="css/splash.css" rel="stylesheet" media="all">
         <link type="text/css" href="css/popup.css" rel="stylesheet" media="all">
-        <script src="js/timer.js" type="text/javascript"></script>
         <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
         <script src="js/timer.js" type="text/javascript"></script>
         <script src="js/gameLogic.js" type="text/javascript"></script>
         <script src="js/cookies.js" type="text/javascript"></script>
         <script src="js/validate.js" type="text/javascript"></script>
+        <script src="js/clock.js" type="text/javascript"></script>
         <script src="js/splash.js" type="text/javascript"></script>
         <title>Mayden Christmas Game 2015</title>
     </head>
     <body>
         <div id="game">
             <?php include("templates/splash.html") ?>
-        </div>g
-    </body>
-    <script>
+        </div>
         //validating that the device is not touch screen
         var isTouchDevice = 'ontouchstart' in document.getElementById('game')
         if (isTouchDevice) {
