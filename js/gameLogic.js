@@ -1,4 +1,3 @@
-
 var $gameBoxDiv = $('#mazeContainer')
 var $finishSafeZone = $('someHTMLEntityIDNotDecided#finishSafeZone')
 var $messageDisplayBox = $('#message')
@@ -19,15 +18,15 @@ var attemptsCount
 function loadLevel(levelNumber) {
     if (levelNumber > 0 && levelNumber <= lastLevel) {
         if (levelNumber === 1) {
-            $('#game').load('templates/gameVisual.html', function( response, status) {
-                if ( status == "error" ) {
+            $('#game').load('templates/gameVisual.html', function (response, status) {
+                if (status == "error") {
                     $messageDisplayBox.replaceWith(genericError)
                 }
             })
         }
         $gameBoxDiv.load('templates/level' + levelNumber + '.php',
-            function( response, status) {
-                if ( status == "error" ) {
+            function (response, status) {
+                if (status == "error") {
                     $messageDisplayBox.replaceWith(genericError)
                 }
                 attemptsCount = 0
@@ -40,7 +39,7 @@ function loadLevel(levelNumber) {
 /**
  * starts a clock, add one to attempts counter, stops listening to click in start safe zone, listening for death event
  */
-function startGame() {
+function startLevel() {
 //Start Clock
     startClock()
     //increase attempt counter by 1
@@ -56,8 +55,8 @@ function startGame() {
  * animates display message box to a larger box,
  * currently only called on game complete
  */
-function animateDisplayMessageBox() {
-    $messageDisplayBox.animate({
+function animateDisplayMessageBox($messageDisplay) {
+    $messageDisplay.animate({
         opacity: "100",
         width: "600px",
         height: "400px",
@@ -68,8 +67,7 @@ function animateDisplayMessageBox() {
 /**
  * stops clock, posts data to api, loads the next level or End of game message box
  */
-function finishGame() {
-    alert("You have completed level 'levelNumber'")
+function finishLevel() {
     //change message box to display level congrats
     $messageDisplayBox.replaceWith(congratulationsMessage)
     //stops the clock
@@ -88,7 +86,7 @@ function finishGame() {
                 levelNumber++
                 if (levelNumber === gameOver) {
                     $messageDisplayBox.replaceWith('#endOfGame').css({opacity: 0})
-                    animateDisplayMessageBox()
+                    animateDisplayMessageBox($messageDisplayBox)
                 }
                 else {
                     loadLevel(levelNumber)
@@ -110,22 +108,24 @@ $(function () {
      * replaces the message in the display box
      * disables the death event
      */
-    $gameBoxDiv.on('death', function() {
+    $gameBoxDiv.on('death', function () {
         stopClock()
-        $startSafeZone.on('click', startGame)
+        $startSafeZone.on('click', function () {
+            startLevel()
+        })
         $messageDisplayBox.replaceWith("You have died! Please try again! Click the start area to start")
-        $('.die').off('death')
+        $($gameBoxDiv).off('death')
     })
     //triggers start event
-    $startSafeZone.click(startGame)
+    $startSafeZone.click(function () {
+        startLevel()
+    })
     //triggers finish event
-    $finishBox.mouseover(finishGame)
+    $finishBox.mouseover(function () {
+        finishLevel()
+    })
     //triggers death event
     $('.die').mouseover(gameDeath)
-    //triggers complete event
-    $finishSafeZone.mouseover(function () {
-        $gameBoxDiv.trigger('completedLevel')
-    })
     //enables the death eventg
     $gameBoxDiv.on('death', function () {
         gameDeath()
