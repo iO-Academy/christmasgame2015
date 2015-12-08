@@ -5,8 +5,8 @@ var $finishBox = $('someHTMLEntityNotDecided');
 var levelNumber = 1;
 var congratulationsMessage = '<p>Some html shit about congrats</p>';
 var $startSafeZone = $('#startArea');
-var gameOver = 2;
-var genericError = "error, error";
+var gameover = 2;
+var genericError = "Sorry there is a problem, please try again later";
 var attemptsCount;
 
 /**
@@ -19,16 +19,16 @@ var attemptsCount;
 function loadLevel(levelNumber) {
     if (levelNumber > 0 && levelNumber <= 5) {
         if (levelNumber === 1) {
-            $('#game').load('templates/gameVisual.html', function(response, status) {
-                if (status == "error") {
-                    $gameBoxDiv.html("<p> On no! There was an error, please refresh the page or summat... </p>");
+            $('#game').load('templates/gameVisual.html', function( response, status) {
+                if ( status == "error" ) {
+                    $messageDisplayBox.replaceWith(genericError);
                 }
             })
         }
         $gameBoxDiv.load('templates/level' + levelNumber + '.php',
-            function(response, status) {
-                if (status == "error") {
-                    $gameBoxDiv.html("<p> On no! There was an error, please refresh the page or summat... </p>");
+            function( response, status) {
+                if ( status == "error" ) {
+                    $gameBoxDiv.html("<p> On no! There was an error, please refresh the page</p>");
                 }
                 attemptsCount = 0;
                 resetClock()
@@ -96,14 +96,14 @@ function finishGame() {
     )
 }
 
-
-function gameDeath() {
-    stopClock();
-    $startSafeZone.on('click', startGame);
-    $messageDisplayBox.replaceWith("You have died! Please try again! Click the start area to start");
-    $('.die').off('death')
-}
 $(function () {
+
+    $gameBoxDiv.on('death', function() {
+        stopClock();
+        $startSafeZone.on('click', startGame);
+        $messageDisplayBox.replaceWith("You have died! Please try again! Click the start area to start");
+        $('.die').off('death')
+    });
 
     $startSafeZone.click(startGame);
 
