@@ -102,7 +102,7 @@ function gameDeath() {
     stopClock();
     $startSafeZone.on('click', startGame);
     $messageDisplayBox.html("You have died! Please try again! Click the start area to start");
-    $('.die').off('death') //todo
+    $gameBoxDiv.off('death')
 }
 $(function () {
     /**
