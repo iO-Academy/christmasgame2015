@@ -36,13 +36,13 @@ function loadLevel(levelNumber) {
         $gameBoxDiv.load('templates/level' + levelNumber + '.php',
             function (response, status) {
                 if (status == "error") {
-                    $messageDisplayBox.replaceWith(genericError)
+                    $messageDisplayBox.html(genericError)
                 }
                 attemptsCount = 0
                 resetClock()
             })
     } else {
-        $messageDisplayBox.replaceWith('<p> Sorry, level does not exist. </p>')
+        $messageDisplayBox.html('<p> Sorry, level does not exist. </p>')
     }
 }
 /**
@@ -64,7 +64,7 @@ function startLevel() {
  */
 function finishLevel() {
     //change message box to display level congrats
-    $messageDisplayBox.replaceWith(completedLevelMessage)
+    $messageDisplayBox.html(completedLevelMessage)
     //stops the clock
     stopClock()
     //disable death
@@ -76,22 +76,22 @@ function finishLevel() {
             'time': ticks
         }, // put data here from ajax into endOfGame
         function (data) {
-            if (data.success) {
+            if (success in data && data.success) {
                 //success function
                 levelNumber++
                 if (levelNumber === lastLevel) {
-                    $messageDisplayBox.replaceWith(congratulationsMessage).css({opacity: 0})
+                    $messageDisplayBox.html(congratulationsMessage).css({opacity: 0})
                 }
                 else {
                     loadLevel(levelNumber)
                 }
             }
             else {
-                $messageDisplayBox.replaceWith(genericError)
+                $messageDisplayBox.html(genericError)
             }
         }
     ).fail(function() {
-        $messageDisplayBox.replaceWith(genericError);
+        $messageDisplayBox.html(genericError);
     })
 }
 
@@ -101,7 +101,7 @@ function finishLevel() {
 function gameDeath() {
     stopClock();
     $startSafeZone.on('click', startGame);
-    $messageDisplayBox.replaceWith("You have died! Please try again! Click the start area to start");
+    $messageDisplayBox.html("You have died! Please try again! Click the start area to start");
     $('.die').off('death') //todo
 }
 $(function () {
@@ -117,7 +117,7 @@ $(function () {
         $startSafeZone.on('click', function () {
             startLevel()
         })
-        $messageDisplayBox.replaceWith("You have died! Please try again! Click the start area to start")
+        $messageDisplayBox.html("You have died! Please try again! Click the start area to start")
         $($gameBoxDiv).off('death')
     })
 
