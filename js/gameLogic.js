@@ -37,7 +37,9 @@ function loadLevel(levelNumber) {
         $messageDisplayBox.replaceWith('<p> Sorry, level does not exist. </p>')
     }
 }
-
+/**
+ * starts a clock, add one to attempts counter, stops listening to click in start safe zone, listening for death event
+ */
 function startGame() {
 //Start Clock
     startClock();
