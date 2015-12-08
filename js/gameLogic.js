@@ -24,9 +24,7 @@ function loadLevel(levelNumber) {
                     if (status == "error") {
                         $messageDisplayBox.html(genericError)
                     }
-                }).fail(function() {
-                $messageDisplayBox.html(genericError);
-            })
+                })
         } else {
             $gameBoxDiv.load('templates/level' + levelNumber + '.php',
                 function(response, status) {
@@ -35,9 +33,7 @@ function loadLevel(levelNumber) {
                     }
                     attemptsCount = 0
                     resetClock()
-                }).fail(function() {
-                $messageDisplayBox.html(genericError);
-            })
+                })
         }
     } else {
         $messageDisplayBox.html('<p> Sorry, level does not exist. </p>')
