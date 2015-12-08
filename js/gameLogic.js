@@ -28,7 +28,7 @@ function loadLevel(levelNumber) {
         $gameBoxDiv.load('templates/level' + levelNumber + '.php',
             function( response, status) {
                 if ( status == "error" ) {
-                    $messageDisplayBox.replaceWith(genericError);
+                    $gameBoxDiv.html("<p> On no! There was an error, please refresh the page</p>");
                 }
                 attemptsCount = 0;
                 resetClock()
