@@ -18,13 +18,21 @@ var attemptsCount;
 //todo validation if file doesn't exist
 function loadLevel(levelNumber) {
     if (levelNumber > 0 && levelNumber <= 5) {
-//todo change #game to reflect the internal template structure
-        $('#game').load('templates/level' + levelNumber + '.php',
-            //todo do this shit on click start event
-        function () {
-           attemptsCount = 0;
-           resetClock()
-        })
+        if (levelNumber === 1) {
+            $('#game').load('templates/gameVisual.html', function( response, status) {
+                if ( status == "error" ) {
+                    $gameBoxDiv.html("<p> On no! There was an error, please refresh the page or summat... </p>");
+                }
+            })
+        }
+        $gameBoxDiv.load('templates/level' + levelNumber + '.php',
+            function( response, status) {
+                if ( status == "error" ) {
+                    $gameBoxDiv.html("<p> On no! There was an error, please refresh the page or summat... </p>");
+                }
+                attemptsCount = 0;
+                resetClock()
+            })
     } else {
         $messageDisplayBox.replaceWith('<p> Sorry, level does not exist. </p>')
     }
