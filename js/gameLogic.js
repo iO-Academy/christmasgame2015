@@ -92,17 +92,24 @@ function finishGame() {
     )
 }
 
-$(function () {
 
+$(function () {
+    /**
+     * triggered on death event
+     * stops clock, doesn't reset
+     * enables the safezone click event
+     * replaces the message in the display box
+     * disables the death event
+     */
     $gameBoxDiv.on('death', function() {
         stopClock();
         $startSafeZone.on('click', startGame);
         $messageDisplayBox.replaceWith("You have died! Please try again! Click the start area to start");
         $('.die').off('death')
     });
-
+    //triggers start event
     $startSafeZone.click(startGame);
-
+    //triggers finish event
     $finishBox.mouseover(finishGame);
     //triggers death event
     $('.die').mouseover(gameDeath);
@@ -110,7 +117,7 @@ $(function () {
     $finishSafeZone.mouseover(function () {
         $gameBoxDiv.trigger('completedLevel')
     });
-
+    //enables the death eventg
     $gameBoxDiv.on('death', function () {
         gameDeath()
     })
