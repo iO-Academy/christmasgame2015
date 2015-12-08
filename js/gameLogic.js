@@ -6,7 +6,7 @@ var levelNumber = 1;
 var congratulationsMessage = '<p>Some html shit about congrats</p>';
 var $startSafeZone = $('#startArea');
 var gameover = 2;
-var genericError = "error, error";
+var genericError = "Sorry there is a problem, please try again later";
 var attemptsCount;
 
 /**
@@ -21,14 +21,14 @@ function loadLevel(levelNumber) {
         if (levelNumber === 1) {
             $('#game').load('templates/gameVisual.html', function( response, status) {
                 if ( status == "error" ) {
-                    $gameBoxDiv.html("<p> On no! There was an error, please refresh the page or summat... </p>");
+                    $messageDisplayBox.replaceWith(genericError);
                 }
             })
         }
         $gameBoxDiv.load('templates/level' + levelNumber + '.php',
             function( response, status) {
                 if ( status == "error" ) {
-                    $gameBoxDiv.html("<p> On no! There was an error, please refresh the page or summat... </p>");
+                    $messageDisplayBox.replaceWith(genericError);
                 }
                 attemptsCount = 0;
                 resetClock()
