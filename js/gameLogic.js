@@ -53,6 +53,10 @@ function startGame() {
     })
 }
 
+/**
+ * animates display message box to a larger box,
+ * currently only called on game complete
+ */
 function animateDisplayMessageBox() {
     $messageDisplayBox.animate({
         opacity: "100",
@@ -62,6 +66,7 @@ function animateDisplayMessageBox() {
         top: "0px"
     })
 }
+
 function finishGame() {
 //todo remove, after testing
     alert("You have completed level 'levelNumber'");
@@ -81,7 +86,7 @@ function finishGame() {
             if (data.success) {
                 //success function
                 levelNumber++;
-                if (levelNumber === gameover) {
+                if (levelNumber === gameOver) {
                     $messageDisplayBox.replaceWith('#endOfGame').css({opacity: 0});
                     animateDisplayMessageBox();
                 }
