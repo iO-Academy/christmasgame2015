@@ -5,7 +5,7 @@ var $finishBox = $('someHTMLEntityNotDecided');
 var levelNumber = 1;
 var congratulationsMessage = '<p>Some html shit about congrats</p>';
 var $startSafeZone = $('#startArea');
-var gameOver = 2;
+var lastLevel = 2;
 var genericError = "Sorry there is a problem, please try again later";
 var attemptsCount;
 
@@ -16,7 +16,7 @@ var attemptsCount;
  * @param Integer levelNumber
  */
 function loadLevel(levelNumber) {
-    if (levelNumber > 0 && levelNumber <= 5) {
+    if (levelNumber > 0 && levelNumber <= lastLevel) {
         if (levelNumber === 1) {
             $('#game').load('templates/gameVisual.html', function( response, status) {
                 if ( status == "error" ) {
