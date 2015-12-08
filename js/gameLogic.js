@@ -15,7 +15,7 @@ var attemptsCount
  * loads next level, checks level number is valid
  * if first level also loads game visuals
  * Displays generic error is load fails
- * @param Integer levelNumber
+ * @param number levelNumber
  */
 function loadLevel(levelNumber) {
     if (levelNumber > 0 && levelNumber <= lastLevel) {
@@ -58,21 +58,6 @@ function startLevel() {
         gameDeath()
     })
 }
-
-/**
- * animates display message box to a larger box,
- * currently only called on game complete
- */
-function animateDisplayMessageBox($messageDisplay) {
-    $messageDisplay.animate({
-        opacity: "100",
-        width: "600px",
-        height: "400px",
-        right: "0px",
-        top: "0px"
-    })
-}
-
 function errorMessage() {
     $messageDisplayBox.html(genericError)
 }
@@ -85,7 +70,7 @@ function finishLevel() {
     //stops the clock
     stopClock()
     //disable death
-    $('.die').off('mouseover')
+    $('.die').off('death')
     $.post('api/index.php', {
             'action': 'saveLevel',
             'level': levelNumber,
@@ -93,12 +78,11 @@ function finishLevel() {
             'time': ticks
         }, // put data here from ajax into endOfGame
         function (data) {
-            if (data.success) {
+            if (success in data && data.success) {
                 //success function
                 levelNumber++
                 if (levelNumber === lastLevel) {
-                    $messageDisplayBox.(congratulationsMessage).css({opacity: 0})
-                    animateDisplayMessageBox($messageDisplayBox)
+                    $messageDisplayBox.html(congratulationsMessage).css({opacity: 0})
                 }
                 else {
                     loadLevel(levelNumber)
@@ -112,7 +96,6 @@ function finishLevel() {
         errorMessage();
     })
 }
-
 /**
  * stop the clock, enable start button, displays message, todo turns off death
  */
@@ -120,9 +103,8 @@ function gameDeath() {
     stopClock();
     $startSafeZone.on('click', startGame);
     $messageDisplayBox.html("You have died! Please try again! Click the start area to start");
-    $('.die').off('death') //todo
+    $gameBoxDiv.off('death')
 }
-
 $(function () {
     /**
      * triggered on death event
@@ -137,7 +119,7 @@ $(function () {
             startLevel()
         })
         $messageDisplayBox.html("You have died! Please try again! Click the start area to start")
-        $($gameBoxDiv).off('death')
+        $gameBoxDiv.off('death')
     })
 
     //triggers start event
@@ -148,10 +130,8 @@ $(function () {
     $finishBox.mouseover(function () {
         finishLevel()
     })
-    //triggers death event
 
-    $('.die').mouseover(gameDeath)
-    //enables the death eventg
+    //enables the death event
     $gameBoxDiv.on('death', function () {
         gameDeath()
     })
