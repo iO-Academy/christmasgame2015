@@ -5,7 +5,7 @@ var $finishBox = $('someHTMLEntityNotDecided');
 var levelNumber = 1;
 var congratulationsMessage = '<p>Some html shit about congrats</p>';
 var $startSafeZone = $('#startArea');
-var gameover = 2;
+var gameOver = 2;
 var genericError = "Sorry there is a problem, please try again later";
 var attemptsCount;
 
@@ -13,7 +13,7 @@ var attemptsCount;
  * loads next level, checks level number is valid
  * if first level also loads game visuals
  * Displays generic error is load fails
- * @number levelNumber
+ * @param Integer levelNumber
  */
 
 //todo validation if file doesn't exist
