@@ -68,3 +68,13 @@
 	color: #F27324;
 	font-size: 36px;
 }
+
+#startArea {
+    border: 1px black;
+    width: 55px;
+    height: 30px;
+    top: 30px;
+    left: 15px;
+    position: absolute;
+
+}

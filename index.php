@@ -6,17 +6,17 @@
         <link type="text/css" href="css/popup.css" rel="stylesheet" media="all">
         <script src="js/timer.js" type="text/javascript"></script>
         <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
-        <script src="js/cookies.js"></script>
-        <script src="js/validate.js"></script>
-        <script src="js/splash.js"></script>
-
-		<title>Mayden Christmas Game 2015</title>
-	</head>
-	<body>
-		<div id="game">
-<?php include("templates/gameVisual.html") ?>
-
-        </div>
+        <script src="js/timer.js" type="text/javascript"></script>
+        <script src="js/gameLogic.js" type="text/javascript"></script>
+        <script src="js/cookies.js" type="text/javascript"></script>
+        <script src="js/validate.js" type="text/javascript"></script>
+        <script src="js/splash.js" type="text/javascript"></script>
+        <title>Mayden Christmas Game 2015</title>
+    </head>
+    <body>
+        <div id="game">
+            <?php include("templates/splash.html") ?>
+        </div>g
     </body>
     <script>
         //validating that the device is not touch screen
