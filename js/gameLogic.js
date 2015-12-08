@@ -1,12 +1,11 @@
 var $gameDiv
-var $gameBoxDiv = $('#mazeContainer')
-var $finishSafeZone = $('someHTMLEntityIDNotDecided#finishSafeZone')
-var $messageDisplayBox = $('#message')
-var $finishBox = $('someHTMLEntityNotDecided')
+var $gameBoxDiv
+var $messageDisplayBox
+var $finishBox
 var levelNumber = 1
 var congratulationsMessage = '<p>Some html about congrats</p>'
 var completedLevelMessage = '<p>Some html about completing level</p>'
-var $startSafeZone = $('#startArea')
+var $startSafeZone
 var lastLevel = 2
 var genericError = "Sorry there is a problem, please try reloading the page"
 var attemptsCount = 0
@@ -102,6 +101,11 @@ function gameDeath() {
 }
 $(function() {
     $gameDiv = $('#game')
+    $gameBoxDiv = $('#mazeContainer')
+    $messageDisplayBox = $('#message')
+    $startSafeZone = $('#startArea')
+    $finishSafeZone = $('someHTMLEntityIDNotDecided#finishSafeZone')
+    $finishBox = $('someHTMLEntityNotDecided')
     /**
      * triggered on death event
      * stops clock, doesn't reset
