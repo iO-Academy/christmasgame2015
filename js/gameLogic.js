@@ -72,7 +72,7 @@ function animateDisplayMessageBox() {
 function finishGame() {
     alert("You have completed level 'levelNumber'")
     //change message box to display level congrats
-    $messageDisplayBox.replaceWith(congratulationsMessage)
+    $messageDisplayBox.replaceWith(completedLevelMessage)
     //stops the clock
     stopClock()
     //disable death
@@ -87,8 +87,8 @@ function finishGame() {
             if (data.success) {
                 //success function
                 levelNumber++
-                if (levelNumber === gameOver) {
-                    $messageDisplayBox.replaceWith(completedLevelMessage).css({opacity: 0})
+                if (levelNumber === lastLevel) {
+                    $messageDisplayBox.replaceWith(congratulationsMessage).css({opacity: 0})
                     animateDisplayMessageBox()
                 }
                 else {
