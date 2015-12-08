@@ -6,29 +6,30 @@ var levelNumber = 1;
 var congratulationsMessage = '<p>Some html shit about congrats</p>';
 var $startSafeZone = $('#startArea');
 var gameover = 2;
-var genericError = "error, error";
+var genericError = "Sorry there is a problem, please try again later";
 var attemptsCount;
 
 /**
- * ajax request for next level
- *
- * @param levelNumber
+ * loads next level, checks level number is valid
+ * if first level also loads game visuals
+ * Displays generic error is load fails
+ * @number levelNumber
  */
 
 //todo validation if file doesn't exist
 function loadLevel(levelNumber) {
     if (levelNumber > 0 && levelNumber <= 5) {
         if (levelNumber === 1) {
-            $('#game').load('templates/gameVisual.html', function(response, status) {
-                if (status == "error") {
-                    $gameBoxDiv.html("<p> On no! There was an error, please refresh the page or summat... </p>");
+            $('#game').load('templates/gameVisual.html', function( response, status) {
+                if ( status == "error" ) {
+                    $messageDisplayBox.replaceWith(genericError);
                 }
             })
         }
         $gameBoxDiv.load('templates/level' + levelNumber + '.php',
-            function(response, status) {
-                if (status == "error") {
-                    $gameBoxDiv.html("<p> On no! There was an error, please refresh the page or summat... </p>");
+            function( response, status) {
+                if ( status == "error" ) {
+                    $messageDisplayBox.replaceWith(genericError);
                 }
                 attemptsCount = 0;
                 resetClock()
@@ -95,14 +96,14 @@ function finishGame() {
     )
 }
 
-
-function gameDeath() {
-    stopClock();
-    $startSafeZone.on('click', startGame);
-    $messageDisplayBox.replaceWith("You have died! Please try again! Click the start area to start");
-    $('.die').off('death')
-}
 $(function () {
+
+    $gameBoxDiv.on('death', function() {
+        stopClock();
+        $startSafeZone.on('click', startGame);
+        $messageDisplayBox.replaceWith("You have died! Please try again! Click the start area to start");
+        $('.die').off('death')
+    });
 
     $startSafeZone.click(startGame);
 
