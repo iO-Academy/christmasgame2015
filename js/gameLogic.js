@@ -21,14 +21,14 @@ function loadLevel(levelNumber) {
         if (levelNumber === 1) {
             $('#game').load('templates/gameVisual.html', function( response, status) {
                 if ( status == "error" ) {
-                    $gameBoxDiv.html("<p> On no! There was an error, please refresh the page or summat... </p>");
+                    $gameBoxDiv.html("<p> On no! There was an error, please refresh the page</p>");
                 }
             })
         }
         $gameBoxDiv.load('templates/level' + levelNumber + '.php',
             function( response, status) {
                 if ( status == "error" ) {
-                    $gameBoxDiv.html("<p> On no! There was an error, please refresh the page or summat... </p>");
+                    $gameBoxDiv.html("<p> On no! There was an error, please refresh the page</p>");
                 }
                 attemptsCount = 0;
                 resetClock()
