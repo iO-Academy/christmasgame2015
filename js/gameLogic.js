@@ -35,14 +35,22 @@ function startGame() {
     startClock();
     //increase attempt counter by 1
     $('#tally').text(++attemptsCount);
-    //disable start zone todo move into what ever calls startGame
+    //disable start zone
     $startSafeZone.off('click');
-
     $('.die').on('death', gameDeath)
 }
 
+function animateDisplayMessageBox() {
+    $messageDisplayBox.animate({
+        opacity: "100",
+        width: "600px",
+        height: "400px",
+        right: "0px",
+        top: "0px"
+    })
+}
 function finishGame() {
-//todo remove post test
+//todo remove, after testing
     alert("You have completed level 'levelNumber'");
     //change message box to display level congrats
     $messageDisplayBox.replaceWith(congratulationsMessage);
@@ -57,29 +65,25 @@ function finishGame() {
             'time': ticks
         }, // put data here from ajax into endOfGame
         function (data) {
-            //success function
-            levelNumber++;
-            //todo abstract this animation stuff out
-            if (levelNumber === gameover) {
-                $messageDisplayBox.replaceWith('#endOfGame').css({opacity: 0});
-                $messageDisplayBox.animate({
-                    opacity: "100",
-                    width: "600px",
-                    height: "400px",
-                    right: "0px",
-                    top: "0px"
-                })
+            if (data.success) {
+                //success function
+                levelNumber++;
+                if (levelNumber === gameover) {
+                    $messageDisplayBox.replaceWith('#endOfGame').css({opacity: 0});
+                    animateDisplayMessageBox();
+                }
+                else {
+                    loadLevel(levelNumber);
+                }
             }
             else {
-                loadLevel(levelNumber);
+                $messageDisplayBox.replaceWith(genericError);
             }
         }
-        //todo change this fail to a success callback with if checkoing for bool value of false and do fail shit then
-    ).fail(function () {
-        //todo dont replpace whole game divs with errorerror
-        $('#game').replaceWith(genericError);
-    })
+    )
 }
+
+
 function gameDeath() {
     stopClock();
     $startSafeZone.on('click', startGame);
