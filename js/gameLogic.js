@@ -20,29 +20,28 @@ var attemptsCount
 function loadLevel(levelNumber) {
     if (levelNumber > 0 && levelNumber <= lastLevel) {
         if (levelNumber === 1) {
-            $.ajax({
-                url: 'templates/gameVisual.html',
-                success: function (result) {
-                    $gameDiv.html(result)
-                },
-                async: false,
-                error : function(){
-                    $gameDiv.html(genericError);
-                }
-            }).fail(function(){
-                $gameDiv.html(genericError);
+            $gameDiv.load('templates/gameVisual.php', function(response, status) {
+                    if (status == "error") {
+                        errorMessage()
+                    }
+                }).fail(function(){
+                errorMessage();
             })
         }
-        $gameBoxDiv.load('templates/level' + levelNumber + '.php',
-            function (response, status) {
-                if (status == "error") {
-                    $messageDisplayBox.replaceWith(genericError)
-                }
-                attemptsCount = 0
-                resetClock()
+        else {
+            $gameBoxDiv.load('templates/level' + levelNumber + '.php',
+                function (response, status) {
+                    if (status == "error") {
+                        errorMessage()
+                    }
+                    attemptsCount = 0
+                    resetClock()
+                }).fail(function(){
+                errorMessage();
             })
+        }
     } else {
-        $messageDisplayBox.replaceWith('<p> Sorry, level does not exist. </p>')
+        $messageDisplayBox.html('<p> Sorry, level does not exist. </p>')
     }
 }
 /**
@@ -73,12 +72,16 @@ function animateDisplayMessageBox($messageDisplay) {
         top: "0px"
     })
 }
+
+function errorMessage() {
+    $messageDisplayBox.html(genericError)
+}
 /**
  * stops clock, posts data to api, loads the next level or End of game message box
  */
 function finishLevel() {
     //change message box to display level congrats
-    $messageDisplayBox.replaceWith(completedLevelMessage)
+    $messageDisplayBox.html(completedLevelMessage)
     //stops the clock
     stopClock()
     //disable death
@@ -94,7 +97,7 @@ function finishLevel() {
                 //success function
                 levelNumber++
                 if (levelNumber === lastLevel) {
-                    $messageDisplayBox.replaceWith(congratulationsMessage).css({opacity: 0})
+                    $messageDisplayBox.(congratulationsMessage).css({opacity: 0})
                     animateDisplayMessageBox($messageDisplayBox)
                 }
                 else {
@@ -102,11 +105,11 @@ function finishLevel() {
                 }
             }
             else {
-                $messageDisplayBox.replaceWith(genericError)
+                errorMessage();
             }
         }
-    ).fail(function() {
-        $messageDisplayBox.replaceWith(genericError);
+    ).fail(function () {
+        errorMessage();
     })
 }
 
@@ -116,9 +119,10 @@ function finishLevel() {
 function gameDeath() {
     stopClock();
     $startSafeZone.on('click', startGame);
-    $messageDisplayBox.replaceWith("You have died! Please try again! Click the start area to start");
+    $messageDisplayBox.html("You have died! Please try again! Click the start area to start");
     $('.die').off('death') //todo
 }
+
 $(function () {
     /**
      * triggered on death event
@@ -132,7 +136,7 @@ $(function () {
         $startSafeZone.on('click', function () {
             startLevel()
         })
-        $messageDisplayBox.replaceWith("You have died! Please try again! Click the start area to start")
+        $messageDisplayBox.html("You have died! Please try again! Click the start area to start")
         $($gameBoxDiv).off('death')
     })
 
