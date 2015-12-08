@@ -1,3 +1,4 @@
+var $gameDiv = $('#game')
 var $gameBoxDiv = $('#mazeContainer')
 var $finishSafeZone = $('someHTMLEntityIDNotDecided#finishSafeZone')
 var $messageDisplayBox = $('#message')
@@ -19,10 +20,17 @@ var attemptsCount
 function loadLevel(levelNumber) {
     if (levelNumber > 0 && levelNumber <= lastLevel) {
         if (levelNumber === 1) {
-            $('#game').load('templates/gameVisual.html', function (response, status) {
-                if (status == "error") {
-                    $messageDisplayBox.replaceWith(genericError)
+            $.ajax({
+                url: 'templates/gameVisual.html',
+                success: function (result) {
+                    $gameDiv.html(result)
+                },
+                async: false,
+                error : function(){
+                    $gameDiv.html(genericError);
                 }
+            }).fail(function(){
+                $gameDiv.html(genericError);
             })
         }
         $gameBoxDiv.load('templates/level' + levelNumber + '.php',
@@ -51,20 +59,6 @@ function startLevel() {
         gameDeath()
     })
 }
-
-/**
- * animates display message box to a larger box,
- * currently only called on game complete
- */
-function animateDisplayMessageBox($messageDisplay) {
-    $messageDisplay.animate({
-        opacity: "100",
-        width: "600px",
-        height: "400px",
-        right: "0px",
-        top: "0px"
-    })
-}
 /**
  * stops clock, posts data to api, loads the next level or End of game message box
  */
@@ -87,7 +81,6 @@ function finishLevel() {
                 levelNumber++
                 if (levelNumber === lastLevel) {
                     $messageDisplayBox.replaceWith(congratulationsMessage).css({opacity: 0})
-                    animateDisplayMessageBox($messageDisplayBox)
                 }
                 else {
                     loadLevel(levelNumber)
@@ -97,10 +90,20 @@ function finishLevel() {
                 $messageDisplayBox.replaceWith(genericError)
             }
         }
-    )
+    ).fail(function() {
+        $messageDisplayBox.replaceWith(genericError);
+    })
 }
 
-
+/**
+ * stop the clock, enable start button, displays message, todo turns off death
+ */
+function gameDeath() {
+    stopClock();
+    $startSafeZone.on('click', startGame);
+    $messageDisplayBox.replaceWith("You have died! Please try again! Click the start area to start");
+    $('.die').off('death') //todo
+}
 $(function () {
     /**
      * triggered on death event
@@ -109,7 +112,6 @@ $(function () {
      * replaces the message in the display box
      * disables the death event
      */
-
     $gameBoxDiv.on('death', function () {
         stopClock()
         $startSafeZone.on('click', function () {
