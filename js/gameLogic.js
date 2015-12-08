@@ -5,7 +5,7 @@ var $gameBoxDiv
 var $messageDisplayBox
 var $finishBox
 var levelNumber = 1
-var congratulationsMessage = '<p>Some html about congrats</p>'
+var congratulationsMessage = '<div id="smallInstructions" class="popUp instructions"><span class="messageTitle">Instructions</span></div>'
 var completedLevelMessage = '<p>Some html about completing level</p>'
 var $startSafeZone
 var lastLevel = 2
@@ -91,10 +91,12 @@ function finishLevel() {
             }
             else {
                 $messageDisplayBox.html(genericError)
+                console.log('1')
             }
         }
-    ).fail(function () {
-            $messageDisplayBox.html(genericError)
+    ).fail(function (data) {
+        $messageDisplayBox.html(genericError)
+        console.log(data)
         })
 }
 /**
@@ -149,4 +151,3 @@ $(function () {
         $('#game').load('templates/splash.html')
     })
 })
-
