@@ -15,7 +15,7 @@ var attemptsCount
  * loads next level, checks level number is valid
  * if first level also loads game visuals
  * Displays generic error is load fails
- * @param Integer levelNumber
+ * @param number levelNumber
  */
 function loadLevel(levelNumber) {
     if (levelNumber > 0 && levelNumber <= lastLevel) {
