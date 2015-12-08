@@ -21,22 +21,22 @@ function loadLevel(levelNumber) {
     if (levelNumber > 0 && levelNumber <= lastLevel) {
         if (levelNumber === 1) {
             $gameDiv.load('templates/gameVisual.html', function (response, status) {
-                if (status == "error") {
-                    errorMessage()
-                }
-            }).fail(function () {
-                errorMessage();
+                    if (status == "error") {
+                        $messageDisplayBox.html(genericError)
+                    }
+                }).fail(function(){
+                $messageDisplayBox.html(genericError);
             })
         } else {
             $gameBoxDiv.load('templates/level' + levelNumber + '.php',
-                function (response, status) {
+                function(response, status) {
                     if (status == "error") {
-                        errorMessage()
+                        $messageDisplayBox.html(genericError)
                     }
                     attemptsCount = 0
                     resetClock()
-                }).fail(function(){
-                errorMessage();
+                }).fail(function() {
+                $messageDisplayBox.html(genericError);
             })
         }
     } else {
@@ -57,9 +57,7 @@ function startLevel() {
         gameDeath()
     })
 }
-function errorMessage() {
-    $messageDisplayBox.html(genericError)
-}
+
 /**
  * stops clock, posts data to api, loads the next level or End of game message box
  */
@@ -88,11 +86,11 @@ function finishLevel() {
                 }
             }
             else {
-                errorMessage();
+                $messageDisplayBox.html(genericError)
             }
         }
-    ).fail(function () {
-        errorMessage();
+    ).fail(function() {
+        $messageDisplayBox.html(genericError)
     })
 }
 /**
@@ -100,7 +98,7 @@ function finishLevel() {
  */
 function gameDeath() {
     stopClock();
-    $startSafeZone.on('click', startGame);
+    $startSafeZone.on('click', startLevel);
     $messageDisplayBox.html("You have died! Please try again! Click the start area to start");
     $gameBoxDiv.off('death')
 }
