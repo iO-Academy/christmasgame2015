@@ -8,7 +8,7 @@ var congratulationsMessage = '<p>Some html about congrats</p>'
 var completedLevelMessage = '<p>Some html about completing level</p>'
 var $startSafeZone = $('#startArea')
 var lastLevel = 2
-var genericError = "Sorry there is a problem, please try again later"
+var genericError = "Sorry there is a problem, please try reloading page"
 var attemptsCount
 
 /**
