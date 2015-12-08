@@ -21,6 +21,7 @@ function seconds2time(seconds) {
 }
 
 function startClock() {
+    console.log(document.getElementById('seconds'))
     clock = setInterval(function () {
         document.getElementById('seconds').innerHTML = seconds2time(++ticks);
     }, 1000);
