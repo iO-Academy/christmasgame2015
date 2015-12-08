@@ -54,19 +54,6 @@ function startGame() {
 }
 
 /**
- * animates display message box to a larger box,
- * currently only called on game complete
- */
-function animateDisplayMessageBox() {
-    $messageDisplayBox.animate({
-        opacity: "100",
-        width: "600px",
-        height: "400px",
-        right: "0px",
-        top: "0px"
-    })
-}
-/**
  * stops clock, posts data to api, loads the next level or End of game message box
  */
 function finishGame() {
