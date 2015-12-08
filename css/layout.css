@@ -70,11 +70,16 @@
 }
 
 #startArea {
-    border: 1px black;
+     width: 55px;
+     height: 30px;
+     top: 30px;
+     left: 15px;
+     position: absolute;
+ }
+#finishArea {
     width: 55px;
     height: 30px;
-    top: 30px;
-    left: 15px;
+    top: 25px;
+    left: 350px;
     position: absolute;
-
 }

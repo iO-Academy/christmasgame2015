@@ -1,5 +1,5 @@
-var ticks = 0;
-var clock;
+var ticks = 0
+var clock
 
 /**
  * converts and formats seconds to hh:mm:ss string
