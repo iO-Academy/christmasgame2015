@@ -4,7 +4,8 @@ var $finishSafeZone = $('someHTMLEntityIDNotDecided#finishSafeZone')
 var $messageDisplayBox = $('#message')
 var $finishBox = $('someHTMLEntityNotDecided')
 var levelNumber = 1
-var congratulationsMessage = '<p>Some html shit about congrats</p>'
+var congratulationsMessage = '<p>Some html about congrats</p>'
+var completedLevelMessage = '<p>Some html about completing level</p>'
 var $startSafeZone = $('#startArea')
 var lastLevel = 2
 var genericError = "Sorry there is a problem, please try again later"
@@ -87,7 +88,7 @@ function finishGame() {
                 //success function
                 levelNumber++
                 if (levelNumber === gameOver) {
-                    $messageDisplayBox.replaceWith('#endOfGame').css({opacity: 0})
+                    $messageDisplayBox.replaceWith(completedLevelMessage).css({opacity: 0})
                     animateDisplayMessageBox()
                 }
                 else {
