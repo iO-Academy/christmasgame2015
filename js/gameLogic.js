@@ -20,11 +20,11 @@ var attemptsCount
 function loadLevel(levelNumber) {
     if (levelNumber > 0 && levelNumber <= lastLevel) {
         if (levelNumber === 1) {
-            $gameDiv.load('templates/gameVisual.html', function (response, status) {
+            $gameDiv.load('templates/gameVisual.html', function(response, status) {
                     if (status == "error") {
                         $messageDisplayBox.html(genericError)
                     }
-                }).fail(function(){
+                }).fail(function() {
                 $messageDisplayBox.html(genericError);
             })
         } else {
@@ -53,7 +53,7 @@ function startLevel() {
     $('#tally').text(++attemptsCount)
     //disable start zone
     $startSafeZone.off('click')
-    $('.die').on('death', function () {
+    $('.die').on('death', function() {
         gameDeath()
     })
 }
@@ -74,7 +74,7 @@ function finishLevel() {
             'attempts': attemptsCount,
             'time': ticks
         }, // put data here from ajax into endOfGame
-        function (data) {
+        function(data) {
             if (success in data && data.success) {
                 //success function
                 levelNumber++
@@ -102,7 +102,7 @@ function gameDeath() {
     $messageDisplayBox.html("You have died! Please try again! Click the start area to start");
     $gameBoxDiv.off('death')
 }
-$(function () {
+$(function() {
     /**
      * triggered on death event
      * stops clock, doesn't reset
@@ -110,9 +110,9 @@ $(function () {
      * replaces the message in the display box
      * disables the death event
      */
-    $gameBoxDiv.on('death', function () {
+    $gameBoxDiv.on('death', function() {
         stopClock()
-        $startSafeZone.on('click', function () {
+        $startSafeZone.on('click', function() {
             startLevel()
         })
         $messageDisplayBox.html("You have died! Please try again! Click the start area to start")
@@ -120,16 +120,16 @@ $(function () {
     })
 
     //triggers start event
-    $startSafeZone.click(function () {
+    $startSafeZone.click(function() {
         startLevel()
     })
     //triggers finish event
-    $finishBox.mouseover(function () {
+    $finishBox.mouseover(function() {
         finishLevel()
     })
 
     //enables the death event
-    $gameBoxDiv.on('death', function () {
+    $gameBoxDiv.on('death', function() {
         gameDeath()
     })
 })
