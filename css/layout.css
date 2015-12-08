@@ -19,7 +19,6 @@
 
 .gameLevelVisual {
 	position: absolute;
-	float: left;
 }
 
 #mazeContainer {
@@ -50,7 +49,7 @@
     color: #F27324;
     font-size: 25px;
     position: relative;
-	right: 3px;
+    right: 3px;
     border-bottom: solid 2px black;
     border-top: solid 2px #000000;
 }
@@ -68,4 +67,14 @@
 #tally {
 	color: #F27324;
 	font-size: 36px;
+}
+
+#startArea {
+    border: 1px black;
+    width: 55px;
+    height: 30px;
+    top: 30px;
+    left: 15px;
+    position: absolute;
+
 }

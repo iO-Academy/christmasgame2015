@@ -38,7 +38,6 @@
     text-decoration: none;
     cursor: pointer;
     border: none;
-
 }
 
 #winText {
@@ -83,16 +82,21 @@
     padding: 3px;
 }
 
+#err4 {
+    height: 40px;
+    top: 41px;
+    padding: 3px;
+}
+
 .err {
     position: absolute;
     background-color: #004f76;
-    color: white;
+    color: #ffffff;
     width: 120px;
     text-align: center;
     border-radius: 6px;
     right: 5px;
     padding-bottom: 3px;
-
 }
 
 
