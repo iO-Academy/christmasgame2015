@@ -1,6 +1,6 @@
 var $gameBoxDiv = $('#mazeContainer');
 var $finishSafeZone = $('someHTMLEntityIDNotDecided#finishSafeZone');
-var $messageDisplayBox = $('someHTMLEntityIDNotDecidedForMessage');
+var $messageDisplayBox = $('#message');
 var $finishBox = $('someHTMLEntityNotDecided');
 var levelNumber = 1;
 var congratulationsMessage = '<p>Some html shit about congrats</p>';
