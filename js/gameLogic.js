@@ -20,7 +20,7 @@ var attemptsCount
 function loadLevel(levelNumber) {
     if (levelNumber > 0 && levelNumber <= lastLevel) {
         if (levelNumber === 1) {
-            $gameDiv.load('templates/gameVisual.php', function(response, status) {
+            $gameDiv.load('templates/gameVisual.html', function (response, status) {
                     if (status == "error") {
                         $messageDisplayBox.html(genericError)
                     }
