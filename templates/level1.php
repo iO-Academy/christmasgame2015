@@ -13,6 +13,6 @@
 <div id="entryTally" class="gameLevelVisual">
     <p>Attempts:</p>
     <div id="tally">
-        01
+        00
     </div>
 </div>

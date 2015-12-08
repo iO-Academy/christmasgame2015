@@ -15,15 +15,19 @@ var attemptsCount;
  * @param levelNumber
  */
 
-//todo validation if file doesnt exist
+//todo validation if file doesn't exist
 function loadLevel(levelNumber) {
+    if (levelNumber > 0 && levelNumber <= 5) {
 //todo change #game to reflect the internal template structure
-    $('#game').load('templates/level' + levelNumber + '.php',
-        //todo do this shit on click start event
+        $('#game').load('templates/level' + levelNumber + '.php',
+            //todo do this shit on click start event
         function () {
-            attemptsCount = 0;
-            resetClock()
+           attemptsCount = 0;
+           resetClock()
         })
+    } else {
+        $messageDisplayBox.replaceWith('<p> Sorry, level does not exist. </p>')
+    }
 }
 
 function startGame() {
@@ -41,7 +45,7 @@ function finishGame() {
 //todo remove post test
     alert("You have completed level 'levelNumber'");
     //change message box to display level congrats
-    $messageDisplayBox.replaceWith("'congratulationsMessage'");
+    $messageDisplayBox.replaceWith(congratulationsMessage);
     //stops the clock
     stopClock();
     //disable death
