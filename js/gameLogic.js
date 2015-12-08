@@ -34,7 +34,7 @@ function loadLevel(levelNumber) {
             })
         }
         $gameBoxDiv.load('templates/level' + levelNumber + '.php',
-            function (response, status) {
+            function(response, status) {
                 if (status == "error") {
                     $messageDisplayBox.html(genericError)
                 }
