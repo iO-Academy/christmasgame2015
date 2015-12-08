@@ -1,12 +1,11 @@
 var $gameBoxDiv = $('#mazeContainer')
-var $startSafeZone = $('#startArea')
 var $finishSafeZone = $('someHTMLEntityIDNotDecided#finishSafeZone')
 var $messageDisplayBox = $('someHTMLEntityIDNotDecidedForMessage')
 var attemptsCount
 var $finishBox = $('someHTMLEntityNotDecided')
 var levelNumber = 1
 var congratulationsMessage = $('<p>Some html shit about congrats</p>')
-var $startBox = $('#startArea')
+var $startSafeZone = $('#startArea')
 var gameover = 2
 var genericError = "error, error"
 
@@ -34,11 +33,11 @@ $(function () {
     }
 
     /**
-     * TODO change this $startBox var to whatever the start element is
+     * TODO change this $startSafeZone var to whatever the start element is
      * @type {*|jQuery|HTMLElement}
      */
 
-    $startBox.click(function() {
+    $startSafeZone.click(function() {
         //Start Clock
         startClock();
         //increase attempt counter by 1
