@@ -23,6 +23,7 @@
 .popBut {
     font-size: 20px;
     margin: 0;
+    cursor: pointer;
 }
 
 .buttons {
@@ -48,9 +49,4 @@
 
 .bigTitle {
     font-size: 50px;
-}
-
-.bigPopBut {
-    font-size: 40px;
-    margin: 0;
 }
