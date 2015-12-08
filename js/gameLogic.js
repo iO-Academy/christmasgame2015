@@ -1,8 +1,7 @@
 var $gameDiv
 var $gameBoxDiv
-var $finishSafeZone = $('someHTMLEntityIDNotDecided#finishSafeZone')
 var $messageDisplayBox
-var $finishBox = $('someHTMLEntityNotDecided')
+var $finishBox
 var levelNumber = 1
 var congratulationsMessage = '<p>Some html about congrats</p>'
 var completedLevelMessage = '<p>Some html about completing level</p>'
@@ -105,6 +104,8 @@ $(function() {
     $gameBoxDiv = $('#mazeContainer')
     $messageDisplayBox = $('#message')
     $startSafeZone = $('#startArea')
+    $finishSafeZone = $('someHTMLEntityIDNotDecided#finishSafeZone')
+    $finishBox = $('someHTMLEntityNotDecided')
     /**
      * triggered on death event
      * stops clock, doesn't reset
