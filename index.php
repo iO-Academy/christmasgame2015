@@ -1,5 +1,5 @@
 <html>
-    git<head>
+    <head>
         <link href='https://fonts.googleapis.com/css?family=Roboto:400,700' rel='stylesheet' type='text/css'>
         <link type="text/css" href="css/layout.css" rel="stylesheet" media="all">
         <link type="text/css" href="css/splash.css" rel="stylesheet" media="all">
