@@ -47,7 +47,9 @@ function startGame() {
     $('#tally').text(++attemptsCount);
     //disable start zone
     $startSafeZone.off('click');
-    $('.die').on('death', gameDeath)
+    $('.die').on('death', function () {
+        gameDeath()
+    })
 }
 
 function animateDisplayMessageBox() {
