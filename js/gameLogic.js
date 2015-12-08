@@ -3,7 +3,8 @@ var $finishSafeZone = $('someHTMLEntityIDNotDecided#finishSafeZone')
 var $messageDisplayBox = $('#message')
 var $finishBox = $('someHTMLEntityNotDecided')
 var levelNumber = 1
-var congratulationsMessage = '<p>Some html shit about congrats</p>'
+var congratulationsMessage = '<p>Some html about congrats</p>'
+var completedLevelMessage = '<p>Some html about completing level</p>'
 var $startSafeZone = $('#startArea')
 var lastLevel = 2
 var genericError = "Sorry there is a problem, please try again later"
@@ -69,7 +70,7 @@ function animateDisplayMessageBox($messageDisplay) {
  */
 function finishLevel() {
     //change message box to display level congrats
-    $messageDisplayBox.replaceWith(congratulationsMessage)
+    $messageDisplayBox.replaceWith(completedLevelMessage)
     //stops the clock
     stopClock()
     //disable death
@@ -84,8 +85,8 @@ function finishLevel() {
             if (data.success) {
                 //success function
                 levelNumber++
-                if (levelNumber === gameOver) {
-                    $messageDisplayBox.replaceWith('#endOfGame').css({opacity: 0})
+                if (levelNumber === lastLevel) {
+                    $messageDisplayBox.replaceWith(congratulationsMessage).css({opacity: 0})
                     animateDisplayMessageBox($messageDisplayBox)
                 }
                 else {
@@ -108,6 +109,7 @@ $(function () {
      * replaces the message in the display box
      * disables the death event
      */
+
     $gameBoxDiv.on('death', function () {
         stopClock()
         $startSafeZone.on('click', function () {
@@ -116,6 +118,7 @@ $(function () {
         $messageDisplayBox.replaceWith("You have died! Please try again! Click the start area to start")
         $($gameBoxDiv).off('death')
     })
+
     //triggers start event
     $startSafeZone.click(function () {
         startLevel()
@@ -125,6 +128,7 @@ $(function () {
         finishLevel()
     })
     //triggers death event
+
     $('.die').mouseover(gameDeath)
     //enables the death eventg
     $gameBoxDiv.on('death', function () {
