@@ -118,7 +118,7 @@ $(function () {
             startLevel()
         })
         $messageDisplayBox.html("You have died! Please try again! Click the start area to start")
-        $($gameBoxDiv).off('death')
+        $gameBoxDiv.off('death')
     })
 
     //triggers start event
