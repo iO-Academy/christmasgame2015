@@ -113,7 +113,7 @@ $(function () {
         stopClock();
         $startSafeZone.on('click', startGame);
         $messageDisplayBox.replaceWith("You have died! Please try again! Click the start area to start");
-        $('.die').off('death')
+        $gameBoxDiv.off('death')
     });
     //triggers start event
     $startSafeZone.click(startGame);
@@ -121,10 +121,6 @@ $(function () {
     $finishBox.mouseover(finishGame);
     //triggers death event
     $('.die').mouseover(gameDeath);
-    //triggers complete event
-    $finishSafeZone.mouseover(function () {
-        $gameBoxDiv.trigger('completedLevel')
-    });
     //enables the death eventg
     $gameBoxDiv.on('death', function () {
         gameDeath()
