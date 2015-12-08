@@ -108,9 +108,10 @@ function gameDeath() {
 $(function () {
     $gameDiv = $('#game')
     $gameBoxDiv = $('#mazeContainer')
-        $startSafeZone = $('#startArea')
+    $startSafeZone = $('#startArea')
     $finishSafeZone = $('someHTMLEntityIDNotDecided#finishSafeZone')
     $finishBox = $('someHTMLEntityNotDecided')
+    $quit = $('#quit')
     /**
      * triggered on death event
      * stops clock, doesn't reset
@@ -139,6 +140,11 @@ $(function () {
     //enables the death event
     $gameBoxDiv.on('death', function () {
         gameDeath()
+    })
+
+    //triggers replay/quit to registration page
+    $quit.click(function () {
+        $('#game').load('templates/splash.html')
     })
 })
 
