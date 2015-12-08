@@ -20,27 +20,25 @@ var attemptsCount
 function loadLevel(levelNumber) {
     if (levelNumber > 0 && levelNumber <= lastLevel) {
         if (levelNumber === 1) {
-            $.ajax({
-                url: 'templates/gameVisual.html',
-                success: function (result) {
-                    $gameDiv.html(result)
-                },
-                async: false,
-                error : function(){
-                    $gameDiv.html(genericError);
+            $gameDiv.load('templates/gameVisual.php', function (response, status) {
+                if (status == "error") {
+                    errorMessage()
                 }
-            }).fail(function(){
-                $gameDiv.html(genericError);
+            }).fail(function () {
+                errorMessage();
+            })
+        } else {
+            $gameBoxDiv.load('templates/level' + levelNumber + '.php',
+                function (response, status) {
+                    if (status == "error") {
+                        errorMessage()
+                    }
+                    attemptsCount = 0
+                    resetClock()
+                }).fail(function(){
+                errorMessage();
             })
         }
-        $gameBoxDiv.load('templates/level' + levelNumber + '.php',
-            function(response, status) {
-                if (status == "error") {
-                    $messageDisplayBox.html(genericError)
-                }
-                attemptsCount = 0
-                resetClock()
-            })
     } else {
         $messageDisplayBox.html('<p> Sorry, level does not exist. </p>')
     }
@@ -58,6 +56,9 @@ function startLevel() {
     $('.die').on('death', function () {
         gameDeath()
     })
+}
+function errorMessage() {
+    $messageDisplayBox.html(genericError)
 }
 /**
  * stops clock, posts data to api, loads the next level or End of game message box
@@ -87,14 +88,13 @@ function finishLevel() {
                 }
             }
             else {
-                $messageDisplayBox.html(genericError)
+                errorMessage();
             }
         }
-    ).fail(function() {
-        $messageDisplayBox.html(genericError);
+    ).fail(function () {
+        errorMessage();
     })
 }
-
 /**
  * stop the clock, enable start button, displays message, todo turns off death
  */
