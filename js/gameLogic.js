@@ -5,30 +5,29 @@ var $finishBox = $('someHTMLEntityNotDecided');
 var levelNumber = 1;
 var congratulationsMessage = '<p>Some html shit about congrats</p>';
 var $startSafeZone = $('#startArea');
-var gameover = 2;
-var genericError = "error, error";
+var gameOver = 2;
+var genericError = "Sorry there is a problem, please try again later";
 var attemptsCount;
 
 /**
- * ajax request for next level
- *
- * @param levelNumber
+ * loads next level, checks level number is valid
+ * if first level also loads game visuals
+ * Displays generic error is load fails
+ * @param Integer levelNumber
  */
-
-//todo validation if file doesn't exist
 function loadLevel(levelNumber) {
     if (levelNumber > 0 && levelNumber <= 5) {
         if (levelNumber === 1) {
             $('#game').load('templates/gameVisual.html', function( response, status) {
                 if ( status == "error" ) {
-                    $gameBoxDiv.html("<p> On no! There was an error, please refresh the page</p>");
+                    $messageDisplayBox.replaceWith(genericError);
                 }
             })
         }
         $gameBoxDiv.load('templates/level' + levelNumber + '.php',
             function( response, status) {
                 if ( status == "error" ) {
-                    $gameBoxDiv.html("<p> On no! There was an error, please refresh the page</p>");
+                    $messageDisplayBox.replaceWith(genericError);
                 }
                 attemptsCount = 0;
                 resetClock()
@@ -37,7 +36,9 @@ function loadLevel(levelNumber) {
         $messageDisplayBox.replaceWith('<p> Sorry, level does not exist. </p>')
     }
 }
-
+/**
+ * starts a clock, add one to attempts counter, stops listening to click in start safe zone, listening for death event
+ */
 function startGame() {
 //Start Clock
     startClock();
@@ -45,9 +46,15 @@ function startGame() {
     $('#tally').text(++attemptsCount);
     //disable start zone
     $startSafeZone.off('click');
-    $('.die').on('death', gameDeath)
+    $('.die').on('death', function () {
+        gameDeath()
+    })
 }
 
+/**
+ * animates display message box to a larger box,
+ * currently only called on game complete
+ */
 function animateDisplayMessageBox() {
     $messageDisplayBox.animate({
         opacity: "100",
@@ -57,8 +64,10 @@ function animateDisplayMessageBox() {
         top: "0px"
     })
 }
+/**
+ * stops clock, posts data to api, loads the next level or End of game message box
+ */
 function finishGame() {
-//todo remove, after testing
     alert("You have completed level 'levelNumber'");
     //change message box to display level congrats
     $messageDisplayBox.replaceWith(congratulationsMessage);
@@ -76,7 +85,7 @@ function finishGame() {
             if (data.success) {
                 //success function
                 levelNumber++;
-                if (levelNumber === gameover) {
+                if (levelNumber === gameOver) {
                     $messageDisplayBox.replaceWith('#endOfGame').css({opacity: 0});
                     animateDisplayMessageBox();
                 }
@@ -92,16 +101,23 @@ function finishGame() {
 }
 
 
-function gameDeath() {
-    stopClock();
-    $startSafeZone.on('click', startGame);
-    $messageDisplayBox.replaceWith("You have died! Please try again! Click the start area to start");
-    $('.die').off('death')
-}
 $(function () {
-
+    /**
+     * triggered on death event
+     * stops clock, doesn't reset
+     * enables the safezone click event
+     * replaces the message in the display box
+     * disables the death event
+     */
+    $gameBoxDiv.on('death', function() {
+        stopClock();
+        $startSafeZone.on('click', startGame);
+        $messageDisplayBox.replaceWith("You have died! Please try again! Click the start area to start");
+        $('.die').off('death')
+    });
+    //triggers start event
     $startSafeZone.click(startGame);
-
+    //triggers finish event
     $finishBox.mouseover(finishGame);
     //triggers death event
     $('.die').mouseover(gameDeath);
@@ -109,7 +125,7 @@ $(function () {
     $finishSafeZone.mouseover(function () {
         $gameBoxDiv.trigger('completedLevel')
     });
-
+    //enables the death eventg
     $gameBoxDiv.on('death', function () {
         gameDeath()
     })
