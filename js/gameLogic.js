@@ -129,9 +129,7 @@ $(function () {
     $finishBox.mouseover(function () {
         finishLevel()
     })
-    //triggers death event
 
-    $('.die').mouseover('death')
     //enables the death event
     $gameBoxDiv.on('death', function () {
         gameDeath()
