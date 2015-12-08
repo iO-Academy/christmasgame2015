@@ -15,8 +15,6 @@ var attemptsCount;
  * Displays generic error is load fails
  * @number levelNumber
  */
-
-//todo validation if file doesn't exist
 function loadLevel(levelNumber) {
     if (levelNumber > 0 && levelNumber <= 5) {
         if (levelNumber === 1) {
@@ -38,7 +36,9 @@ function loadLevel(levelNumber) {
         $messageDisplayBox.replaceWith('<p> Sorry, level does not exist. </p>')
     }
 }
-
+/**
+ * starts a clock, add one to attempts counter, stops listening to click in start safe zone, listening for death event
+ */
 function startGame() {
 //Start Clock
     startClock();
@@ -46,9 +46,15 @@ function startGame() {
     $('#tally').text(++attemptsCount);
     //disable start zone
     $startSafeZone.off('click');
-    $('.die').on('death', gameDeath)
+    $('.die').on('death', function () {
+        gameDeath()
+    })
 }
 
+/**
+ * animates display message box to a larger box,
+ * currently only called on game complete
+ */
 function animateDisplayMessageBox() {
     $messageDisplayBox.animate({
         opacity: "100",
@@ -58,8 +64,10 @@ function animateDisplayMessageBox() {
         top: "0px"
     })
 }
+/**
+ * stops clock, posts data to api, loads the next level or End of game message box
+ */
 function finishGame() {
-//todo remove, after testing
     alert("You have completed level 'levelNumber'");
     //change message box to display level congrats
     $messageDisplayBox.replaceWith(congratulationsMessage);
@@ -77,7 +85,7 @@ function finishGame() {
             if (data.success) {
                 //success function
                 levelNumber++;
-                if (levelNumber === gameover) {
+                if (levelNumber === gameOver) {
                     $messageDisplayBox.replaceWith('#endOfGame').css({opacity: 0});
                     animateDisplayMessageBox();
                 }
