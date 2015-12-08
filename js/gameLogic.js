@@ -15,8 +15,6 @@ var attemptsCount;
  * Displays generic error is load fails
  * @param Integer levelNumber
  */
-
-//todo validation if file doesn't exist
 function loadLevel(levelNumber) {
     if (levelNumber > 0 && levelNumber <= 5) {
         if (levelNumber === 1) {
@@ -66,9 +64,10 @@ function animateDisplayMessageBox() {
         top: "0px"
     })
 }
-
+/**
+ * stops clock, posts data to api, loads the next level or End of game message box
+ */
 function finishGame() {
-//todo remove, after testing
     alert("You have completed level 'levelNumber'");
     //change message box to display level congrats
     $messageDisplayBox.replaceWith(congratulationsMessage);
@@ -101,17 +100,24 @@ function finishGame() {
     )
 }
 
-$(function () {
 
+$(function () {
+    /**
+     * triggered on death event
+     * stops clock, doesn't reset
+     * enables the safezone click event
+     * replaces the message in the display box
+     * disables the death event
+     */
     $gameBoxDiv.on('death', function() {
         stopClock();
         $startSafeZone.on('click', startGame);
         $messageDisplayBox.replaceWith("You have died! Please try again! Click the start area to start");
         $('.die').off('death')
     });
-
+    //triggers start event
     $startSafeZone.click(startGame);
-
+    //triggers finish event
     $finishBox.mouseover(finishGame);
     //triggers death event
     $('.die').mouseover(gameDeath);
@@ -119,7 +125,7 @@ $(function () {
     $finishSafeZone.mouseover(function () {
         $gameBoxDiv.trigger('completedLevel')
     });
-
+    //enables the death eventg
     $gameBoxDiv.on('death', function () {
         gameDeath()
     })
