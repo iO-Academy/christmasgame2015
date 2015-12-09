@@ -19,6 +19,8 @@
 
 .level1 {
     background-image: url('../img/level_bg.png');
+    border: rgba(7, 2, 1, 0.3) 1px solid;
+    height: 430;
 }
 
 .gameLevelVisual {
@@ -30,6 +32,7 @@
 	left: 15px;
 	width: 450px;
 	height: 370px;
+    cursor: url('../img/cursor.gif'), auto;
 }
 
 #message {
