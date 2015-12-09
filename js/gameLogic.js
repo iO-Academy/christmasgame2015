@@ -82,9 +82,7 @@ function finishLevel() {
                 //success function
                 levelNumber++
                 if (levelNumber === lastLevel) {
-                    $messageDisplayBox.html('<div class="popUp instructions messageTitle">Congratulations, you beat the game!' +
-                        '<div>Your time: ' + seconds2time(ticks) + '</div>' +
-                        '<div>Number of attempts: ' + attemptsCount + '</div></div>')
+                    $messageDisplayBox.html("<div id='endOfGame' class='popBig'><span class='bigTitle'>Congratulations!!</span><br><br><span class='bigSubtitle'>You finished the game!</span><br><br><div>Your time: " + seconds2time(ticks) + "</div><div>Number of attempts: " + attemptsCount + "</div></div><br><br>Your results have been submitted, to play again click 'Restart'!<div class='buttons'><input type='button' value='Restart' class='loadLevel popBut'><input type='button' class='quit' value='Quit' class='quit popBut'></div></div>")
                 }
                 else {
                     loadLevel(levelNumber)
