@@ -23,10 +23,12 @@ function seconds2time(seconds) {
 function startClock() {
     clock = setInterval(function () {
         if(ticks == 0 || ticks%2 == 0) {
-            $presentOne.animate({left: "83px"}, 1000, 'linear')
+            $presentOne.animate({left: "-=26"}, 1000, 'linear')
+            $shifty.animate({left: "+=6"}, 1000, 'linear')
         }
         else {
-            $presentOne.animate({left: "109px"}, 1000, 'linear')
+            $presentOne.animate({left: "+=26"}, 1000, 'linear')
+            $shifty.animate({left: "-=6"}, 1000, 'linear')
         }
         document.getElementById('seconds').innerHTML = seconds2time(++ticks);
     }, 1000);

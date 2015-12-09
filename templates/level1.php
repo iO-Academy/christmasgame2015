@@ -5,7 +5,7 @@
 <div class="boundary" id="b5"></div>
 <div class="boundary" id="b6"></div>
 <div class="boundary" id="b7"></div>
-<div class="boundary" id="b8"></div>
+<div class="boundary shifty" id="b8"></div>
 <div class="boundary" id="b9"></div>
 <div class="boundary" id="b10"></div>
 <div class="boundary" id="b11"></div>
@@ -48,6 +48,7 @@
 <div id="present_1_gap" class="levelImages"></div>
 <div id="present_2_bottom" class="levelImages boundary"></div>
 <div id="present_2_middle" class="levelImages"></div>
-<div id="present_2_top" class="levelImages"></div>
+<div id="present_2_top" class="levelImages shifty"></div>
 <div id="tree" class="levelImages"></div>
+<div id="road" class="levelImages shifty"></div>
 
