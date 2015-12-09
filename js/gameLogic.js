@@ -12,10 +12,10 @@ var genericError = '<div class="message"><h4>Oops!</h4><h5>Please try reloading 
 var attemptsCount = 0
 var smallInstructions = '<div class="message"><h4>To see the Instructions</h4><h5>Click the Open button</h5><div class="button">' +
     '<input type="button" value="Open" class="messageButton" onclick="bigInstruct()"></div></div>'
-var bigInstructions = '<div class="message bigMessage"> <h2>Instructions</h2>' +
+var bigInstructions = '<div class="message bigMessage"><div class="messageContent"<h2>Instructions</h2>' +
     '<h3>Follow the path with your mouse cursor to make it to the safe zone.</h3>' +
     '<h3>Try to complete it as fast as possible with as few attempts as possible.</h3>' +
-    '<h3>Hide the instructions and click Start to begin.</h3> <input type="button" value="Hide Instructions" onclick="smallInstruct()" class="messageButton"> </div>'
+    '<h3>Hide the instructions and click Start to begin.</h3> <input type="button" value="Hide Instructions" onclick="smallInstruct()" class="messageButton"> </div></div>'
 /**
  * loads next level, checks level number is valid
  * if first level also loads game visuals
@@ -86,13 +86,13 @@ function finishLevel() {
                 levelNumber++
                 if (levelNumber === lastLevel) {
                     $messageDisplayBox.html('<div class="message bigMessage">' +
-                        '<h2>Congratulations!</h2> <h3>You finished the game!</h3>' +
+                        '<div class="messageContent"><h2>Congratulations!</h2> <h3>You finished the game!</h3>' +
                         '<h3>You completed it in a time of: ' + seconds2time(ticks) + '</h3>' +
                         '<h3>It took you a total of ' + attemptsCount + ' attempts!</h3>' +
                         '<h3>Your results have been submitted, to play again click Restart!</h3>' +
                         '<div class="buttonBigMessage">' +
                         '<input type="button" value="Restart" class="messageButton" onclick="loadLevel(1)"> ' +
-                        '<input type="button" value="Quit Game" class="messageButton" onclick="quitGame()"> </div>' +
+                        '<input type="button" value="Quit Game" class="messageButton" onclick="quitGame()"> </div></div>' +
                         '</div>').children('div').show('slow')
                 } else {
                     loadLevel(levelNumber)
@@ -161,11 +161,15 @@ $(function () {
 })
 
 function bigInstruct () {
-    $('#message').html(bigInstructions).children('div').show('slow')
+    $('#message').html(bigInstructions).children('div').show('slow', function(){
+        $('.messageContent').fadeIn(500)
+    })
 }
 
 function smallInstruct () {
-    $('#message').html(bigInstructions).children('div').hide('slow')
+    $('.messageContent').fadeOut(300, function(){
+        $('#message').html(bigInstructions).children('div').hide(1000)
+    } )
     $('#message').html(smallInstructions)
 }
 function quitGame() {
