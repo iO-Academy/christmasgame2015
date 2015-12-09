@@ -1,6 +1,7 @@
 .boundary {
     /*background-color: #0088cc;*/
     position: absolute;
+    z-index: 2;
 }
 
 #b1 {
