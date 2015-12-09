@@ -22,6 +22,14 @@ function seconds2time(seconds) {
 
 function startClock() {
     clock = setInterval(function () {
+        if(ticks == 0 || ticks%2 == 0) {
+            $presentOne.animate({left: "83px"}, 1000, 'linear')
+            $road.animate({left: "+=9"}, 1000, 'linear')
+        }
+        else {
+            $presentOne.animate({left: "109px"}, 1000, 'linear')
+            $road.animate({left: "-=9"}, 1000, 'linear')
+        }
         document.getElementById('seconds').innerHTML = seconds2time(++ticks);
     }, 1000);
 }
@@ -35,4 +43,6 @@ function resetClock() {
     ticks = 0;
     document.getElementById('seconds').innerHTML = "00:00";
 }
+
+
 

@@ -26,6 +26,7 @@ function loadLevel(levelNumber) {
                 resetClock()
                 $startSafeZone = $('#startArea')
                 $gameBoxDiv = $('#mazeContainer')
+
                 //disable right click on maze container
                 $(document).ready(function() {
                     $gameBoxDiv.on("contextmenu",function(){
@@ -35,6 +36,17 @@ function loadLevel(levelNumber) {
                 $finishBox = $('#finishArea')
                 $gameDiv = $('#game')
                 $messageDisplayBox = $('#message')
+                $presentOne = $('#present_1_single')
+                $road = $('#road')
+
+                //start the game animations
+
+                //$startSafeZone.click( function start() {
+                   // $presentOne.animate({left: "83px"}, 1, 'linear', (function() {
+                      //  $presentOne.animate({left: "109px"}, 1, 'linear', start)
+                    //}))
+                 //})
+
                 //enable start event
                 $startSafeZone.click( function() {
                     if(!playing && !finished)
@@ -75,6 +87,8 @@ function startLevel() {
 //Start Clock
     startClock()
     playing = true
+    $gameBoxDiv.css({
+        'cursor': 'url("img/cursor.gif"), auto'})
     //increase attempt counter by 1
     $('#tally').text(++attemptsCount)
 }
@@ -117,6 +131,7 @@ function finishLevel() {
  */
 function gameDeath() {
     stopClock()
+    $gameBoxDiv.css( 'cursor', 'not-allowed' )
     playing = false
     $messageDisplayBox.html('You have died! Please try again! Click on the start area to start')
 }
