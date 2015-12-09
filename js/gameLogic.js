@@ -75,6 +75,8 @@ function startLevel() {
 //Start Clock
     startClock()
     playing = true
+    $gameBoxDiv.css({
+        'cursor': 'url("img/cursor.gif"), auto'})
     //increase attempt counter by 1
     $('#tally').text(++attemptsCount)
 }
@@ -117,6 +119,7 @@ function finishLevel() {
  */
 function gameDeath() {
     stopClock()
+    $gameBoxDiv.css( 'cursor', 'not-allowed' )
     playing = false
     $messageDisplayBox.html('You have died! Please try again! Click on the start area to start')
 }
