@@ -87,7 +87,7 @@ function finishLevel() {
                         '<h3>You completed it in a time of: ' + seconds2time(ticks) + '</h3>' +
                         '<h3>It took you a total of ' + attemptsCount + ' attempts!</h3>' +
                         '<h3>Your results have been submitted, to play again click Restart!</h3>' +
-                        '<div class="button">' +
+                        '<div class="buttonBigMessage">' +
                         '<input type="button" value="Restart" class="messageButton"> ' +
                         '<input type="button" value="Quit Game" class="messageButton"> </div>' +
                         '</div>')
