@@ -67,3 +67,12 @@
     top: 191px;
     left: 187px;
 }
+
+#road {
+    background-image: url('../img/right-border.png');
+    width: 11px;
+    height: 106px;
+    z-index: 2;
+    top: 175px;
+    left: 271px;
+}
