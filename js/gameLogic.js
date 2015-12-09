@@ -54,6 +54,8 @@ function loadLevel(levelNumber) {
  */
 function startLevel() {
     startClock()
+    // adds the small instructions
+    $messageDisplayBox.html(smallInstructions)
     //increase attempt counter by 1
     $('#tally').text(++attemptsCount)
     //disable start zone
@@ -168,7 +170,7 @@ function bigInstruct () {
 
 function smallInstruct () {
     $('.messageContent').fadeOut(300, function(){
-        $('#message').html(bigInstructions).children('div').fadeOut(2500)
+        $('#message').html(bigInstructions).children('div').hide(1000)
         $('#message').html(smallInstructions)
     } )
 }
