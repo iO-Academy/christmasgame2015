@@ -33,6 +33,7 @@
 	width: 450px;
 	height: 370px;
     position: relative;
+    cursor: url('../img/cursor.gif'), auto;
 }
 
 #message {
