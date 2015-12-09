@@ -1,4 +1,4 @@
-<img src="img/game_background.png">
+<img src="img/mayden_game_3.png">
 <div id="mazeContainer" class="gameLevelVisual">
     <div id="startArea"></div>
     <div id="finishArea"></div>
