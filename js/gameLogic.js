@@ -5,7 +5,7 @@ var $gameBoxDiv
 var $messageDisplayBox
 var $finishBox
 var levelNumber = 1
-var completedLevelMessage = '<div class="popUp instructions messageTitle">Some html about completing level</div>'
+var completedLevelMessage = "<div id='success' class='popUp'><span class='messageTitle'>You did it!</span><br><br><br><span class='subtitle'>Click the 'Start' area to continue playing.</span><br><div class='buttons'><input type='button' class='quit' value='Quit' class='quit popBut'></div></div>"
 var $startSafeZone
 var lastLevel = 2
 var genericError = "Sorry there is a problem, please try reloading the page"
@@ -65,9 +65,10 @@ function startLevel() {
  * stops clock, posts data to api, loads the next level or End of game message box
  */
 function finishLevel() {
-    //change message box to display level congrats
-    $messageDisplayBox.html(completedLevelMessage)
+    //change message box to display level congrats (for more than one level)
+    //$messageDisplayBox.html(completedLevelMessage)
     //stops the clock
+    $messageDisplayBox.html("<div id='endOfGame' class='popBig'><span class='bigTitle'>Congratulations!!</span><br><br><span class='bigSubtitle'>You finished the game!</span><br><br><div>Your time: " + seconds2time(ticks) + "</div><div>Number of attempts: " + attemptsCount + "</div></div><br><br>Your results have been submitted, to play again click 'Restart'!<div class='buttons'><input type='button' value='Restart' class='loadLevel popBut'><input type='button' class='quit' value='Quit' class='quit popBut'></div></div>")
     stopClock()
     //disable death
     $('.die').off('death')
@@ -78,6 +79,7 @@ function finishLevel() {
             'time': ticks
         }, // put data here from ajax into endOfGame
         function (data) {
+
             if ('success' in data && data.success) {
                 //success function
                 levelNumber++
