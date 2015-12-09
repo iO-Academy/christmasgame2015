@@ -9,47 +9,47 @@
 }
 
 #game {
-	position: relative;
-	width: 729px;
-	height: 430px;
-	margin: 0 auto;
-	font-family: 'Roboto', sans-serif;
-	font-size: 14px;
+    position: relative;
+    width: 729px;
+    height: 430px;
+    margin: 0 auto;
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
 }
 
 .level1 {
     background-image: url('../img/level_bg.png');
     border: rgba(7, 2, 1, 0.3) 1px solid;
-    height: 430;
+    height: 430px;
 }
 
 .gameLevelVisual {
-	position: absolute;
+    position: absolute;
 }
 
 #mazeContainer {
-	top: 25px;
-	left: 15px;
-	width: 450px;
-	height: 370px;
+    top: 25px;
+    left: 15px;
+    width: 450px;
+    height: 370px;
     cursor: url('../img/cursor.gif'), auto;
 }
 
 #message {
-	top: 25px;
-	right: 25px;
-	width: 215px;
-	height: 160px;
+    top: 25px;
+    right: 25px;
+    width: 215px;
+    height: 160px;
 }
 
 #timer {
-	top: 206px;
-	border-radius: 100%;
-	right: 143px;
-	width: 100px;
-	height: 100px;
-	text-align: center;
-	padding-top: 3px;
+    top: 206px;
+    border-radius: 100%;
+    right: 143px;
+    width: 100px;
+    height: 100px;
+    text-align: center;
+    padding-top: 3px;
 }
 
 #timerDigits > span {
@@ -62,43 +62,61 @@
 }
 
 #entryTally {
-	top: 270px;
-	border-radius: 100%;
-	right: 28px;
-	width: 120px;
-	height: 120px;
-	text-align: center;
-	padding-top: 3px;
+    top: 270px;
+    border-radius: 100%;
+    right: 28px;
+    width: 120px;
+    height: 120px;
+    text-align: center;
+    padding-top: 3px;
 }
 
 #tally {
-	color: #F27324;
-	font-size: 36px;
+    color: #F27324;
+    font-size: 36px;
 }
 
 #startArea {
-    border: 2px solid black;
-     width: 55px;
-     height: 30px;
-     top: 30px;
-     left: 15px;
-     position: absolute;
- }
-#finishArea {
-    border: 2px solid black;
-    width: 55px;
-    height: 30px;
-    top: 25px;
-    left: 350px;
+    border-radius: 2px;
+    background-color: #DAF2FA;
+    width: 50px;
+    height: 25px;
+    top: 33px;
+    left: 16px;
     position: absolute;
 }
-#loadingImage
-{
+
+#finishArea {
+    width: 6px;
+    height: 18px;
+    top: 68px;
+    left: 397px;
+    position: absolute;
+}
+
+#start {
+    z-index: 100;
+    position: absolute;
+    left: 10px;
+    top: 5px;
+    vertical-align: middle;
+    text-align: center;
+}
+
+#finish {
+    position: absolute;
+    right: 50px;
+    top: 29px;
+    vertical-align: middle;
+    text-align: center;
+}
+
+#loadingImage {
     position: absolute;
     align-self: center;
     width: 44px;
     height: 44px;
-     display: none;
+    display: none;
     left: 50%;
     margin-left: -22px;
     top: 215px;
