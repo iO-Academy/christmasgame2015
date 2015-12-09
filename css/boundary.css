@@ -5,7 +5,7 @@
 
 #b1 {
     height: 46px;
-    width: 4px;
+    width: 10px;
     top: 95px;
     left: 91px;
 }
@@ -53,58 +53,83 @@
 }
 
 #b8 {
-    height: 20px;
-    width: 20px;
-    top: 0px;
-    left: 0px;
+    height: 124px;
+    width: 118px;
+    top: 156px;
+    left: 291px;
 }
 
-#b9 {height: 20px;
-    width: 20px;
-    top: 0px;
-    left: 0px;
+#b9 {
+    height: 53px;
+    width: 18px;
+    top: 293px;
+    left: 392px;
 }
 
 #b10 {
     height: 20px;
-    width: 20px;
-    top: 0px;
-    left: 0px;
+    width: 9px;
+    top: 279px;
+    left: 392px;
 }
 
 #b11 {
-    height: 20px;
-    width: 0px;
-    top: 0px;
-    left: 0px;
+    height: 10px;
+    width: 12px;
+    top: 336px;
+    left: 410px;
 }
 
 #b12 {
-    height: 20px;
-    width: 0px;
-    top: 0px;
-    left: 0px;
+    height: 87px;
+    width: 16px;
+    top: 193px;
+    left: 405px;
 }
 
 #b13 {
-    height: 20px;
-    width: 0px;
-    top: 0px;
-    left: 0px;
+    height: 45px;
+    width: 20px;
+    top: 92px;
+    left: 359px;
 }
 
 #b14 {
+    font-weight: bold;
+    color: #000;
+    background: #aa0;
+    display: block;
+    margin: 0 auto;
+    width: 33px;
     height: 20px;
-    width: 0px;
-    top: 0px;
-    left: 0px;
+    top: 143px;
+    left: 70px;
+    text-align: center;
+    line-height: 300px;
+    -webkit-transform: rotate(-20deg);
+    -moz-transform: rotate(-20deg);
+    -ms-transform: rotate(-20deg);
+    -o-transform: rotate(-20deg);
+    -ms-filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3.8);
 }
 
 #b15 {
+    font-weight: bold;
+    color: #000;
+    background: #aa0;
+    display: block;
+    margin: 0 auto;
+    width: 33px;
     height: 20px;
-    width: 0px;
-    top: 0px;
-    left: 0px;
+    top: 143px;
+    left: 70px;
+    text-align: center;
+    line-height: 300px;
+    -webkit-transform: rotate(-20deg);
+    -moz-transform: rotate(-90deg);
+    -ms-transform: rotate(-90deg);
+    -o-transform: rotate(-90deg);
+    -ms-filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
 }
 
 #b16 {
@@ -137,7 +162,7 @@
 
 #b20 {
     height: 20px;
-    width: 0px;
+    width: 20px;
     top: 0px;
     left: 0px;
 }
