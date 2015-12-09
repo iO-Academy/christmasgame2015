@@ -20,6 +20,8 @@
 <div class="boundary" id="b20"></div>
 <div class="boundary" id="b21"></div>
 <div class="boundary" id="b22"></div>
+<div class="boundary" id="b23"></div>
+<div class="boundary" id="b24"></div>
 
 <div class="boundary" id="b100"></div>
 <div class="boundary" id="b101"></div>
