@@ -34,7 +34,7 @@
     width: 215px;
     height: 160px;
     border-radius: 6px;
-    padding: 6px;
+    border: 6px solid #ffffff;
 }
 
 #timer {
