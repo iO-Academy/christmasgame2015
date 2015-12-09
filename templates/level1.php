@@ -17,8 +17,6 @@
 <div class="boundary" id="b17"></div>
 <div class="boundary" id="b18"></div>
 <div class="boundary" id="b19"></div>
-<div class="boundary" id="b20"></div>
-
 <div class="boundary" id="b100"></div>
 <div class="boundary" id="b101"></div>
 <div class="boundary" id="b102"></div>
@@ -35,8 +33,3 @@
 <div class="boundary" id="b113"></div>
 <div class="boundary" id="b114"></div>
 <div class="boundary" id="b115"></div>
-<div class="boundary" id="b116"></div>
-<div class="boundary" id="b117"></div>
-<div class="boundary" id="b118"></div>
-<div class="boundary" id="b119"></div>
-<div class="boundary" id="b120"></div>
