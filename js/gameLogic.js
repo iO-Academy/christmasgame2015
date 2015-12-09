@@ -38,6 +38,7 @@ function loadLevel(levelNumber) {
                 $messageDisplayBox = $('#message')
                 $presentOne = $('#present_1_single')
                 $road = $('#road')
+                $shifty = $('.shifty')
 
                 //start the game animations
 
