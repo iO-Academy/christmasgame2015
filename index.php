@@ -14,7 +14,7 @@
     </head>
     <body>
         <div id="game">
-            <?php include("templates/splash.html") ?>
+            <?php include("templates/messages.html") ?>
         </div>
     <script>
         //validating that the device is not touch screen
