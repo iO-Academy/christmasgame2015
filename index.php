@@ -26,4 +26,5 @@
         }
     </script>
     <div id="loadingImage"><img src="img/ajax-loader.gif"></div>
+    
 </html>
