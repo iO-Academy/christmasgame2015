@@ -50,23 +50,20 @@
 <div id="tree" class="levelImages"></div>
 <div id="road" class="levelImages"></div>
 
-<div class="bauble" id="bauble1"></div>
-<div class="bauble" id="bauble2"></div>
-<div class="bauble" id="bauble3"></div>
-<div class="bauble" id="bauble4"></div>
-<div class="bauble" id="bauble5"></div>
-<div class="bauble" id="bauble6"></div>
-<div class="bauble" id="bauble7"></div>
-<div class="bauble" id="bauble8"></div>
-<div class="bauble" id="bauble9"></div>
-<div class="bauble" id="bauble10"></div>
-<div class="bauble" id="bauble11"></div>
-<div class="bauble" id="bauble12"></div>
-<div class="bauble" id="bauble13"></div>
-<div class="bauble" id="bauble14"></div>
-<div class="bauble" id="bauble15"></div>
-<div class="bauble" id="bauble16"></div>
-<div class="bauble" id="bauble17"></div>
-<div class="bauble" id="bauble18"></div>
-<div class="bauble" id="bauble19"></div>
-<div class="bauble" id="bauble20"></div>
+<div class="bauble colour1" id="bauble1"></div>
+<div class="bauble colour1" id="bauble2"></div>
+<div class="bauble colour1" id="bauble3"></div>
+<div class="bauble colour1" id="bauble4"></div>
+<div class="bauble colour1" id="bauble5"></div>
+<div class="bauble colour1" id="bauble6"></div>
+<div class="bauble colour1" id="bauble7"></div>
+<div class="bauble colour2" id="bauble8"></div>
+<div class="bauble colour2" id="bauble9"></div>
+<div class="bauble colour2" id="bauble10"></div>
+<div class="bauble colour2" id="bauble11"></div>
+<div class="bauble colour2" id="bauble12"></div>
+<div class="bauble colour2" id="bauble13"></div>
+<div class="bauble colour2" id="bauble14"></div>
+<div class="bauble colour2" id="bauble15"></div>
+<div class="bauble colour1" id="bauble16"></div>
+<div class="bauble colour1" id="bauble17"></div>
