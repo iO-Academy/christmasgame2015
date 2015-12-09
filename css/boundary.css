@@ -156,6 +156,27 @@
     left: -20px;
 }
 
+#b20 {
+    height: 31px;
+    width: 100px;
+    top: -24px;
+    left: 340px;
+}
+
+#b21 {
+    height: 41px;
+    width: 112px;
+    top: -24px;
+    left: -20px;
+}
+
+#b22 {
+    height: 112px;
+    width: 20px;
+    top: -24px;
+    left: -20px;
+}
+
 #b100 {
     height: 240px;
     width: 40px;
@@ -301,5 +322,5 @@
 /*
  * if you accidentally scroll here and think "ermahgerd,
  * I have to look through over 100 blocks of css!!"
- * do not fear! It goes from 1-19 and then 100-116
+ * do not fear! It goes from 1-22 and then 100-116
  * /

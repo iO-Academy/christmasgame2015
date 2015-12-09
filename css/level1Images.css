@@ -1,15 +1,13 @@
 .levelImages {
     position: absolute;
-    background-size:contain;
     z-index: 9999;
     background-repeat: no-repeat;
-
 }
 
 #hanger1 {
     background-image: url('../img/logo_1.png');
     width: 96px;
-    height: 177;
+    height: 177px;
     top: 73px;
     left: 77px;
 }
@@ -17,7 +15,7 @@
 #hanger2 {
     background-image: url('../img/logo_2.png');
     width: 23%;
-    height: 27%;
+    height: 28%;
     top: 74px;
     right: 60px;
 }

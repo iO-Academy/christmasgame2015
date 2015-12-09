@@ -14,8 +14,11 @@ var genericError = 'Sorry there is a problem, please try reloading the page'
 function loadLevel(levelNumber) {
 
     if (levelNumber > 0 && levelNumber <= lastLevel) {
+        $('#splashbackground').hide()
+        $('#loadingImage').show();
         if (levelNumber === 1) {
             $('#game').load('templates/gameVisual.php', function(response, status) {
+                $('#loadingImage').hide();
                     if (status == "error") {
                         console.log(status)
                         $messageDisplayBox.html(genericError)
@@ -47,6 +50,7 @@ function loadLevel(levelNumber) {
         } else {
             $gameBoxDiv.load('templates/level' + levelNumber + '.php',
                 function(response, status) {
+                    $('#loadingImage').hide()
                     if (status == 'error') {
                         $messageDisplayBox.html(genericError)
                     }
@@ -109,3 +113,8 @@ function gameDeath() {
     playing = false
     $messageDisplayBox.html('You have died! Please try again! Click on the start area to start')
 }
+$().bind('ajaxStart', function(){
+
+}).bind('ajaxStop', function(){
+    $(this).hide();
+});
