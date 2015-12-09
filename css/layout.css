@@ -15,6 +15,7 @@
 	margin: 0 auto;
 	font-family: 'Roboto', sans-serif;
 	font-size: 14px;
+    background-image: url('../assets/mayden_game_3.png');
 }
 
 .gameLevelVisual {
@@ -26,6 +27,7 @@
 	left: 15px;
 	width: 450px;
 	height: 370px;
+    position: relative;
 }
 
 #message {
