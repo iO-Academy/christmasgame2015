@@ -4,7 +4,7 @@ $username = "root2";
 $password = "fsd";
 
 try {
-    $db = new PDO("mysql:host=$servername;dbname=christmaGame", $username, $password);
+    $db = new PDO("mysql:host=$servername;dbname=christmasGame", $username, $password);
     // set the PDO error mode to exception
     $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 }
