@@ -25,14 +25,10 @@
 }
 
 .bigMessage {
-    width: 729px;
-    min-height: 430px;
+    width: 100%;
+    min-height: 100%;
     font-size: 30px;
     padding:20px;
-    position: absolute;
-    top: -25px;
-    right: -26px;
-    display: none;
 }
 
 h5{
@@ -48,10 +44,12 @@ h4 {
 
 h3 {
     font-size: 25px;
+    margin: 18px;
 }
 
 h2 {
     font-size: 40px;
+    margin-top: 0px;
 }
 
 .button {
