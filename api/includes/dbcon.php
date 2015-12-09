@@ -1,7 +1,7 @@
 <?php
-$servername = "192.168.20.56";
+$servername = "192.168.20.6";
 $username = "root2";
-$password = "";
+$password = "fsd";
 
 try {
     $db = new PDO("mysql:host=$servername;dbname=christmasGame", $username, $password);
