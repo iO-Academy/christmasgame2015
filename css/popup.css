@@ -17,10 +17,11 @@
     color: white;
     text-align: center;
     position: relative;
-    width: 215px;
-    height: 160px;
+    max-height: 149px;
     font-size: 10px;
-    padding:10px;
+    padding: 10px;
+    border-radius: 6px;
+    overflow: hidden;
 }
 
 .bigMessage {
@@ -30,7 +31,7 @@
     padding:20px;
     position: absolute;
     top: -25px;
-    right: -25px;
+    right: -26px;
 }
 
 h5{
