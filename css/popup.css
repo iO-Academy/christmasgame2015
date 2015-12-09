@@ -1,6 +1,4 @@
 .messageButton {
-    position: absolute;
-    bottom:10px;
     background-color: #F27324;
     -moz-border-radius: 5px;
     -webkit-border-radius: 5px;
@@ -11,6 +9,7 @@
     text-decoration: none;
     cursor: pointer;
     border: none;
+    margin:auto;
 }
 
 .message {
@@ -28,13 +27,23 @@
     width: 729px;
     height: 430px;
     font-size: 30px;
+    padding:20px;
+}
+
+h5{
+    font-size: 15px;
+    margin-top: 1px;
 }
 
 h4 {
     font-size: 20px;
-    margin: 10px;
+    margin-bottom: 1px;
 }
 
 h3 {
-    font-size: 15px;
+    font-size: 25px;
+}
+
+h2 {
+    font-size: 40px;
 }
