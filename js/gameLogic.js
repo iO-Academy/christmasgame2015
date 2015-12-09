@@ -10,8 +10,8 @@ var $startSafeZone
 var lastLevel = 2
 var genericError = "Sorry there is a problem, please try reloading the page"
 var attemptsCount = 0
-
-var smallInstructions = '<div id="died" class="message"><h4>Uh-oh, you touched the sides!</h4><h5>Click start to try again</h5><input type="button" value="Quit Game" class="quit messageButton"></div>'
+var smallInstructions = '<div class="message"> <h4>To see the Instructions</h4> <h5>Click the Open button</h5> ' +
+    '<input type="button" value="Open" class="messageButton"></div>'
 /**
  * loads next level, checks level number is valid
  * if first level also loads game visuals
@@ -68,7 +68,6 @@ function finishLevel() {
     //change message box to display level congrats (for more than one level)
     //$messageDisplayBox.html(completedLevelMessage)
     //stops the clock
-    $messageDisplayBox.html('<div id="endOfGame" class="message bigMessage"> <h2>Congratulations!!</h2> <h3>You finished the game!</h3> <h3>You completed it in a time of: <!-- --></h3> <h3>It took you a total of <!-- --> attempts!</h3> <h3>Your results have been submitted, to play again click Restart!</h3> <input type="button" value="Restart" class="loadLevel messageButton"> <input type="button" value="Quit Game" class="quit messageButton"></div>')
     stopClock()
     //disable death
     $('.die').off('death')
@@ -84,9 +83,14 @@ function finishLevel() {
                 //success function
                 levelNumber++
                 if (levelNumber === lastLevel) {
-                    $messageDisplayBox.html("<div id='endOfGame' class='popBig'><span class='bigTitle'>Congratulations!!</span><br><br><span class='bigSubtitle'>You finished the game!</span><br><br><div>Your time: " + seconds2time(ticks) + "</div><div>Number of attempts: " + attemptsCount + "</div></div><br><br>Your results have been submitted, to play again click 'Restart'!<div class='buttons'><input type='button' value='Restart' class='loadLevel popBut'><input type='button' class='quit' value='Quit' class='quit popBut'></div></div>")
-                }
-                else {
+                    $messageDisplayBox.html('<div class="message bigMessage">' +
+                        '<h2>Congratulations!</h2> <h3>You finished the game!</h3>' +
+                        '<h3>You completed it in a time of: ' + seconds2time(ticks) + '</h3>' +
+                        '<h3>It took you a total of ' + attemptsCount + ' attempts!</h3>' +
+                        '<h3>Your results have been submitted, to play again click Restart!</h3>' +
+                    '<input type="button" value="Restart" class="messageButton"> ' +
+                    '<input type="button" value="Quit Game" class="messageButton"> </div>')
+                } else {
                     loadLevel(levelNumber)
                 }
             }
@@ -105,8 +109,8 @@ function gameDeath() {
     $messageDisplayBox = $('#message')
     stopClock();
     $startSafeZone.on('click', startLevel);
-    $messageDisplayBox.html('<div id="died" class="message"> <h4>Uh-oh, you touched the sides!</h4> <h5>Click start to' +
-        ' try again</h5> <input type="button" value="Quit Game" class="quit messageButton"> </div>')
+    $messageDisplayBox.html('<div class="message"><h4>Uh-oh, you touched the sides!</h4>' +
+        '<h5>Click start to try again</h5><input type="button" value="Quit Game" class="messageButton"></div>')
     $gameBoxDiv.off('death')
 }
 $(function () {
