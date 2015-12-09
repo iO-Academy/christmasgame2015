@@ -78,20 +78,35 @@
 }
 
 #startArea {
-    border: 2px solid black;
-     width: 55px;
-     height: 30px;
-     top: 30px;
-     left: 15px;
-     position: absolute;
- }
-#finishArea {
-    border: 2px solid black;
-    width: 55px;
-    height: 30px;
-    top: 25px;
-    left: 350px;
+    border-radius: 2px;
+    background-color: #DAF2FA;
+    width: 50px;
+    height: 25px;
+    top: 33px;
+    left: 16px;
     position: absolute;
+}
+#finishArea {
+    width: 6px;
+    height: 18px;
+    top: 68px;
+    left: 397px;
+    position: absolute;
+}
+#start {
+    z-index: 100;
+    position: absolute;
+    left: 11px;
+    top: 5px;
+    vertical-align: middle;
+    text-align: center;
+}
+#finish {
+    position: absolute;
+    right: 50px;
+    top: 29px;
+    vertical-align: middle;
+    text-align: center;
 }
 #loadingImage
 {

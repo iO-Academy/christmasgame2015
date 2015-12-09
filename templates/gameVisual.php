@@ -4,8 +4,17 @@
 
 
         <?php include 'level1.php'; ?>
-        <div id="startArea"></div>
-        <div id="finishArea"></div>
+
+        <div id="startArea">
+            <div id="start">
+                Start
+            </div>
+        </div>
+        <div id="finish">
+            Finish
+        </div>
+        <div id="finishArea">
+        </div>
     </div>
 
     <div id="message" class="gameLevelVisual">
