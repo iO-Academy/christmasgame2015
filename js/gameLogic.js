@@ -114,3 +114,5 @@ function gameDeath() {
     playing = false
     $messageDisplayBox.html('You have died! Please try again! Click on the start area to start')
 }
+
+
