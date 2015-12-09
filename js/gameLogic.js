@@ -54,6 +54,8 @@ function loadLevel(levelNumber) {
  */
 function startLevel() {
     startClock()
+    // adds the small instructions
+    $messageDisplayBox.html(smallInstructions)
     //increase attempt counter by 1
     $('#tally').text(++attemptsCount)
     //disable start zone
@@ -171,8 +173,6 @@ function bigInstruct() {
             $('.messageContent').fadeIn(500)
         })
 }
-//width: 215px;
-//height: 160px;
 
 function smallInstruct() {
 
@@ -185,6 +185,7 @@ function smallInstruct() {
                 $('#message').html(smallInstructions)
             })
     })
+
 }
 function quitGame() {
     //link to game welcome screen TODO:put correct link
