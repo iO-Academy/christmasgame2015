@@ -91,8 +91,12 @@ function finishLevel() {
     })
 }
 /**
- * stop the clock, enable start button, displays message, todo turns off death
+ * stops clock, doesn't reset
+ * enables the safezone click event
+ * replaces the message in the display box
+ * disables the death event
  */
+
 function gameDeath() {
     stopClock();
     $startSafeZone.on('click', startLevel);
@@ -106,22 +110,6 @@ $(function() {
     $startSafeZone = $('#startArea')
     $finishSafeZone = $('someHTMLEntityIDNotDecided#finishSafeZone')
     $finishBox = $('someHTMLEntityNotDecided')
-    /**
-     * triggered on death event
-     * stops clock, doesn't reset
-     * enables the safezone click event
-     * replaces the message in the display box
-     * disables the death event
-     */
-    $gameBoxDiv.on('death', function() {
-        stopClock()
-        $startSafeZone.on('click', function() {
-            startLevel()
-        })
-        $messageDisplayBox.html("You have died! Please try again! Click the start area to start")
-        $gameBoxDiv.off('death')
-    })
-
     //triggers start event
     $startSafeZone.click(function() {
         startLevel()
