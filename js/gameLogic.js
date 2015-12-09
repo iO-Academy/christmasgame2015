@@ -168,9 +168,9 @@ function bigInstruct () {
 
 function smallInstruct () {
     $('.messageContent').fadeOut(300, function(){
-        $('#message').html(bigInstructions).children('div').hide(1000)
+        $('#message').html(bigInstructions).children('div').fadeOut(2500)
+        $('#message').html(smallInstructions)
     } )
-    $('#message').html(smallInstructions)
 }
 function quitGame() {
     //link to game welcome screen TODO:put correct link
