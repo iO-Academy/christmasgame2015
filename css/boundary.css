@@ -222,10 +222,10 @@
     text-align: center;
     line-height: 300px;
     -webkit-transform: rotate(-42deg);
-    -moz-transform: rotate(-20deg);
-    -ms-transform: rotate(-20deg);
-    -o-transform: rotate(-20deg);
-    -ms-filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3.8);
+    -moz-transform: rotate(-42deg);
+    -ms-transform: rotate(-42deg);
+    -o-transform: rotate(-42deg);
+    -ms-filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3.5);
 }
 
 #b108 {
@@ -241,10 +241,10 @@
     text-align: center;
     line-height: 300px;
     -webkit-transform: rotate(44deg);
-    -moz-transform: rotate(-20deg);
-    -ms-transform: rotate(-20deg);
-    -o-transform: rotate(-20deg);
-    -ms-filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3.8);
+    -moz-transform: rotate(44deg);
+    -ms-transform: rotate(44deg);
+    -o-transform: rotate(44deg);
+    -ms-filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=0.5);
 }
 
 #b109 {
@@ -263,7 +263,7 @@
     -moz-transform: rotate(-20deg);
     -ms-transform: rotate(-20deg);
     -o-transform: rotate(-20deg);
-    -ms-filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3.8);
+    -ms-filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=0.25);
 }
 
 #b110 {
