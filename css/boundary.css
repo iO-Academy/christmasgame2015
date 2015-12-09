@@ -1,6 +1,7 @@
 .boundary {
     /*background-color: #0088cc;*/
     position: absolute;
+    z-index: 2;
 }
 
 #b1 {
@@ -175,6 +176,20 @@
     width: 20px;
     top: -24px;
     left: -20px;
+}
+
+#b23 {
+    height: 63px;
+    width: 100px;
+    top: 0px;
+    left: 340px;
+}
+
+#b24 {
+    height: 15px;
+    width: 18px;
+    top: 72px;
+    left: 370px;
 }
 
 #b100 {
