@@ -66,3 +66,6 @@ h2 {
     width: 100%;
     left: 0;
 }
+.messageContent {
+    display: none;
+}
