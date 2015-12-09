@@ -1,5 +1,6 @@
-<img src="img/game_background.png">
+<!--<img src="assets/mayden_game_3.png">-->
 <div id="mazeContainer" class="gameLevelVisual">
+    <?php include 'level1.php'; ?>
     <div id="startArea"></div>
     <div id="finishArea"></div>
 </div>
