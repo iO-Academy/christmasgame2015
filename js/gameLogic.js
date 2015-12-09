@@ -11,7 +11,7 @@ var lastLevel = 2
 var genericError = "Sorry there is a problem, please try reloading the page"
 var attemptsCount = 0
 
-var smallInstructions = "<div id='smallInstructions' class='popUp instructions'><br><br><br><br><span class='messageTitle'>Instructions</span><br><br><div class='buttons'><input type='button' value='Open' class='expand popBut'></div></div>"
+var smallInstructions = '<div id="died" class="message"><h4>Uh-oh, you touched the sides!</h4><h5>Click start to try again</h5><input type="button" value="Quit Game" class="quit messageButton"></div>'
 /**
  * loads next level, checks level number is valid
  * if first level also loads game visuals

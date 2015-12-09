@@ -28,6 +28,9 @@
     height: 430px;
     font-size: 30px;
     padding:20px;
+    position: absolute;
+    top: -25px;
+    right: -25px;
 }
 
 h5{
