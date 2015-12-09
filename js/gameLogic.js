@@ -1,7 +1,7 @@
 var $gameDiv, $gameBoxDiv, $messageDisplayBox, $finishBox, levelNumber = 1
 var congratulationsMessage = '<p>Yay you did it!</p>'
 var completedLevelMessage = '<p>Some html about completing level</p>'
-var $startSafeZone, lastLevel = 2, attemptsCount = 0, playing = false
+var $startSafeZone, lastLevel = 2, attemptsCount = 0, playing = false, finished = false
 var genericError = 'Sorry there is a problem, please try reloading the page'
 
 
@@ -37,11 +37,11 @@ function loadLevel(levelNumber) {
                 $messageDisplayBox = $('#message')
                 //enable start event
                 $startSafeZone.click( function() {
-                    if(!playing)
+                    if(!playing && !finished)
                     startLevel()
                 })
                 //enable the death event
-                $gameBoxDiv.on('mouseenter', '.boundary', function() {
+                $gameBoxDiv.on('mouseover', '.boundary', function() {
                     if(playing) {
                         gameDeath()
                     }
@@ -85,6 +85,7 @@ function finishLevel() {
     //stops the clock
     stopClock()
     playing = false
+    finished = true
     //change message box to display level congrats
     $messageDisplayBox.html(completedLevelMessage)
     $.post('api/index.php', {
@@ -119,8 +120,3 @@ function gameDeath() {
     playing = false
     $messageDisplayBox.html('You have died! Please try again! Click on the start area to start')
 }
-$().bind('ajaxStart', function(){
-
-}).bind('ajaxStop', function(){
-    $(this).hide();
-});
