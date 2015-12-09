@@ -11,11 +11,11 @@ var lastLevel = 2
 var genericError = '<div class="message"><h4>Oops!</h4><h5>Please try reloading the page</h5><div class="button"><input type="button" value="Quit Game" class="quit messageButton"></div></div>'
 var attemptsCount = 0
 var smallInstructions = '<div class="message"><h4>To see the Instructions</h4><h5>Click the Open button</h5><div class="button">' +
-    '<input type="button" value="Open" class="messageButton" onclick="showInstruct()"></div></div>'
+    '<input type="button" value="Open" class="messageButton" onclick="bigInstruct()"></div></div>'
 var bigInstructions = '<div class="message bigMessage"> <h2>Instructions</h2>' +
     '<h3>Follow the path with your mouse cursor to make it to the safe zone.</h3>' +
     '<h3>Try to complete it as fast as possible with as few attempts as possible.</h3>' +
-    '<h3>Hide the instructions and click Start to begin.</h3> <input type="button" value="Hide Instructions" class="messageButton"> </div>'
+    '<h3>Hide the instructions and click Start to begin.</h3> <input type="button" value="Hide Instructions" onclick="smallInstruct()" class="messageButton"> </div>'
 /**
  * loads next level, checks level number is valid
  * if first level also loads game visuals
@@ -93,10 +93,7 @@ function finishLevel() {
                         '<div class="buttonBigMessage">' +
                         '<input type="button" value="Restart" class="messageButton"> ' +
                         '<input type="button" value="Quit Game" class="messageButton"> </div>' +
-                        '</div>')
-
-
-
+                        '</div>').children('div').show('slow')
                 } else {
                     loadLevel(levelNumber)
                 }
@@ -163,7 +160,11 @@ $(function () {
     })
 })
 
-function showInstruct () {
-    console.log('click')
-    $messageDisplayBox.html(bigInstructions).slideDown("slow")
+function bigInstruct () {
+    $('#message').html(bigInstructions).children('div').show('slow')
+}
+
+function smallInstruct () {
+    $('#message').html(bigInstructions).children('div').hide('slow')
+    $('#message').html(smallInstructions)
 }
