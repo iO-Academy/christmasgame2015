@@ -129,7 +129,7 @@
     -moz-transform: rotate(38deg);
     -ms-transform: rotate(38deg);
     -o-transform: rotate(38deg);
-    -ms-filter: progid:DXImageTransform.Microsoft.BasicImage(rotation= 1);
+    -ms-filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=1);
 }
 
 #b16 {
@@ -148,9 +148,9 @@
 
 #b18 {
     height: 41px;
-    width: 20px;
+    width: 35px;
     top: 62px;
-    left: 356px;
+    left: 341px;
 }
 
 #b19 {
@@ -160,54 +160,55 @@
     left: -20px;
 }
 
-#b20 {
-    height: 20px;
-    width: 20px;
-    top: 0px;
-    left: 0px;
-}
 #b100 {
     height: 240px;
     width: 40px;
     top: 139px;
     left: -5px;
 }
+
 #b101 {
     height: 390px;
     width: 40px;
     top: -30px;
     left: 434px;
 }
+
 #b102 {
     height: 240px;
     width: 40px;
     top: 139px;
     left: -5px;
 }
+
 #b103 {
     height: 40px;
     width: 470px;
     top: 356px;
     left: -5px;
 }
+
 #b104 {
     height: 146px;
     width: 103px;
     top: 241px;
     left: 99px;
 }
+
 #b105 {
     height: 170px;
     width: 74px;
     top: 186px;
     left: 194px;
 }
+
 #b106 {
     height: 70px;
     width: 150px;
     top: 293px;
     left: 231px;
 }
+
 #b107 {
     font-weight: bold;
     color: #000;
@@ -226,6 +227,7 @@
     -o-transform: rotate(-20deg);
     -ms-filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3.8);
 }
+
 #b108 {
     font-weight: bold;
     color: #000;
@@ -244,6 +246,7 @@
     -o-transform: rotate(-20deg);
     -ms-filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3.8);
 }
+
 #b109 {
     font-weight: bold;
     color: #000;
@@ -262,45 +265,51 @@
     -o-transform: rotate(-20deg);
     -ms-filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3.8);
 }
+
 #b110 {
     height: 192px;
-    width: 263px;
+    width: 254px;
     top: -24px;
     left: 90px;
 }
+
 #b111 {
-    height: 40px;
-    width: 50px;
-    top: 19px;
-    left: 72px;
+    height: 240px;
+    width: 40px;
+    top: 139px;
+    left: -5px;
 }
+
 #b112 {
     height: 240px;
     width: 40px;
     top: 139px;
     left: -5px;
 }
+
 #b113 {
     height: 240px;
     width: 40px;
     top: 139px;
     left: -5px;
 }
+
 #b114 {
     height: 240px;
     width: 40px;
     top: 139px;
     left: -5px;
 }
+
 #b115 {
     height: 240px;
     width: 40px;
     top: 139px;
     left: -5px;
 }
-#b116 {
-    height: 240px;
-    width: 40px;
-    top: 139px;
-    left: -5px;
-}
+
+/*
+ * if you accidentally scroll here and think "ermahgerd,
+ * I have to look through over 100 blocks of css!!"
+ * do not fear! It goes from 1-19 and then 100-116
+ * /
