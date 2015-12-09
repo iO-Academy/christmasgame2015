@@ -46,7 +46,7 @@ function loadLevel(levelNumber) {
         }
 
     } else {
-        window.reload()
+        window.location.href = ""
     }
 }
 /**
