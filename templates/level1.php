@@ -40,11 +40,13 @@
 <div class="boundary" id="b114"></div>
 <div class="boundary" id="b115"></div>
 
+<div id="checkpoint1" class="levelImages"></div>
+
 <div id="hanger1" class="levelImages"></div>
 <div id="hanger2" class="levelImages"></div>
 <div id="present_1_single" class="levelImages boundary"></div>
 <div id="present_1_gap" class="levelImages"></div>
-<div id="present_2_bottom" class="levelImages"></div>
+<div id="present_2_bottom" class="levelImages boundary"></div>
 <div id="present_2_middle" class="levelImages"></div>
 <div id="present_2_top" class="levelImages"></div>
 <div id="tree" class="levelImages"></div>

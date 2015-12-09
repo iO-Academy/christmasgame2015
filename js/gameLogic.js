@@ -57,6 +57,14 @@ function loadLevel(levelNumber) {
                         gameDeath()
                     }
                 })
+
+                $('#checkpoint1').mouseover(function() {
+                    if (playing) {
+                        console.log('move')
+                        $('#present_2_bottom').animate({ "left": "+=35px" }, 3500)
+                    }
+                })
+
                 //enable finish event
                 $finishBox.mouseover(function() {
                     if(playing) {
@@ -134,5 +142,4 @@ function gameDeath() {
     playing = false
     $messageDisplayBox.html('You have died! Please try again! Click on the start area to start')
 }
-
 
