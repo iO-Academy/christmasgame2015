@@ -78,7 +78,7 @@
 
 #startArea {
     border-radius: 2px;
-    background-color: #DAF2FA;
+    /*background-color: #DAF2FA;*/
     width: 50px;
     height: 25px;
     top: 33px;
@@ -95,6 +95,7 @@
 }
 
 #start {
+    color: #737373;
     z-index: 100;
     position: absolute;
     left: 10px;
@@ -104,6 +105,7 @@
 }
 
 #finish {
+    color: #737373;
     position: absolute;
     right: 50px;
     top: 29px;

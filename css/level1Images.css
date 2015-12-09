@@ -1,6 +1,6 @@
 .levelImages {
     position: absolute;
-    z-index: 9999;
+    z-index: 1;
     background-repeat: no-repeat;
 }
 
