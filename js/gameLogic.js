@@ -91,8 +91,8 @@ function finishLevel() {
                         '<h3>It took you a total of ' + attemptsCount + ' attempts!</h3>' +
                         '<h3>Your results have been submitted, to play again click Restart!</h3>' +
                         '<div class="buttonBigMessage">' +
-                        '<input type="button" value="Restart" class="messageButton"> ' +
-                        '<input type="button" value="Quit Game" class="messageButton"> </div>' +
+                        '<input type="button" value="Restart" class="messageButton" onclick="loadLevel(1)"> ' +
+                        '<input type="button" value="Quit Game" class="messageButton" onclick="quitGame()"> </div>' +
                         '</div>').children('div').show('slow')
                 } else {
                     loadLevel(levelNumber)
@@ -168,3 +168,8 @@ function smallInstruct () {
     $('#message').html(bigInstructions).children('div').hide('slow')
     $('#message').html(smallInstructions)
 }
+function quitGame() {
+    //link to game welcome screen TODO:put correct link
+    window.location.href ="http://academy.vagrant/christmasgame2015/"
+}
+
