@@ -1,5 +1,5 @@
 .boundary {
-    background-color: #0088cc;
+    /*background-color: #0088cc;*/
     position: absolute;
 }
 
@@ -96,8 +96,6 @@
 
 #b14 {
     font-weight: bold;
-    color: #000;
-    background: #aa0;
     display: block;
     margin: 0 auto;
     width: 33px;
@@ -115,8 +113,6 @@
 
 #b15 {
     font-weight: bold;
-    color: #000;
-    background: #aa0;
     display: block;
     margin: 0 auto;
     width: 53px;
@@ -211,27 +207,23 @@
 
 #b107 {
     font-weight: bold;
-    color: #000;
-    background: #aa0;
     display: block;
     margin: 0 auto;
     width: 83px;
-    height: 18px;
+    height: 19px;
     top: 136px;
     left: -6px;
     text-align: center;
     line-height: 300px;
-    -webkit-transform: rotate(-42deg);
-    -moz-transform: rotate(-42deg);
-    -ms-transform: rotate(-42deg);
-    -o-transform: rotate(-42deg);
-    -ms-filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3.5);
+    -webkit-transform: rotate(-41deg);
+    -moz-transform: rotate(-41deg);
+    -ms-transform: rotate(-41deg);
+    -o-transform: rotate(-41deg);
+    -ms-filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3.4);
 }
 
 #b108 {
     font-weight: bold;
-    color: #000;
-    background: #aa0;
     display: block;
     margin: 0 auto;
     width: 59px;
@@ -249,8 +241,6 @@
 
 #b109 {
     font-weight: bold;
-    color: #000;
-    background: #aa0;
     display: block;
     margin: 0 auto;
     width: 33px;
@@ -268,9 +258,9 @@
 
 #b110 {
     height: 192px;
-    width: 254px;
+    width: 253px;
     top: -24px;
-    left: 90px;
+    left: 91px;
 }
 
 #b111 {

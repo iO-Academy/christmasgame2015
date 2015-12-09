@@ -1,0 +1,69 @@
+.levelImages {
+    position: absolute;
+    z-index: 9999;
+    background-repeat: no-repeat;
+}
+
+#hanger1 {
+    background-image: url('../img/logo_1.png');
+    width: 96px;
+    height: 177px;
+    top: 73px;
+    left: 77px;
+}
+
+#hanger2 {
+    background-image: url('../img/logo_2.png');
+    width: 23%;
+    height: 28%;
+    top: 74px;
+    right: 60px;
+}
+
+#present_1_single {
+    background-image: url('../img/present_1_single.png');
+    width: 40px;
+    height: 27px;
+    bottom: 59px;
+    left: 109px;
+}
+
+#present_1_gap {
+    background-image: url('../img/presents_1_gap.png');
+    width: 60px;
+    height: 110px;
+    top: 252px;
+    left: 109px;
+}
+
+#present_2_bottom {
+    background-image: url('../img/presents_2_bottom.png');
+    width: 64px;
+    height: 69px;
+    top: 294px;
+    left: 297px;
+}
+
+#present_2_middle {
+    background-image: url('../img/presents_2_middle.png');
+    width: 27px;
+    height: 40px;
+    top: 237px;
+    left: 313px;
+}
+
+#present_2_top {
+    background-image: url('../img/presents_2_top.png');
+    width: 45px;
+    height: 59px;
+    top: 178px;
+    left: 293px;
+}
+
+#tree {
+    background-image: url('../img/tree.png');
+    width: 95px;
+    height: 167px;
+    top: 191px;
+    left: 187px;
+}
