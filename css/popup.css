@@ -28,7 +28,7 @@
     width: 100%;
     min-height: 100%;
     font-size: 30px;
-    padding:20px;
+    padding-top:20px;
 }
 
 h5{
@@ -44,7 +44,7 @@ h4 {
 
 h3 {
     font-size: 25px;
-    margin: 18px;
+    margin: 13px;
 }
 
 h2 {
@@ -54,7 +54,7 @@ h2 {
 
 .button {
     position: absolute;
-    bottom: 5px;
+    bottom: 15px;
     height: 30px;
     width: 100%;
     left: 0;
