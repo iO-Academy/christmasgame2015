@@ -12,7 +12,7 @@ var genericError = '<div class="message"><h4>Oops!</h4><h5>Please try reloading 
 var attemptsCount = 0
 var smallInstructions = '<div class="message"><h4>To see the Instructions</h4><h5>Click the Open button</h5><div class="button">' +
     '<input type="button" value="Open" class="messageButton" onclick="bigInstruct()"></div></div>'
-var bigInstructions = '<div class="message bigMessage"><div class="messageContent"<h2>Instructions</h2>' +
+var bigInstructions = '<div class="message bigMessage"><div class="messageContent"><h2>Instructions</h2>' +
     '<h3>Follow the path with your mouse cursor to make it to the safe zone.</h3>' +
     '<h3>Try to complete it as fast as possible with as few attempts as possible.</h3>' +
     '<h3>Hide the instructions and click Start to begin.</h3> <input type="button" value="Hide Instructions" onclick="smallInstruct()" class="messageButton"> </div></div>'
@@ -93,7 +93,9 @@ function finishLevel() {
                         '<div class="buttonBigMessage">' +
                         '<input type="button" value="Restart" class="messageButton" onclick="loadLevel(1)"> ' +
                         '<input type="button" value="Quit Game" class="messageButton" onclick="quitGame()"> </div></div>' +
-                        '</div>').children('div').show('slow')
+                        '</div>').children('div').show('slow', function () {
+                        $('.messageContent').fadeIn(500)
+                    })
                 } else {
                     loadLevel(levelNumber)
                 }
@@ -103,8 +105,8 @@ function finishLevel() {
             }
         }
     ).fail(function () {
-        $messageDisplayBox.html(genericError)
-    })
+            $messageDisplayBox.html(genericError)
+        })
 }
 /**
  * stop the clock, enable start button, displays message, todo turns off death
@@ -160,21 +162,32 @@ $(function () {
     })
 })
 
-function bigInstruct () {
-    $('#message').html(bigInstructions).children('div').show('slow', function(){
-        $('.messageContent').fadeIn(500)
-    })
+function bigInstruct() {
+    $('#message').html(bigInstructions).animate({
+            width: "690px",
+            height: "360px"
+        },
+        function () {
+            $('.messageContent').fadeIn(500)
+        })
 }
+//width: 215px;
+//height: 160px;
 
-function smallInstruct () {
-    $('.messageContent').fadeOut(300, function(){
-        $('#message').html(bigInstructions).children('div').hide(1000)
-        $('#message').html(smallInstructions)
-    } )
+function smallInstruct() {
 
+    $('.messageContent').fadeOut(500, function () {
+        $('#message').html(bigInstructions).animate({
+            width: "215px",
+            height: "160px"
+        },
+            function(){
+                $('#message').html(smallInstructions)
+            })
+    })
 }
 function quitGame() {
     //link to game welcome screen TODO:put correct link
-    window.location.href ="http://academy.vagrant/christmasgame2015/"
+    window.location.href = "http://academy.vagrant/christmasgame2015/"
 }
 
