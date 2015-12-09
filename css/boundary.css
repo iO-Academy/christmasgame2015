@@ -5,7 +5,7 @@
 
 #b1 {
     height: 46px;
-    width: 4px;
+    width: 10px;
     top: 95px;
     left: 91px;
 }
@@ -53,91 +53,254 @@
 }
 
 #b8 {
-    height: 20px;
-    width: 20px;
-    top: 0px;
-    left: 0px;
+    height: 124px;
+    width: 118px;
+    top: 156px;
+    left: 291px;
 }
 
-#b9 {height: 20px;
-    width: 20px;
-    top: 0px;
-    left: 0px;
+#b9 {
+    height: 53px;
+    width: 18px;
+    top: 293px;
+    left: 392px;
 }
 
 #b10 {
     height: 20px;
-    width: 20px;
-    top: 0px;
-    left: 0px;
+    width: 9px;
+    top: 279px;
+    left: 392px;
 }
 
 #b11 {
-    height: 20px;
-    width: 0px;
-    top: 0px;
-    left: 0px;
+    height: 10px;
+    width: 12px;
+    top: 336px;
+    left: 410px;
 }
 
 #b12 {
-    height: 20px;
-    width: 0px;
-    top: 0px;
-    left: 0px;
+    height: 87px;
+    width: 16px;
+    top: 193px;
+    left: 405px;
 }
 
 #b13 {
-    height: 20px;
-    width: 0px;
-    top: 0px;
-    left: 0px;
+    height: 45px;
+    width: 20px;
+    top: 92px;
+    left: 359px;
 }
 
 #b14 {
+    font-weight: bold;
+    color: #000;
+    background: #aa0;
+    display: block;
+    margin: 0 auto;
+    width: 33px;
     height: 20px;
-    width: 0px;
-    top: 0px;
-    left: 0px;
+    top: 143px;
+    left: 70px;
+    text-align: center;
+    line-height: 300px;
+    -webkit-transform: rotate(-20deg);
+    -moz-transform: rotate(-20deg);
+    -ms-transform: rotate(-20deg);
+    -o-transform: rotate(-20deg);
+    -ms-filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3.8);
 }
 
 #b15 {
+    font-weight: bold;
+    color: #000;
+    background: #aa0;
+    display: block;
+    margin: 0 auto;
+    width: 53px;
     height: 20px;
-    width: 0px;
-    top: 0px;
-    left: 0px;
+    top: 137px;
+    left: 356px;
+    text-align: center;
+    line-height: 300px;
+    -webkit-transform: rotate(38deg);
+    -moz-transform: rotate(38deg);
+    -ms-transform: rotate(38deg);
+    -o-transform: rotate(38deg);
+    -ms-filter: progid:DXImageTransform.Microsoft.BasicImage(rotation= 1);
 }
 
 #b16 {
-    height: 20px;
-    width: 0px;
-    top: 0px;
-    left: 0px;
+    height: 41px;
+    width: 20px;
+    top: 87px;
+    left: 52px;
 }
 
 #b17 {
-    height: 20px;
-    width: 0px;
-    top: 0px;
-    left: 0px;
+    height: 86px;
+    width: 20px;
+    top: 53px;
+    left: 408px;
 }
 
 #b18 {
-    height: 20px;
-    width: 0px;
-    top: 0px;
-    left: 0px;
+    height: 41px;
+    width: 20px;
+    top: 62px;
+    left: 356px;
 }
 
 #b19 {
-    height: 20px;
-    width: 0px;
-    top: 0px;
-    left: 0px;
+    height: 66px;
+    width: 74px;
+    top: 76px;
+    left: -20px;
 }
 
 #b20 {
     height: 20px;
-    width: 0px;
+    width: 20px;
     top: 0px;
     left: 0px;
+}
+#b100 {
+    height: 240px;
+    width: 40px;
+    top: 139px;
+    left: -5px;
+}
+#b101 {
+    height: 390px;
+    width: 40px;
+    top: -30px;
+    left: 434px;
+}
+#b102 {
+    height: 240px;
+    width: 40px;
+    top: 139px;
+    left: -5px;
+}
+#b103 {
+    height: 40px;
+    width: 470px;
+    top: 356px;
+    left: -5px;
+}
+#b104 {
+    height: 146px;
+    width: 103px;
+    top: 241px;
+    left: 99px;
+}
+#b105 {
+    height: 170px;
+    width: 74px;
+    top: 186px;
+    left: 194px;
+}
+#b106 {
+    height: 70px;
+    width: 150px;
+    top: 293px;
+    left: 231px;
+}
+#b107 {
+    font-weight: bold;
+    color: #000;
+    background: #aa0;
+    display: block;
+    margin: 0 auto;
+    width: 83px;
+    height: 18px;
+    top: 136px;
+    left: -6px;
+    text-align: center;
+    line-height: 300px;
+    -webkit-transform: rotate(-42deg);
+    -moz-transform: rotate(-20deg);
+    -ms-transform: rotate(-20deg);
+    -o-transform: rotate(-20deg);
+    -ms-filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3.8);
+}
+#b108 {
+    font-weight: bold;
+    color: #000;
+    background: #aa0;
+    display: block;
+    margin: 0 auto;
+    width: 59px;
+    height: 20px;
+    top: 140px;
+    left: 406px;
+    text-align: center;
+    line-height: 300px;
+    -webkit-transform: rotate(44deg);
+    -moz-transform: rotate(-20deg);
+    -ms-transform: rotate(-20deg);
+    -o-transform: rotate(-20deg);
+    -ms-filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3.8);
+}
+#b109 {
+    font-weight: bold;
+    color: #000;
+    background: #aa0;
+    display: block;
+    margin: 0 auto;
+    width: 33px;
+    height: 20px;
+    top: 143px;
+    left: 70px;
+    text-align: center;
+    line-height: 300px;
+    -webkit-transform: rotate(-20deg);
+    -moz-transform: rotate(-20deg);
+    -ms-transform: rotate(-20deg);
+    -o-transform: rotate(-20deg);
+    -ms-filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3.8);
+}
+#b110 {
+    height: 192px;
+    width: 263px;
+    top: -24px;
+    left: 90px;
+}
+#b111 {
+    height: 40px;
+    width: 50px;
+    top: 19px;
+    left: 72px;
+}
+#b112 {
+    height: 240px;
+    width: 40px;
+    top: 139px;
+    left: -5px;
+}
+#b113 {
+    height: 240px;
+    width: 40px;
+    top: 139px;
+    left: -5px;
+}
+#b114 {
+    height: 240px;
+    width: 40px;
+    top: 139px;
+    left: -5px;
+}
+#b115 {
+    height: 240px;
+    width: 40px;
+    top: 139px;
+    left: -5px;
+}
+#b116 {
+    height: 240px;
+    width: 40px;
+    top: 139px;
+    left: -5px;
 }

@@ -15,7 +15,7 @@
 	margin: 0 auto;
 	font-family: 'Roboto', sans-serif;
 	font-size: 14px;
-    background-image: url('../assets/mayden_game_3.png');
+    background-image: url('../img/game_background.png');
 }
 
 .gameLevelVisual {
@@ -38,9 +38,9 @@
 }
 
 #timer {
-	top: 210px;
+	top: 206px;
 	border-radius: 100%;
-	right: 145px;
+	right: 143px;
 	width: 100px;
 	height: 100px;
 	text-align: center;
@@ -72,6 +72,7 @@
 }
 
 #startArea {
+    border: 2px solid black;
      width: 55px;
      height: 30px;
      top: 30px;
@@ -79,6 +80,7 @@
      position: absolute;
  }
 #finishArea {
+    border: 2px solid black;
     width: 55px;
     height: 30px;
     top: 25px;
