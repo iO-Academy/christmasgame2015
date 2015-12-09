@@ -15,7 +15,10 @@
 	margin: 0 auto;
 	font-family: 'Roboto', sans-serif;
 	font-size: 14px;
-    background-image: url('../img/game_background.png');
+}
+
+#gameBg {
+    background-image: url("../img/game_background.png");
 }
 
 .gameLevelVisual {
@@ -86,4 +89,15 @@
     top: 25px;
     left: 350px;
     position: absolute;
+}
+#loadingImage
+{
+    position: absolute;
+    align-self: center;
+    width: 44px;
+    height: 44px;
+     display: none;
+    left: 50%;
+    margin-left: -22px;
+    top: 215px;
 }
