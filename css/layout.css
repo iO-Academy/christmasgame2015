@@ -20,7 +20,7 @@
 .level1 {
     background-image: url('../img/level_bg.png');
     border: rgba(7, 2, 1, 0.3) 1px solid;
-    height: 430;
+    height: 430px;
 }
 
 .gameLevelVisual {
