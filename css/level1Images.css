@@ -2,13 +2,12 @@
     position: absolute;
     z-index: 9999;
     background-repeat: no-repeat;
-
 }
 
 #hanger1 {
     background-image: url('../img/logo_1.png');
     width: 96px;
-    height: 177;
+    height: 177px;
     top: 73px;
     left: 77px;
 }
