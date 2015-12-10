@@ -57,6 +57,18 @@ function loadLevel(levelNumber) {
                             finishLevel()
                         }
                     })
+                    $(".messageButton[value='Open']").click(function() {
+                        bigInstruct()
+                    })
+                    $(".messageButton[value='Hide Instructions']").click(function() {
+                        smallInstruct()
+                    })
+                    $(".messageButton[value='Restart']").click(function() {
+                        loadLevel(1)
+                    })
+                    $(".messageButton[value='Quit Game']").click(function() {
+                        quitGame()
+                    })
                 }
             })
         } else {
