@@ -1,7 +1,7 @@
-var $gameDiv, $gameBoxDiv, $messageDisplayBox, $finishBox, levelNumber = 1
+var $gameDiv, $gameBoxDiv, $messageDisplayBox, $finishBox, levelNumber, lastLevel = 1
 var congratulationsMessage = '<p>Yay you did it!</p>'
 var completedLevelMessage = '<p>Some html about completing level</p>'
-var $startSafeZone, lastLevel = 2, attemptsCount = 0, playing = false, finished = false
+var $startSafeZone = 2, attemptsCount = 0, playing = false, finished = false
 var genericError = 'Sorry there is a problem, please try reloading the page'
 
 /**
@@ -19,7 +19,6 @@ function loadLevel(levelNumber) {
             $('#game').load('templates/gameVisual.php', function(response, status) {
                 $('#loadingImage').hide();
                     if (status == "error") {
-                        console.log(status)
                         $messageDisplayBox.html(genericError)
                     }
                 resetClock()
@@ -29,7 +28,7 @@ function loadLevel(levelNumber) {
                 //disable right click on maze container
                 $gameBoxDiv.on("contextmenu",function(){
                     return false;
-                });
+                })
                 $finishBox = $('#finishArea')
                 $gameDiv = $('#game')
                 $messageDisplayBox = $('#message')
@@ -99,11 +98,11 @@ function finishLevel() {
         },
         function(data) {
             if ('success' in data && data.success) {
-                levelNumber++
                 if (levelNumber === lastLevel) {
                     $messageDisplayBox.html(congratulationsMessage)
                 }
                 else {
+                    levelNumber++
                     loadLevel(levelNumber)
                 }
             }
