@@ -50,6 +50,8 @@
 <div id="tree" class="levelImages"></div>
 <div id="road" class="levelImages shifty"></div>
 
+<div id="checkpoint" class="levelImages"></div>
+
 <div class="bauble colour1" id="bauble1"></div>
 <div class="bauble colour3" id="bauble2"></div>
 <div class="bauble colour1" id="bauble3"></div>
