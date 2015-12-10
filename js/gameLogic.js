@@ -26,7 +26,6 @@ function loadLevel(levelNumber) {
             $('#game').load('templates/gameVisual.php', function(response, status) {
                     $messageDisplayBox = $('#message')
                     if (status == "error") {
-                        console.log(status)
                         $messageDisplayBox.html(genericError)
                     } else {
                         resetClock()
