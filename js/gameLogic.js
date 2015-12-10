@@ -88,7 +88,7 @@ function startLevel() {
  * stops clock, sets playing to false, posts data to api, loads the next level or End of game message box
  */
 function finishLevel() {
-    if (checkpointPassed === true) {
+    if (checkpointPassed) {
         stopClock()
         playing = false
         finished = true
@@ -119,7 +119,7 @@ function finishLevel() {
         })
     } else {
         gameDeath()
-        }
+    }
 }
 /**
  * stops clock, doesn't reset
