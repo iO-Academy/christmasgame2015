@@ -86,6 +86,10 @@
     position: absolute;
 }
 
+#startArea:hover {
+    cursor: url('../img/cursor.gif'), auto;
+}
+
 #finishArea {
     width: 6px;
     height: 18px;
