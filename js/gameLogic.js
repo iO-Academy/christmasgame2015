@@ -196,6 +196,9 @@ function smallInstruct() {
             },
             function() {
                 $('#message').html(smallInstructions)
+                $('.open').click(function() {
+                    bigInstruct()
+                })
             })
     })
 }
