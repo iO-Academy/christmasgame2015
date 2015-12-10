@@ -38,6 +38,7 @@ function loadLevel(levelNumber) {
                     $finishBox = $('#finishArea')
                     $gameDiv = $('#game')
                     $messageDisplayBox = $('#message')
+                    $messageDisplayBox.html(smallInstructions)
                     $presentOne = $('#present_1_single')
                     $road = $('#road')
                     $shifty = $('.shifty')
