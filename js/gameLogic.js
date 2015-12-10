@@ -20,17 +20,11 @@ function loadLevel(levelNumber) {
                 $('#loadingImage').hide()
                 if (status == "error") {
                     $messageDisplayBox.html(genericError)
-                }
-                else {
+                } else {
                     resetClock()
                     $startSafeZone = $('#startArea')
                     $gameBoxDiv = $('#mazeContainer')
                     //disable right click on maze container
-                    $(document).ready(function() {
-                        $gameBoxDiv.on("contextmenu", function() {
-                            return false;
-                        });
-                    });
                     $gameBoxDiv.on("contextmenu", function() {
                         return false;
                     })
