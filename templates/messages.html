@@ -1,44 +1,46 @@
-<div id="success" class="popUp">
-    <span class="messageTitle">You did it!</span><br><br><br>
-    <span class="subtitle">Click the 'Start' area to continue playing.</span><br>
-    <div class="buttons">
-        <input type="button" class="quit" value="Quit" class="quit popBut">
+<!--copied into gameLogic.js, now stored in variable completedLevelMessage-->
+<div class="message">
+    <h4>You did it!</h4>
+    <h5>Click the 'Start' area to continue playing.</h5>
+    <div class="button">
+        <input type="button" value="Quit Game" class="quit messageButton">
     </div>
 </div>
 
-<div id="endOfGame" class="popBig">
-    <span class="bigTitle">Congratulations!!</span><br><br>
-    <span class="bigSubtitle">You finished the game!</span><br><br>
-    You completed it in a time of: <!-- --><br>
-    It took you a total of <!-- --> attempts!<br><br>
-    Your results have been submitted, to play again click 'Restart'!
-    <div class="buttons">
-        <input type="button" value="Restart" class="loadLevel popBut">
-        <input type="button" class="quit" value="Quit" class="quit popBut">
+<div class="message bigMessage">
+    <h2>Congratulations!</h2>
+    <h3>You finished the game!</h3>
+    <h3>You completed it in a time of: <!-- --></h3>
+    <h3>It took you a total of <!-- --> attempts!</h3>
+    <h3>Your results have been submitted, to play again click Restart!</h3>
+    <div class="button">
+        <input type="button" value="Restart" class="messageButton">
+        <input type="button" value="Quit Game" class="quit messageButton">
     </div>
 </div>
 
-<div id="died" class="popUp">
-    <span class="messageTitle">Uh-oh, try again!</span><br><br><br>
-    <span class="subtitle">You touched the sides!</span><br><br>
-    Click the 'Start' area to attempt the level again.
-    <div class="buttons">
-        <input type="button" class="quit" value="Quit" class="quit popBut">
+<div class="message">
+    <h4>Uh-oh, you touched the sides!</h4>
+    <h5>Click start to try again</h5>
+    <div class="button">
+        <input type="button" value="Quit Game" class="quit messageButton">
     </div>
 </div>
 
-<div id="smallInstructions" class="popUp instructions">
-    <br><br><br><br>
-    <span class="messageTitle">Instructions</span><br><br>
-    <div class="buttons">
-        <input type="button" value="Open" class="expand popBut">
+<div class="message">
+    <h4>To see the Instructions</h4>
+    <h5>Click the Open button</h5>
+    <div class="button">
+        <input type="button" value="Open" class="messageButton">
     </div>
 </div>
 
-<div id="instructions" class="popBig instructions">
-    <span class="bigTitle">Instructions</span><br><br>
-    Move your mouse through the maze to 'Finish' without touching the white zone. Try to complete it as fast as possible with as few attempts as possible. Click 'Start' to begin.
-    <div class="buttons">
-        <input type="button" value="Close And Play" class="close popBut">
+<div class="message bigMessage">
+    <h2>Instructions</h2>
+    <h3>Follow the path with your mouse cursor to make it to the safe zone.</h3>
+    <h3>Try to complete it as fast as possible with as few attempts as possible.</h3>
+    <h3>Hide the instructions and click Start to begin.</h3>
+    <div class="buttonBigMessage">
+        <input type="button" value="Hide Instructions" class="messageButton">
     </div>
 </div>

@@ -29,10 +29,12 @@
 }
 
 #message {
-	top: 25px;
-	right: 25px;
-	width: 215px;
-	height: 160px;
+    top: 25px;
+    right: 26px;
+    width: 215px;
+    height: 160px;
+    border-radius: 6px;
+    border: 6px solid #ffffff;
 }
 
 #timer {
