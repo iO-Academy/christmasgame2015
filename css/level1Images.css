@@ -96,16 +96,32 @@
     position: absolute;
     border-radius: 100%;
     z-index: 3;
-    animation: mymove 0.5s infinite;
 }
 
 .colour1 {
     background-color: #AFCEE4;
     animation-direction: reverse;
+    animation: mymove 1.5s infinite;
 }
+.colour3 {
+     background-color: #AFCEE4;
+     animation: mymove 1s infinite;
+ }
 
 .colour2 {
     background-color: #73B4E0;
+    animation-direction: reverse;
+    animation: mymove 1.5s infinite;
+}
+
+.colour4 {
+    background-color: #73B4E0;
+    animation: mymove 1s infinite;
+}
+
+.colour5 {
+    background-color: #4090b6;
+    animation: mymove 1s infinite;
 }
 
 #bauble1 {

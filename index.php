@@ -26,6 +26,4 @@
             document.getElementById('game').innerHTML = '<p class="touchDevice"> Error! This game is for use on a device without a touchscreen</p>'
         }
     </script>
-    <div id="loadingImage"><img src="img/ajax-loader.gif"></div>
-    
 </html>
