@@ -90,6 +90,12 @@
     50%  {opacity: 0;}
     100% {opacity: 1;}
 }
+.ie8 .bauble {
+    display: none;
+}
+.ie8 .button {
+    left: -50%
+}
 
 .bauble {
     -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
