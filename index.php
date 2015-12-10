@@ -1,8 +1,8 @@
 <html>
     <head>
         <link href='https://fonts.googleapis.com/css?family=Roboto:400,100,700' rel='stylesheet' type='text/css'>
-        <link type="text/css" href="css/layout.css" rel="stylesheet" media="all">
         <link type="text/css" href="css/splash.css" rel="stylesheet" media="all">
+        <link type="text/css" href="css/layout.css" rel="stylesheet" media="all">
         <link type="text/css" href="css/boundary.css" rel="stylesheet" media="all">
         <link type="text/css" href="css/level1Images.css" rel="stylesheet" media="all">
         <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
@@ -26,4 +26,16 @@
             document.getElementById('game').innerHTML = '<p class="touchDevice"> Error! This game is for use on a device without a touchscreen</p>'
         }
     </script>
+<div id="preloaded-images1" class="preloadImgs"></div>
+<div id="preloaded-images2" class="preloadImgs"></div>
+<div id="preloaded-images3" class="preloadImgs"></div>
+<div id="preloaded-images4" class="preloadImgs"></div>
+<div id="preloaded-images5" class="preloadImgs"></div>
+<div id="preloaded-images6" class="preloadImgs"></div>
+<div id="preloaded-images7" class="preloadImgs"></div>
+<div id="preloaded-images8" class="preloadImgs"></div>
+<div id="preloaded-images9" class="preloadImgs"></div>
+<div id="preloaded-images10" class="preloadImgs"></div>
+<div id="preloaded-images11" class="preloadImgs"></div>
+<div id="preloaded-images12" class="preloadImgs"></div>
 </html>

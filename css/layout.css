@@ -127,7 +127,7 @@
     margin-left: -17px;
     top: 210px;
 }
-div#preloaded-images {
+.preloadImgs{
     position: absolute;
     overflow: hidden;
     left: -9999px;
@@ -135,3 +135,52 @@ div#preloaded-images {
     height: 1px;
     width: 1px;
 }
+
+#preloaded-images1 {
+    background-image: url("img/ajax-loader.gif");
+}
+
+#preloaded-images2 {
+    background-image: url("img/level_bg.png");
+}
+
+#preloaded-images3 {
+    background-image: url('img/cursor.gif');
+}
+
+#preloaded-images4 {
+    background-image: url('img/present_1_single.png');
+}
+
+#preloaded-images5 {
+    background-image: url('img/presents_1_gap.png');
+}
+
+#preloaded-images6 {
+    background-image: url('img/presents_2_bottom.png');
+}
+
+#preloaded-images7 {
+    background-image: url('img/presents_2_middle.png');
+}
+#preloaded-image8 {
+    background-image: url('img/presents_2_top.png');
+}
+
+#preloaded-image9 {
+    background-image: url('img/logo_1.png');
+}
+
+#preloaded-image10 {
+    background-image: url('img/logo_2.png');
+}
+
+#preloaded-image11 {
+    background-image: url('img/right-border.png');
+}
+
+#preloaded-image12 {
+    background-image: url('img/tree.png');
+}
+
+
