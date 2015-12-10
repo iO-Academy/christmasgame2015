@@ -14,7 +14,7 @@ var attemptsCount = 0
  * checks if level number is valid or sets error message
  * if first level, loads gameVisuals, sets variables and registers event handlers
  * Displays generic error is load fails
- * @number levelNumber
+ * @param number levelNumber
  */
 function loadLevel(levelNumber) {
 
