@@ -38,4 +38,5 @@
 <div id="preloaded-images10" class="preloadImgs"></div>
 <div id="preloaded-images11" class="preloadImgs"></div>
 <div id="preloaded-images12" class="preloadImgs"></div>
+<div id="loadingImage"></div>
 </html>
