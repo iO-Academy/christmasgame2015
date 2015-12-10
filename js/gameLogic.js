@@ -3,6 +3,7 @@ var congratulationsMessage = '<p>Yay you did it!</p>'
 var completedLevelMessage = '<p>Some html about completing level</p>'
 var lastLevel = 1, attemptsCount = 0, playing = false, finished, checkpointPassed = false, $startSafeZone
 var levelNumber = 1, $gameDiv, $gameBoxDiv, $messageDisplayBox, $finishBox
+
 /**
  * checks if level number is valid or sets error message
  * if first level, loads gameVisuals, sets variables and registers event handlers
