@@ -92,6 +92,7 @@ function loadLevel(levelNumber) {
 function startLevel() {
 //Start Clock
     startClock()
+    $messageDisplayBox.html(smallInstructions)
     playing = true
     $gameBoxDiv.css({
         'cursor': 'url("img/cursor.gif"), auto'
@@ -106,6 +107,7 @@ function startLevel() {
 function finishLevel() {
     //stops the clock
     stopClock()
+    $messageDisplayBox.html(completedLevelMessage)
     playing = false
     finished = true
     $.post('api/index.php', {
