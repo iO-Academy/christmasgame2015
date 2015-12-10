@@ -1,10 +1,10 @@
 var genericError = '<div class="message"><h4>Oops!</h4><h5>Please try reloading the page</h5></div>'
-var smallInstructions = '<div class="message"><h4>To see the Instructions</h4><h5>Click the Open button</h5><div class="button">' +
-    '<input type="button" value="Open" class="messageButton open"></div></div>'
+var smallInstructions = '<div class="message"><h4>Click below to</h4><h5>read the instructions</h5><div class="button">' +
+    '<input type="button" value="Instructions" class="messageButton open"></div></div>'
 var bigInstructions = '<div class="message bigMessage"><div class="messageContent"<h2>Instructions</h2>' +
     '<h3>Follow the path with your mouse cursor to make it to the safe zone.</h3>' +
     '<h3>Try to complete it as fast as possible with as few attempts as possible.</h3>' +
-    '<h3>Hide the instructions and click Start to begin.</h3> <input type="button" value="Hide Instructions" class="messageButton hide"> </div></div>'
+    '<h3>Hide the instructions and click Start to begin.</h3> <input type="button" value="Close" class="messageButton hide"> </div></div>'
 var lastLevel = 1, playing = false, finished, checkpointPassed = false, $startSafeZone
 var levelNumber = 1, $gameDiv, $gameBoxDiv, $messageDisplayBox, $finishBox
 var attemptsCount = 0
@@ -162,7 +162,10 @@ function gameDeath() {
     $gameBoxDiv.css('cursor', 'not-allowed')
     playing = false
     $messageDisplayBox.html('<div class="message"><h4>Uh-oh, you touched the sides!</h4><h5>Click start to try again</h5>' +
-        '<div class="button"><input type="button" value="Quit Game" class="messageButton quit"></div></div>')
+        '<div class="button"><input type="button" value="Instructions" class="messageButton open"></div></div>')
+    $('.open').click(function() {
+        bigInstruct()
+    })
     $('.quit').click(function() {
         quitGame()
     })
