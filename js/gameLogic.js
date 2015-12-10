@@ -1,9 +1,8 @@
-var $gameDiv, $gameBoxDiv, $messageDisplayBox, $finishBox, levelNumber = 1
+var genericError = 'Sorry there is a problem, please try reloading the page'
 var congratulationsMessage = '<p>Yay you did it!</p>'
 var completedLevelMessage = '<p>Some html about completing level</p>'
-var $startSafeZone, lastLevel = 2, attemptsCount = 0, playing = false, finished = false
-var genericError = 'Sorry there is a problem, please try reloading the page'
-
+var lastLevel = 2, attemptsCount = 0, playing = false, finished = false, $startSafeZone
+var levelNumber = 1, $gameDiv, $gameBoxDiv, $messageDisplayBox, $finishBox
 
 /**
  * checks if level number is valid or sets error message
@@ -15,10 +14,10 @@ function loadLevel(levelNumber) {
 
     if (levelNumber > 0 && levelNumber <= lastLevel) {
         $('#splashbackground').hide()
-        $('#loadingImage').show();
+        $('#loadingImage').show()
         if (levelNumber === 1) {
             $('#game').load('templates/gameVisual.php', function(response, status) {
-                $('#loadingImage').hide();
+                $('#loadingImage').hide()
                     if (status == "error") {
                         console.log(status)
                         $messageDisplayBox.html(genericError)
