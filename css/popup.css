@@ -31,6 +31,10 @@
     padding-top: 20px;
 }
 
+.ie8 .bigMessage {
+    height: 100%;
+}
+
 h5 {
     font-size: 15px;
     margin-top: 1px;
