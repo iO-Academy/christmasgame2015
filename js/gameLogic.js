@@ -18,40 +18,46 @@ function loadLevel(levelNumber) {
         if (levelNumber === 1) {
             $('#game').load('templates/gameVisual.php', function(response, status) {
                 $('#loadingImage').hide()
-                    if (status == "error") {
-                        $messageDisplayBox.html(genericError)
-                    }
-                resetClock()
-                $startSafeZone = $('#startArea')
-                $gameBoxDiv = $('#mazeContainer')
-                //disable right click on maze container
-                $gameBoxDiv.on("contextmenu",function(){
-                    return false;
-                })
-                $finishBox = $('#finishArea')
-                $gameDiv = $('#game')
-                $messageDisplayBox = $('#message')
-                $presentOne = $('#present_1_single')
-                $road = $('#road')
-                $shifty = $('.shifty')
-                //enable start event
-                $startSafeZone.click(function() {
-                    if (!playing && !finished) {
-                        startLevel()
-                    }
-                })
-                //enable the death event
-                $gameBoxDiv.on('mouseover', '.boundary', function() {
-                    if (playing) {
-                        gameDeath()
-                    }
-                })
-                //enable finish event
-                $finishBox.mouseover(function() {
-                    if (playing) {
-                        finishLevel()
-                    }
-                })
+                if (status == "error") {
+                    $messageDisplayBox.html(genericError)
+                }
+                else {
+                    resetClock()
+                    $startSafeZone = $('#startArea')
+                    $gameBoxDiv = $('#mazeContainer')
+                    //disable right click on maze container
+                    $(document).ready(function() {
+                        $gameBoxDiv.on("contextmenu", function() {
+                            return false;
+                        });
+                    });
+                    $gameBoxDiv.on("contextmenu", function() {
+                        return false;
+                    })
+                    $finishBox = $('#finishArea')
+                    $gameDiv = $('#game')
+                    $messageDisplayBox = $('#message')
+                    $presentOne = $('#present_1_single')
+                    $road = $('#road')
+                    $shifty = $('.shifty')
+                    //enable start event
+                    $startSafeZone.click(function() {
+                        if (!playing && !finished)
+                            startLevel()
+                    })
+                    //enable the death event
+                    $gameBoxDiv.on('mouseover', '.boundary', function() {
+                        if (playing) {
+                            gameDeath()
+                        }
+                    })
+                    //enable finish event
+                    $finishBox.mouseover(function() {
+                        if (playing) {
+                            finishLevel()
+                        }
+                    })
+                }
             })
         } else {
             $gameBoxDiv.load('templates/level' + levelNumber + '.php',
