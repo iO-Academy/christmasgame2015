@@ -1,7 +1,7 @@
 .messageButton {
     background-color: #F27324;
-    -moz-border-radius: 5px;
-    -webkit-border-radius: 5px;
+    -moz-border-radius: 6px;
+    -webkit-border-radius: 6px;
     border-radius: 6px;
     color: #ffffff;
     font-family: 'Roboto', sans-serif;
@@ -9,12 +9,12 @@
     text-decoration: none;
     cursor: pointer;
     border: none;
-    margin:auto;
+    margin: auto;
 }
 
 .message {
     background-color: #004f76;
-    color: white;
+    color: #ffffff;
     text-align: center;
     position: relative;
     max-height: 149px;
@@ -28,10 +28,10 @@
     width: 100%;
     min-height: 100%;
     font-size: 30px;
-    padding-top:20px;
+    padding-top: 20px;
 }
 
-h5{
+h5 {
     font-size: 15px;
     margin-top: 1px;
 }
@@ -49,7 +49,7 @@ h3 {
 
 h2 {
     font-size: 40px;
-    margin-top: 0px;
+    margin-top: 0;
 }
 
 .button {
