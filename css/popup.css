@@ -1,0 +1,71 @@
+.messageButton {
+    background-color: #F27324;
+    -moz-border-radius: 6px;
+    -webkit-border-radius: 6px;
+    border-radius: 6px;
+    color: #ffffff;
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+    text-decoration: none;
+    cursor: pointer;
+    border: none;
+    margin: auto;
+}
+
+.message {
+    background-color: #004f76;
+    color: #ffffff;
+    text-align: center;
+    position: relative;
+    max-height: 149px;
+    font-size: 10px;
+    padding: 10px 10px 50px 10px;
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.bigMessage {
+    width: 100%;
+    min-height: 100%;
+    font-size: 30px;
+    padding-top: 20px;
+}
+
+h5 {
+    font-size: 15px;
+    margin-top: 1px;
+}
+
+h4 {
+    font-size: 20px;
+    margin-bottom: 1px;
+    margin-top: 10px;
+}
+
+h3 {
+    font-size: 25px;
+    margin: 13px;
+}
+
+h2 {
+    font-size: 40px;
+    margin-top: 0;
+}
+
+.button {
+    position: absolute;
+    bottom: 15px;
+    height: 30px;
+    width: 100%;
+    left: 0;
+}
+
+.buttonBigMessage {
+    position: absolute;
+    width: 100%;
+    left: 0;
+}
+
+.messageContent {
+    display: none;
+}
