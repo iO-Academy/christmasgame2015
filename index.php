@@ -2,6 +2,7 @@
     <head>
         <link href='https://fonts.googleapis.com/css?family=Roboto:400,100,700' rel='stylesheet' type='text/css'>
         <link type="text/css" href="css/splash.css" rel="stylesheet" media="all">
+        <link type="text/css" href="css/popup.css" rel="stylesheet" media="all">
         <link type="text/css" href="css/layout.css" rel="stylesheet" media="all">
         <link type="text/css" href="css/boundary.css" rel="stylesheet" media="all">
         <link type="text/css" href="css/level1Images.css" rel="stylesheet" media="all">
