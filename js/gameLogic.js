@@ -1,5 +1,3 @@
-//todo create events for popout expand instructions, and a close method
-//Start Clock
 var $gameDiv
 var $gameBoxDiv
 var $messageDisplayBox
@@ -69,9 +67,6 @@ function startLevel() {
  * stops clock, posts data to api, loads the next level or End of game message box
  */
 function finishLevel() {
-    //change message box to display level congrats (for more than one level)
-    //$messageDisplayBox.html(completedLevelMessage)
-    //stops the clock
     stopClock()
     //disable death
     $('.die').off('death')
@@ -99,7 +94,7 @@ function finishLevel() {
                             width: "690px",
                             height: "360px"
                         },
-                        function () {
+                        function() {
                             $('.messageContent').fadeIn(500)
                         })
                 } else {
