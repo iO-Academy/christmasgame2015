@@ -18,127 +18,124 @@ var attemptsCount = 0
  * @param number levelNumber
  */
 function loadLevel(levelNumber) {
-
     if (levelNumber > 0 && levelNumber <= lastLevel) {
         $('#splashbackground').hide()
         $('#loadingImage').show()
         if (levelNumber === 1) {
             $('#game').load('templates/gameVisual.php', function(response, status) {
-                $messageDisplayBox = $('#message')
-                if (status == "error") {
-                    console.log(status)
-                    $messageDisplayBox.html(genericError)
-                } else {
-                    resetClock()
-                    $startSafeZone = $('#startArea')
-                    $gameBoxDiv = $('#mazeContainer')
-                    //disable right click on maze container
-                    $gameBoxDiv.on("contextmenu", function () {
-                        return false;
-                    })
-                    $finishBox = $('#finishArea')
-                    $gameDiv = $('#game')
                     $messageDisplayBox = $('#message')
+                    if (status == "error") {
+                        console.log(status)
+                        $messageDisplayBox.html(genericError)
+                    } else {
+                        resetClock()
+                        $startSafeZone = $('#startArea')
+                        $gameBoxDiv = $('#mazeContainer')
+                        //disable right click on maze container
+                        $gameBoxDiv.on("contextmenu", function() {
+                            return false;
+                        })
+                        $finishBox = $('#finishArea')
+                        $gameDiv = $('#game')
+                        $messageDisplayBox = $('#message')
+                        $messageDisplayBox.html(smallInstructions)
+                        $presentOne = $('#present_1_single')
+                        $road = $('#road')
+                        $shifty = $('.shifty')
+                        //enable start event
+                        $startSafeZone.click(function() {
+                            if (!playing && !finished)
+                                startLevel()
+                        })
+                        //enable the death event
+                        $gameBoxDiv.on('mouseover', '.boundary', function() {
+                            if (playing) {
+                                gameDeath()
+                            }
+                        })
+                        //enable finish event
+                        $finishBox.mouseover(function() {
+                            if (playing) {
+                                finishLevel()
+                            }
+                        })
+                        $(".messageButton[value='Open']").click(function() {
+                            bigInstruct()
+                        })
+                        $(".messageButton[value='Hide Instructions']").click(function() {
+                            smallInstruct()
+                        })
+                        $(".messageButton[value='Restart']").click(function() {
+                            loadLevel(1)
+                        })
+                        $(".messageButton[value='Quit Game']").click(function() {
+                            quitGame()
+                        })
+                    }
                     $messageDisplayBox.html(smallInstructions)
-                    $presentOne = $('#present_1_single')
-                    $road = $('#road')
-                    $shifty = $('.shifty')
-                    //enable start event
-                    $startSafeZone.click(function () {
-                        if (!playing && !finished)
-                            startLevel()
-                    })
-                    //enable the death event
-                    $gameBoxDiv.on('mouseover', '.boundary', function () {
-                        if (playing) {
-                            gameDeath()
-                        }
-                    })
-                    //enable finish event
-                    $finishBox.mouseover(function () {
-                        if (playing) {
-                            finishLevel()
-                        }
-                    })
-                    $(".messageButton[value='Open']").click(function() {
-                        bigInstruct()
-                    })
-                    $(".messageButton[value='Hide Instructions']").click(function() {
-                        smallInstruct()
-                    })
-                    $(".messageButton[value='Restart']").click(function() {
-                        loadLevel(1)
-                    })
-                    $(".messageButton[value='Quit Game']").click(function() {
-                        quitGame()
-                    })
+
+                    $('#loadingImage').hide()
+                    if (status == "error") {
+                        $messageDisplayBox.html(genericError)
+                    } else {
+                        resetClock()
+                        $startSafeZone = $('#startArea')
+                        $gameBoxDiv = $('#mazeContainer')
+                        //disable right click on maze container
+                        $gameBoxDiv.on("contextmenu", function() {
+                            return false;
+                        })
+                        $finishBox = $('#finishArea')
+                        $gameDiv = $('#game')
+                        $messageDisplayBox = $('#message')
+                        $presentOne = $('#present_1_single')
+                        $road = $('#road')
+                        $shifty = $('.shifty')
+                        //enable start event
+                        $startSafeZone.click(function() {
+                            if (!playing && !finished)
+                                startLevel()
+                        })
+                        //enable the death event
+                        $gameBoxDiv.on('mouseover', '.boundary', function() {
+                            if (playing) {
+                                gameDeath()
+                            }
+                        })
+                        //enable finish event
+                        $finishBox.mouseover(function() {
+                            if (playing) {
+                                finishLevel()
+                            }
+                        })
+                        $(".messageButton[value='Open']").click(function() {
+                            bigInstruct()
+                        })
+                        $(".messageButton[value='Hide Instructions']").click(function() {
+                            smallInstruct()
+                        })
+                        $(".messageButton[value='Restart']").click(function() {
+                            loadLevel(1)
+                        })
+                        $(".messageButton[value='Quit Game']").click(function() {
+                            quitGame()
+                        })
+                    }
                 }
-                $messageDisplayBox.html(smallInstructions)
-            
-            $('#loadingImage').hide()
-            if (status == "error") {
-                $messageDisplayBox.html(genericError)
-            } else {
-                resetClock()
-                $startSafeZone = $('#startArea')
-                $gameBoxDiv = $('#mazeContainer')
-                //disable right click on maze container
-                $gameBoxDiv.on("contextmenu", function() {
-                    return false;
-                })
-                $finishBox = $('#finishArea')
-                $gameDiv = $('#game')
-                $messageDisplayBox = $('#message')
-                $presentOne = $('#present_1_single')
-                $road = $('#road')
-                $shifty = $('.shifty')
-                //enable start event
-                $startSafeZone.click(function() {
-                    if (!playing && !finished)
-                        startLevel()
-                })
-                //enable the death event
-                $gameBoxDiv.on('mouseover', '.boundary', function() {
-                    if (playing) {
-                        gameDeath()
+            )
+        } else {
+            $gameBoxDiv.load('templates/level' + levelNumber + '.php',
+                function(response, status) {
+                    if (status == 'error') {
+                        $messageDisplayBox.html(genericError)
                     }
+                    attemptsCount = 0
+                    resetClock()
                 })
-                //enable finish event
-                $finishBox.mouseover(function() {
-                    if (playing) {
-                        finishLevel()
-                    }
-                })
-                $(".messageButton[value='Open']").click(function() {
-                    bigInstruct()
-                })
-                $(".messageButton[value='Hide Instructions']").click(function() {
-                    smallInstruct()
-                })
-                $(".messageButton[value='Restart']").click(function() {
-                    loadLevel(1)
-                })
-                $(".messageButton[value='Quit Game']").click(function() {
-                    quitGame()
-                })
-            }
         }
-    )
     } else {
-        $gameBoxDiv.load('templates/level' + levelNumber + '.php',
-            function(response, status) {
-                if (status == 'error') {
-                    $messageDisplayBox.html(genericError)
-                }
-                attemptsCount = 0
-                resetClock()
-            })
+        window.location.reload(false)
     }
-}
-else
-{
-    window.location.reload(false)
-}
 }
 
 /**
@@ -155,7 +152,6 @@ function startLevel() {
     //increase attempt counter by 1
     $('#tally').text(++attemptsCount)
 }
-
 /**
  * stops clock, sets playing to false, posts data to api, loads the next level or End of game message box
  */
@@ -195,7 +191,6 @@ function finishLevel() {
                     loadLevel(++levelNumber)
                 }
             }
-
             else {
                 $messageDisplayBox.html(genericError)
             }
@@ -204,7 +199,6 @@ function finishLevel() {
             $messageDisplayBox.html(genericError)
         })
 }
-
 /**
  * stops clock, doesn't reset
  * enables the safezone click event
@@ -218,7 +212,6 @@ function gameDeath() {
     $messageDisplayBox.html('<div class="message"><h4>Uh-oh, you touched the sides!</h4><h5>Click start to try again</h5>' +
         '<div class="button"><input type="button" value="Quit Game" class="messageButton"></div></div>')
 }
-
 /**
  * animates instructions to large format,
  * fades content in.
@@ -232,7 +225,6 @@ function bigInstruct() {
             $('.messageContent').fadeIn(500)
         })
 }
-
 /**
  * Fades current message content,
  * animates the pop out of the large instruction popup to a smaller size,
@@ -248,10 +240,7 @@ function smallInstruct() {
                 $('#message').html(smallInstructions)
             })
     })
-
 }
-
-
 /**
  * Quits the game by reloading  the window
  */
