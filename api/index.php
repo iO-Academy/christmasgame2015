@@ -70,6 +70,7 @@ if (!empty($_POST['action'])) {
             $time = $_POST['time'];
             $user = $_SESSION['id'];
             $try = $_SESSION['attempts'];
+			$maxLevel = 1;
 			
 			if (empty($user) || empty($try)) {
                 $response = array(
@@ -101,7 +102,7 @@ if (!empty($_POST['action'])) {
                     'message' => 'Level saved'
                 );
 
-                if (5 == $level) {
+                if ($maxLevel == $level) {
                     // add all level times together and save
                     $query = 'SELECT SUM(`time`) AS \'time\' FROM `levels` WHERE `user` = ' . $user . ' AND `try` = ' . $try . ';';
                     $conn = $db->prepare($query);
