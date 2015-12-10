@@ -10,6 +10,10 @@ try {
 }
 catch(PDOException $e)
 {
-    echo "Connection failed: " . $e->getMessage();
+	$response = array(
+	    'success' => false,
+	    'message' => 'Database connection failed'
+	);
+	header('Content-Type: application/json');
+	die(json_encode($response));
 }
-?> 

@@ -37,6 +37,8 @@ function loadLevel(levelNumber) {
                 $gameDiv = $('#game')
                 $messageDisplayBox = $('#message')
                 $presentOne = $('#present_1_single')
+                $road = $('#road')
+                $shifty = $('.shifty')
 
                 //start the game animations
 
@@ -86,6 +88,8 @@ function startLevel() {
 //Start Clock
     startClock()
     playing = true
+    $gameBoxDiv.css({
+        'cursor': 'url("img/cursor.gif"), auto'})
     //increase attempt counter by 1
     $('#tally').text(++attemptsCount)
 }
@@ -124,12 +128,38 @@ function finishLevel() {
     })
 }
 /**
- * stop the clock, set playing to false, displays message
+ * stops clock, doesn't reset
+ * enables the safezone click event
+ * replaces the message in the display box
+ * disables the death event
  */
+
 function gameDeath() {
     stopClock()
+    $gameBoxDiv.css( 'cursor', 'not-allowed' )
     playing = false
     $messageDisplayBox.html('You have died! Please try again! Click on the start area to start')
 }
 
+$(function() {
+    $gameDiv = $('#game')
+    $gameBoxDiv = $('#mazeContainer')
+    $messageDisplayBox = $('#message')
+    $startSafeZone = $('#startArea')
+    $finishSafeZone = $('someHTMLEntityIDNotDecided#finishSafeZone')
+    $finishBox = $('someHTMLEntityNotDecided')
+    //triggers start event
+    $startSafeZone.click(function() {
+        startLevel()
+    })
+    //triggers finish event
+    $finishBox.mouseover(function() {
+        finishLevel()
+    })
+
+    //enables the death event
+    $gameBoxDiv.on('death', function() {
+        gameDeath()
+    })
+})
 
