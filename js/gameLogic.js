@@ -94,8 +94,6 @@ function finishLevel() {
     stopClock()
     playing = false
     finished = true
-    //change message box to display level congrats
-    $messageDisplayBox.html(completedLevelMessage)
     $.post('api/index.php', {
             'action': 'saveLevel',
             'level': levelNumber,
