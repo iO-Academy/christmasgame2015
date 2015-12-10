@@ -4,7 +4,6 @@ var completedLevelMessage = '<p>Some html about completing level</p>'
 var $startSafeZone, lastLevel = 2, attemptsCount = 0, playing = false, finished = false
 var genericError = 'Sorry there is a problem, please try reloading the page'
 
-
 /**
  * checks if level number is valid or sets error message
  * if first level, loads gameVisuals, sets variables and registers event handlers
@@ -39,14 +38,6 @@ function loadLevel(levelNumber) {
                 $presentOne = $('#present_1_single')
                 $road = $('#road')
                 $shifty = $('.shifty')
-
-                //start the game animations
-
-                //$startSafeZone.click( function start() {
-                   // $presentOne.animate({left: "83px"}, 1, 'linear', (function() {
-                      //  $presentOne.animate({left: "109px"}, 1, 'linear', start)
-                    //}))
-                 //})
 
                 //enable start event
                 $startSafeZone.click( function() {
@@ -127,13 +118,13 @@ function finishLevel() {
         $messageDisplayBox.html(genericError)
     })
 }
+
 /**
  * stops clock, doesn't reset
  * enables the safezone click event
  * replaces the message in the display box
  * disables the death event
  */
-
 function gameDeath() {
     stopClock()
     $gameBoxDiv.css( 'cursor', 'not-allowed' )
@@ -156,7 +147,6 @@ $(function() {
     $finishBox.mouseover(function() {
         finishLevel()
     })
-
     //enables the death event
     $gameBoxDiv.on('death', function() {
         gameDeath()
