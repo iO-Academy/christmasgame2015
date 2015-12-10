@@ -1,5 +1,6 @@
-<html>
-    <head>
+<!--[if lte IE 8 ]>    <html class="ie8" lang="en"> <![endif]-->
+<!--[if (gt IE 8)|!(IE)]><!--> <html lang="en"> <!--<![endif]-->
+<head>
         <link href='https://fonts.googleapis.com/css?family=Roboto:400,100,700' rel='stylesheet' type='text/css'>
         <link type="text/css" href="css/splash.css" rel="stylesheet" media="all">
         <link type="text/css" href="css/layout.css" rel="stylesheet" media="all">

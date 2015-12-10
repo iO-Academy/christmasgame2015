@@ -117,7 +117,6 @@ input {
 
 #snow1 {
     background: none;
-    font-family: Androgyne;
     background-image: url('../img/snow1.png');
     height: 100%;
     left: 0;
@@ -133,7 +132,6 @@ input {
 
 #snow2 {
     background: none;
-    font-family: Androgyne;
     background-image: url('../img/snow2.png');
     height: 100%;
     left: 0;
@@ -149,7 +147,6 @@ input {
 
 #snow3 {
     background: none;
-    font-family: Androgyne;
     background-image: url('../img/snow3.png');
     height: 100%;
     left: 0;
@@ -165,7 +162,6 @@ input {
 
 #snow4 {
     background: none;
-    font-family: Androgyne;
     background-image: url('../img/snowmed2.png');
     height: 100%;
     left: 0;
@@ -239,3 +235,6 @@ input {
     }
 }
 
+.ie8 .snow {
+    display: none;
+}
