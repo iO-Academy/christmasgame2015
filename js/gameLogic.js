@@ -36,8 +36,9 @@ function loadLevel(levelNumber) {
                 $shifty = $('.shifty')
                 //enable start event
                 $startSafeZone.click(function() {
-                    if (!playing && !finished)
+                    if (!playing && !finished) {
                         startLevel()
+                    }
                 })
                 //enable the death event
                 $gameBoxDiv.on('mouseover', '.boundary', function() {
@@ -109,8 +110,7 @@ function finishLevel() {
                 $messageDisplayBox.html(genericError)
             }
         }
-    ).
-    fail(function() {
+    ).fail(function() {
         $messageDisplayBox.html(genericError)
     })
 }
