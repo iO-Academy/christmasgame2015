@@ -1,6 +1,8 @@
-<!--[if lte IE 8 ]>    <html class="ie8" lang="en"> <![endif]-->
-<!--[if (gt IE 8)|!(IE)]><!--> <html lang="en"> <!--<![endif]-->
-<head>
+<!doctype html>
+<!--[if lte IE 8 ]><html class="ie8" lang="en"><![endif]-->
+<!--[if (gt IE 8)|!(IE)]><!--><html lang="en"><!--<![endif]-->
+    <head>
+        <meta http-equiv="x-ua-compatible" content="IE-Edge"/>
         <link href='https://fonts.googleapis.com/css?family=Roboto:400,100,700' rel='stylesheet' type='text/css'>
         <link type="text/css" href="css/splash.css" rel="stylesheet" media="all">
         <link type="text/css" href="css/popup.css" rel="stylesheet" media="all">
