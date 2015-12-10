@@ -1,7 +1,7 @@
 var genericError = 'Sorry there is a problem, please try reloading the page'
 var congratulationsMessage = '<p>Yay you did it!</p>'
 var completedLevelMessage = '<p>Some html about completing level</p>'
-var lastLevel = 2, attemptsCount = 0, playing = false, finished = false, $startSafeZone
+var lastLevel = 1, attemptsCount = 0, playing = false, finished = false, $startSafeZone
 var levelNumber = 1, $gameDiv, $gameBoxDiv, $messageDisplayBox, $finishBox
 
 /**
