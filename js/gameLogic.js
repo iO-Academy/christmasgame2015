@@ -128,7 +128,8 @@ function gameDeath() {
     stopClock()
     $gameBoxDiv.css('cursor', 'not-allowed')
     playing = false
-    $messageDisplayBox.html('You have died! Please try again! Click on the start area to start')
+    $messageDisplayBox.html('<div class="message"><h4>Uh-oh, you touched the sides!</h4><h5>Click start to try again</h5>' +
+        '<div class="button"><input type="button" value="Quit Game" class="messageButton" onclick="quitGame()"></div></div>')
 }
 
 function bigInstruct() {
