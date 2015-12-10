@@ -1,8 +1,8 @@
-var $gameDiv, $gameBoxDiv, $messageDisplayBox, $finishBox, levelNumber = 1
+var genericError = 'Sorry there is a problem, please try reloading the page'
 var congratulationsMessage = '<p>Yay you did it!</p>'
 var completedLevelMessage = '<p>Some html about completing level</p>'
-var $startSafeZone, lastLevel = 2, attemptsCount = 0, playing = false, finished = false
-var genericError = 'Sorry there is a problem, please try reloading the page'
+var lastLevel = 1, attemptsCount = 0, playing = false, finished = false, $startSafeZone
+var levelNumber = 1, $gameDiv, $gameBoxDiv, $messageDisplayBox, $finishBox
 
 /**
  * checks if level number is valid or sets error message
@@ -14,43 +14,45 @@ function loadLevel(levelNumber) {
 
     if (levelNumber > 0 && levelNumber <= lastLevel) {
         $('#splashbackground').hide()
-        $('#loadingImage').show();
+        $('#loadingImage').show()
         if (levelNumber === 1) {
             $('#game').load('templates/gameVisual.php', function(response, status) {
-                $('#loadingImage').hide();
+                $('#loadingImage').hide()
                     if (status == "error") {
-                        console.log(status)
                         $messageDisplayBox.html(genericError)
                     }
                 resetClock()
                 $startSafeZone = $('#startArea')
                 $gameBoxDiv = $('#mazeContainer')
-
                 //disable right click on maze container
+                $(document).ready(function() {
+                    $gameBoxDiv.on("contextmenu", function() {
+                        return false;
+                    });
+                });
                 $gameBoxDiv.on("contextmenu",function(){
                     return false;
-                });
+                })
                 $finishBox = $('#finishArea')
                 $gameDiv = $('#game')
                 $messageDisplayBox = $('#message')
                 $presentOne = $('#present_1_single')
                 $road = $('#road')
                 $shifty = $('.shifty')
-
                 //enable start event
-                $startSafeZone.click( function() {
-                    if(!playing && !finished)
-                    startLevel()
+                $startSafeZone.click(function() {
+                    if (!playing && !finished)
+                        startLevel()
                 })
                 //enable the death event
                 $gameBoxDiv.on('mouseover', '.boundary', function() {
-                    if(playing) {
+                    if (playing) {
                         gameDeath()
                     }
                 })
                 //enable finish event
                 $finishBox.mouseover(function() {
-                    if(playing) {
+                    if (playing) {
                         finishLevel()
                     }
                 })
@@ -58,7 +60,6 @@ function loadLevel(levelNumber) {
         } else {
             $gameBoxDiv.load('templates/level' + levelNumber + '.php',
                 function(response, status) {
-                    $('#loadingImage').hide()
                     if (status == 'error') {
                         $messageDisplayBox.html(genericError)
                     }
@@ -78,7 +79,8 @@ function startLevel() {
     startClock()
     playing = true
     $gameBoxDiv.css({
-        'cursor': 'url("img/cursor.gif"), auto'})
+        'cursor': 'url("img/cursor.gif"), auto'
+    })
     //increase attempt counter by 1
     $('#tally').text(++attemptsCount)
 }
@@ -100,23 +102,23 @@ function finishLevel() {
         },
         function(data) {
             if ('success' in data && data.success) {
-                levelNumber++
                 if (levelNumber === lastLevel) {
                     $messageDisplayBox.html(congratulationsMessage)
                 }
                 else {
-                    loadLevel(levelNumber)
+                    loadLevel(++levelNumber)
                 }
             }
+
             else {
                 $messageDisplayBox.html(genericError)
             }
         }
-    ).fail(function() {
+    ).
+    fail(function() {
         $messageDisplayBox.html(genericError)
     })
 }
-
 /**
  * stops clock, doesn't reset
  * enables the safezone click event
@@ -125,28 +127,8 @@ function finishLevel() {
  */
 function gameDeath() {
     stopClock()
-    $gameBoxDiv.css( 'cursor', 'not-allowed' )
+    $gameBoxDiv.css('cursor', 'not-allowed')
     playing = false
     $messageDisplayBox.html('You have died! Please try again! Click on the start area to start')
 }
 
-$(function() {
-    $gameDiv = $('#game')
-    $gameBoxDiv = $('#mazeContainer')
-    $messageDisplayBox = $('#message')
-    $startSafeZone = $('#startArea')
-    $finishSafeZone = $('someHTMLEntityIDNotDecided#finishSafeZone')
-    $finishBox = $('someHTMLEntityNotDecided')
-    //triggers start event
-    $startSafeZone.click(function() {
-        startLevel()
-    })
-    //triggers finish event
-    $finishBox.mouseover(function() {
-        finishLevel()
-    })
-    //enables the death event
-    $gameBoxDiv.on('death', function() {
-        gameDeath()
-    })
-})
