@@ -18,7 +18,6 @@ var attemptsCount = 0
  * @param number levelNumber
  */
 function loadLevel(levelNumber) {
-
     if (levelNumber > 0 && levelNumber <= lastLevel) {
         $('#splashbackground').hide()
         $('#loadingImage').show()
@@ -87,7 +86,6 @@ function loadLevel(levelNumber) {
         window.location.reload(false)
     }
 }
-
 /**
  * starts clock, sets playing to true, add one to attempts counter
  */
@@ -102,7 +100,6 @@ function startLevel() {
     //increase attempt counter by 1
     $('#tally').text(++attemptsCount)
 }
-
 /**
  * stops clock, sets playing to false, posts data to api, loads the next level or End of game message box
  */
@@ -127,7 +124,6 @@ function finishLevel() {
                     loadLevel(++levelNumber)
                 }
             }
-
             else {
                 $messageDisplayBox.html(genericError)
             }
@@ -136,7 +132,6 @@ function finishLevel() {
         $messageDisplayBox.html(genericError)
     })
 }
-
 /**
  * stops clock, doesn't reset
  * enables the safezone click event
@@ -150,7 +145,6 @@ function gameDeath() {
     $messageDisplayBox.html('<div class="message"><h4>Uh-oh, you touched the sides!</h4><h5>Click start to try again</h5>' +
         '<div class="button"><input type="button" value="Quit Game" class="messageButton"></div></div>')
 }
-
 /**
  * animates instructions to large format,
  * fades content in.
@@ -164,7 +158,6 @@ function bigInstruct() {
             $('.messageContent').fadeIn(500)
         })
 }
-
 /**
  * Fades current message content,
  * animates the pop out of the large instruction popup to a smaller size,
@@ -180,42 +173,7 @@ function smallInstruct() {
                 $('#message').html(smallInstructions)
             })
     })
-
 }
-
-/**
- * animates instructions to large format,
- * fades content in.
- */
-function bigInstruct() {
-    $('#message').html(bigInstructions).animate({
-            width: "690px",
-            height: "360px"
-        },
-        function() {
-            $('.messageContent').fadeIn(500)
-        })
-}
-
-/**
- * Fades current message content,
- * animates the pop out of the large instruction popup to a smaller size,
- * loads in the small instructions content.
- */
-function smallInstruct() {
-    $('.messageContent').fadeOut(500, function () {
-        $('#message').html(bigInstructions).animate({
-                width: "215px",
-                height: "160px"
-            },
-            function() {
-                $('#message').html(smallInstructions)
-            })
-    })
-
-}
-
-
 /**
  * Quits the game by reloading  the window
  */

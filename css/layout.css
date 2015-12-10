@@ -36,6 +36,7 @@
 }
 
 #message {
+    z-index: 10;
     top: 25px;
     right: 26px;
     width: 215px;
@@ -102,7 +103,7 @@
 
 #start {
     color: #737373;
-    z-index: 100;
+    z-index: 9;
     position: absolute;
     left: 10px;
     top: 5px;
