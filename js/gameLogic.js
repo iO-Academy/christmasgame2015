@@ -1,11 +1,11 @@
 var genericError = '<div class="message"><h4>Oops!</h4><h5>Please try reloading the page</h5><div class="button"><input type="button" value="Quit Game" class="quit messageButton"></div></div>'
 var congratulationsMessage = '<div class="message"><h4>You did it!</h4><h5>Click the Start area to continue playing.</h5><div class="button"><input type="button" value="Quit Game" class="quit messageButton"></div></div>'
 var smallInstructions = '<div class="message"><h4>To see the Instructions</h4><h5>Click the Open button</h5><div class="button">' +
-    '<input type="button" value="Open" class="messageButton" onclick="bigInstruct()"></div></div>'
+    '<input type="button" value="Open" class="messageButton"></div></div>'
 var bigInstructions = '<div class="message bigMessage"><div class="messageContent"<h2>Instructions</h2>' +
     '<h3>Follow the path with your mouse cursor to make it to the safe zone.</h3>' +
     '<h3>Try to complete it as fast as possible with as few attempts as possible.</h3>' +
-    '<h3>Hide the instructions and click Start to begin.</h3> <input type="button" value="Hide Instructions" onclick="smallInstruct()" class="messageButton"> </div></div>'
+    '<h3>Hide the instructions and click Start to begin.</h3> <input type="button" value="Hide Instructions" class="messageButton"> </div></div>'
 var lastLevel = 1, attemptsCount = 0, playing = false, finished = false, $startSafeZone
 var levelNumber = 1, $gameDiv, $gameBoxDiv, $messageDisplayBox, $finishBox
 var attemptsCount = 0
@@ -131,13 +131,8 @@ function gameDeath() {
     stopClock()
     $gameBoxDiv.css('cursor', 'not-allowed')
     playing = false
-<<<<<<< HEAD
     $messageDisplayBox.html('<div class="message"><h4>Uh-oh, you touched the sides!</h4><h5>Click start to try again</h5>' +
-        '<div class="button"><input type="button" value="Quit Game" class="messageButton" onclick="quitGame()"></div></div>')
-=======
-    $messageDisplayBox.html('You have died! Please try again! Click on the start area to start')
-    $gameBoxDiv.off('death')
->>>>>>> a9a8ca681b9a03aba2ca6a314ec05b20e2cd456e
+        '<div class="button"><input type="button" value="Quit Game" class="messageButton"></div></div>')
 }
 
 /**
