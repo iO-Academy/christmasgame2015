@@ -19,8 +19,8 @@
 
 .level1 {
     background-image: url('../img/level_bg.png');
-    border: rgba(7, 2, 1, 0.3) 1px solid;  // border might have to be removed when iframed
-    height: 430px;
+    border: rgba(7, 2, 1, 0.3) 1px solid;
+ /*border might have to be removed when iframed height : 430 px;*/
 }
 
 .gameLevelVisual {
@@ -37,9 +37,11 @@
 
 #message {
     top: 25px;
-    right: 25px;
+    right: 26px;
     width: 215px;
     height: 160px;
+    border-radius: 6px;
+    border: 6px solid #ffffff;
 }
 
 #timer {
@@ -128,7 +130,8 @@
     margin-left: -17px;
     top: 210px;
 }
-.preloadImgs{
+
+.preloadImgs {
     position: absolute;
     overflow: hidden;
     left: -9999px;
@@ -164,6 +167,7 @@
 #preloaded-images7 {
     background-image: url('../img/presents_2_middle.png');
 }
+
 #preloaded-image8 {
     background-image: url('../img/presents_2_top.png');
 }
