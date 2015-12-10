@@ -1,8 +1,14 @@
-var genericError = 'Sorry there is a problem, please try reloading the page'
-var congratulationsMessage = '<p>Yay you did it!</p>'
-var completedLevelMessage = '<p>Some html about completing level</p>'
+var genericError = '<div class="message"><h4>Oops!</h4><h5>Please try reloading the page</h5><div class="button"><input type="button" value="Quit Game" class="quit messageButton"></div></div>'
+var congratulationsMessage = '<div class="message"><h4>You did it!</h4><h5>Click the Start area to continue playing.</h5><div class="button"><input type="button" value="Quit Game" class="quit messageButton"></div></div>'
+var smallInstructions = '<div class="message"><h4>To see the Instructions</h4><h5>Click the Open button</h5><div class="button">' +
+    '<input type="button" value="Open" class="messageButton" onclick="bigInstruct()"></div></div>'
+var bigInstructions = '<div class="message bigMessage"><div class="messageContent"<h2>Instructions</h2>' +
+    '<h3>Follow the path with your mouse cursor to make it to the safe zone.</h3>' +
+    '<h3>Try to complete it as fast as possible with as few attempts as possible.</h3>' +
+    '<h3>Hide the instructions and click Start to begin.</h3> <input type="button" value="Hide Instructions" onclick="smallInstruct()" class="messageButton"> </div></div>'
 var lastLevel = 1, attemptsCount = 0, playing = false, finished = false, $startSafeZone
 var levelNumber = 1, $gameDiv, $gameBoxDiv, $messageDisplayBox, $finishBox
+var attemptsCount = 0
 
 /**
  * checks if level number is valid or sets error message
