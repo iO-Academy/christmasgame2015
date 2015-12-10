@@ -70,10 +70,7 @@ function loadLevel(levelNumber) {
                 })
         }
     } else {
-<<<<<<< HEAD
-=======
         window.location.reload(false)
->>>>>>> f59b2f632201d33fff444bde9db1c074b07ec753
     }
 }
 
