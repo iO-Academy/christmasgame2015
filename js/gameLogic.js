@@ -1,12 +1,11 @@
 var genericError = '<div class="message"><h4>Oops!</h4><h5>Please try reloading the page</h5></div>'
-var congratulationsMessage = '<div class="message"><h4>You did it!</h4><h5>Click the Start area to continue playing.</h5><div class="button"><input type="button" value="Quit Game" class="quit messageButton"></div></div>'
 var smallInstructions = '<div class="message"><h4>To see the Instructions</h4><h5>Click the Open button</h5><div class="button">' +
     '<input type="button" value="Open" class="messageButton open"></div></div>'
 var bigInstructions = '<div class="message bigMessage"><div class="messageContent"<h2>Instructions</h2>' +
     '<h3>Follow the path with your mouse cursor to make it to the safe zone.</h3>' +
     '<h3>Try to complete it as fast as possible with as few attempts as possible.</h3>' +
     '<h3>Hide the instructions and click Start to begin.</h3> <input type="button" value="Hide Instructions" class="messageButton hide"> </div></div>'
-var lastLevel = 1, attemptsCount = 0, playing = false, finished = false, $startSafeZone
+var lastLevel = 1, playing = false, finished, checkpointPassed = false, $startSafeZone
 var levelNumber = 1, $gameDiv, $gameBoxDiv, $messageDisplayBox, $finishBox
 var attemptsCount = 0
 
@@ -24,84 +23,53 @@ function loadLevel(levelNumber) {
         $('#loadingImage').show()
         if (levelNumber === 1) {
             $('#game').load('templates/gameVisual.php', function(response, status) {
-                    $messageDisplayBox = $('#message')
-                    if (status == "error") {
-                        $messageDisplayBox.html(genericError)
-                    } else {
-                        resetClock()
-                        $startSafeZone = $('#startArea')
-                        $gameBoxDiv = $('#mazeContainer')
-                        //disable right click on maze container
-                        $gameBoxDiv.on("contextmenu", function() {
-                            return false;
-                        })
-                        $finishBox = $('#finishArea')
-                        $gameDiv = $('#game')
-                        $messageDisplayBox = $('#message')
-                        $messageDisplayBox.html(smallInstructions)
-                        $presentOne = $('#present_1_single')
-                        $road = $('#road')
-                        $shifty = $('.shifty')
-                        //enable start event
-                        $startSafeZone.click(function() {
-                            if (!playing && !finished)
-                                startLevel()
-                        })
-                        //enable the death event
-                        $gameBoxDiv.on('mouseover', '.boundary', function() {
-                            if (playing) {
-                                gameDeath()
-                            }
-                        })
-                        //enable finish event
-                        $finishBox.mouseover(function() {
-                            if (playing) {
-                                finishLevel()
-                            }
-                        })
-                    }
+                $messageDisplayBox = $('#message')
+                $('#loadingImage').hide()
+                if (status == "error") {
+                    $messageDisplayBox.html(genericError)
+                } else {
+                    resetClock()
+                    $startSafeZone = $('#startArea')
+                    $gameBoxDiv = $('#mazeContainer')
+                    //disable right click on maze container
+                    $gameBoxDiv.on("contextmenu", function() {
+                        return false;
+                    })
+                    $finishBox = $('#finishArea')
+                    $gameDiv = $('#game')
                     $messageDisplayBox.html(smallInstructions)
-
-                    $('#loadingImage').hide()
-                    if (status == "error") {
-                        $messageDisplayBox.html(genericError)
-                    } else {
-                        resetClock()
-                        $startSafeZone = $('#startArea')
-                        $gameBoxDiv = $('#mazeContainer')
-                        //disable right click on maze container
-                        $gameBoxDiv.on("contextmenu", function() {
-                            return false;
-                        })
-                        $finishBox = $('#finishArea')
-                        $gameDiv = $('#game')
-                        $messageDisplayBox = $('#message')
-                        $presentOne = $('#present_1_single')
-                        $road = $('#road')
-                        $shifty = $('.shifty')
-                        //enable start event
-                        $startSafeZone.click(function() {
-                            if (!playing && !finished)
-                                startLevel()
-                        })
-                        //enable the death event
-                        $gameBoxDiv.on('mouseover', '.boundary', function() {
-                            if (playing) {
-                                gameDeath()
-                            }
-                        })
-                        //enable finish event
-                        $finishBox.mouseover(function() {
-                            if (playing) {
-                                finishLevel()
-                            }
-                        })
-                        $('.open').click(function() {
-                            bigInstruct()
-                        })
-                    }
+                    $presentOne = $('#present_1_single')
+                    $road = $('#road')
+                    $shifty = $('.shifty')
+                    //enable start event
+                    $startSafeZone.click(function() {
+                        if (!playing && !finished)
+                            startLevel()
+                    })
+                    //enable the death event
+                    $gameBoxDiv.on('mouseover', '.boundary', function() {
+                        if (playing) {
+                            gameDeath()
+                        }
+                    })
+                    // make sure they passed the checkpoint
+                    $('#checkpoint').mouseover(function() {
+                        checkpointPassed = true
+                    })
+                    //enable finish event
+                    $finishBox.mouseover(function() {
+                        if (playing) {
+                            finishLevel()
+                        }
+                    })
                 }
-            )
+                $messageDisplayBox.html(smallInstructions)
+
+
+                $('.open').click(function() {
+                    bigInstruct()
+                })
+            })
         } else {
             $gameBoxDiv.load('templates/level' + levelNumber + '.php',
                 function(response, status) {
@@ -135,49 +103,53 @@ function startLevel() {
  * stops clock, sets playing to false, posts data to api, loads the next level or End of game message box
  */
 function finishLevel() {
-    //stops the clock
-    stopClock()
-    playing = false
-    finished = true
-    $.post('api/index.php', {
-            'action': 'saveLevel',
-            'level': levelNumber,
-            'attempts': attemptsCount,
-            'time': ticks
-        },
-        function(data) {
-            if ('success' in data && data.success) {
-                if (levelNumber === lastLevel) {
+    if (checkpointPassed) {
+        //stops the clock
+        stopClock()
+        playing = false
+        finished = true
+        $.post('api/index.php', {
+                'action': 'saveLevel',
+                'level': levelNumber,
+                'attempts': attemptsCount,
+                'time': ticks
+            },
+            function (data) {
+                if ('success' in data && data.success) {
+                    if (levelNumber === lastLevel) {
 
-                    $('#message').html('<div class="message bigMessage">' +
-                        '<div class="messageContent"><h2>Congratulations!</h2> <h3>You finished the game!</h3>' +
-                        '<h3>You completed it in a time of: ' + seconds2time(ticks) + '</h3>' +
-                        '<h3>It took you a total of ' + attemptsCount + ' attempts!</h3>' +
-                        '<h3>Your results have been submitted, to play again click Replay!</h3>' +
-                        '<div class="buttonBigMessage">' +
-                        '<input type="button" value="Replay" class="messageButton replay"> </div></div>' +
-                        '</div>').animate({
-                            width: "690px",
-                            height: "360px"
-                        },
-                        function() {
-                            $('.replay').click(function() {
-                                quitGame()
+                        $('#message').html('<div class="message bigMessage">' +
+                            '<div class="messageContent"><h2>Congratulations!</h2> <h3>You finished the game!</h3>' +
+                            '<h3>You completed it in a time of: ' + seconds2time(ticks) + '</h3>' +
+                            '<h3>It took you a total of ' + attemptsCount + ' attempts!</h3>' +
+                            '<h3>Your results have been submitted, to play again click Replay!</h3>' +
+                            '<div class="buttonBigMessage">' +
+                            '<input type="button" value="Replay" class="messageButton replay"> </div></div>' +
+                            '</div>').animate({
+                                width: "690px",
+                                height: "360px"
+                            },
+                            function () {
+                                $('.replay').click(function () {
+                                    quitGame()
+                                })
+                                $('.messageContent').fadeIn(500)
                             })
-                            $('.messageContent').fadeIn(500)
-                        })
+                    }
+                    else {
+                        loadLevel(++levelNumber)
+                    }
                 }
                 else {
-                    loadLevel(++levelNumber)
+                    $messageDisplayBox.html(genericError)
                 }
             }
-            else {
-                $messageDisplayBox.html(genericError)
-            }
-        }
-    ).fail(function() {
-        $messageDisplayBox.html(genericError)
-    })
+        ).fail(function () {
+            $messageDisplayBox.html(genericError)
+        })
+    } else {
+        gameDeath()
+    }
 }
 /**
  * stops clock, doesn't reset

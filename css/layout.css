@@ -55,7 +55,7 @@
     padding-top: 3px;
 }
 
-#timerDigits > span {
+#seconds {
     color: #F27324;
     font-size: 25px;
     position: relative;
@@ -94,10 +94,10 @@
 }
 
 #finishArea {
-    width: 6px;
+    width: 30px;
     height: 18px;
     top: 68px;
-    left: 397px;
+    left: 382px;
     position: absolute;
 }
 

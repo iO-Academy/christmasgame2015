@@ -11,8 +11,8 @@
 <div class="boundary" id="b11"></div>
 <div class="boundary" id="b12"></div>
 <div class="boundary" id="b13"></div>
-<div class="boundary" id="b14"></div>
-<div class="boundary" id="b15"></div>
+<div class="boundary slanty" id="b14"></div>
+<div class="boundary slanty" id="b15"></div>
 <div class="boundary" id="b16"></div>
 <div class="boundary" id="b17"></div>
 <div class="boundary" id="b18"></div>
@@ -30,9 +30,9 @@
 <div class="boundary" id="b104"></div>
 <div class="boundary" id="b105"></div>
 <div class="boundary" id="b106"></div>
-<div class="boundary" id="b107"></div>
-<div class="boundary" id="b108"></div>
-<div class="boundary" id="b109"></div>
+<div class="boundary slanty" id="b107"></div>
+<div class="boundary slanty" id="b108"></div>
+<div class="boundary slanty" id="b109"></div>
 <div class="boundary" id="b110"></div>
 <div class="boundary" id="b111"></div>
 <div class="boundary" id="b112"></div>
@@ -49,6 +49,8 @@
 <div id="present_2_top" class="levelImages shifty"></div>
 <div id="tree" class="levelImages"></div>
 <div id="road" class="levelImages shifty"></div>
+
+<div id="checkpoint" class="levelImages"></div>
 
 <div class="bauble colour1" id="bauble1"></div>
 <div class="bauble colour3" id="bauble2"></div>
