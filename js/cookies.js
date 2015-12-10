@@ -19,7 +19,7 @@ function getChristmasGameCookie() {
     var result = false
     for (var i = 0; i < cookies.length; i++) {
         var cookie = cookies[i].split('=')
-        if (cookie[0] == "christmasGameUser") {
+        if (cookie[0] == "christmasGameUser" || cookie[0] == " christmasGameUser") {
             var user = cookie[1].split(',')
             if (
                 user.length == 2 &&
