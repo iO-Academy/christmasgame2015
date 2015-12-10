@@ -1,12 +1,11 @@
 var genericError = '<div class="message"><h4>Oops!</h4><h5>Please try reloading the page</h5></div>'
 var congratulationsMessage = '<div class="message"><h4>You did it!</h4><h5>Click the Start area to continue playing.</h5><div class="button"><input type="button" value="Quit Game" class="quit messageButton"></div></div>'
-completedLevelMessage = '<div class="message"><h4>You did it!</h4><h5>Click the Start area to continue playing.</h5><div class="button"><input type="button" value="Quit Game" class="messageButton"></div></div>'
 var smallInstructions = '<div class="message"><h4>To see the Instructions</h4><h5>Click the Open button</h5><div class="button">' +
-    '<input type="button" value="Open" class="messageButton"></div></div>'
+    '<input type="button" value="Open" class="messageButton open"></div></div>'
 var bigInstructions = '<div class="message bigMessage"><div class="messageContent"<h2>Instructions</h2>' +
     '<h3>Follow the path with your mouse cursor to make it to the safe zone.</h3>' +
     '<h3>Try to complete it as fast as possible with as few attempts as possible.</h3>' +
-    '<h3>Hide the instructions and click Start to begin.</h3> <input type="button" value="Hide Instructions" class="messageButton"> </div></div>'
+    '<h3>Hide the instructions and click Start to begin.</h3> <input type="button" value="Hide Instructions" class="messageButton hide"> </div></div>'
 var lastLevel = 1, attemptsCount = 0, playing = false, finished = false, $startSafeZone
 var levelNumber = 1, $gameDiv, $gameBoxDiv, $messageDisplayBox, $finishBox
 var attemptsCount = 0
@@ -98,7 +97,7 @@ function loadLevel(levelNumber) {
                                 finishLevel()
                             }
                         })
-                        $(".messageButton[value='Open']").click(function() {
+                        $('.open').click(function() {
                             bigInstruct()
                         })
                     }
@@ -155,19 +154,15 @@ function finishLevel() {
                         '<div class="messageContent"><h2>Congratulations!</h2> <h3>You finished the game!</h3>' +
                         '<h3>You completed it in a time of: ' + seconds2time(ticks) + '</h3>' +
                         '<h3>It took you a total of ' + attemptsCount + ' attempts!</h3>' +
-                        '<h3>Your results have been submitted, to play again click Restart!</h3>' +
+                        '<h3>Your results have been submitted, to play again click Replay!</h3>' +
                         '<div class="buttonBigMessage">' +
-                        '<input type="button" value="Restart" class="messageButton"> ' +
-                        '<input type="button" value="Quit Game" class="messageButton"> </div></div>' +
+                        '<input type="button" value="Replay" class="messageButton replay"> </div></div>' +
                         '</div>').animate({
                             width: "690px",
                             height: "360px"
                         },
                         function() {
-                            $(".messageButton[value='Restart']").click(function() {
-                                loadLevel(1)
-                            })
-                            $(".messageButton[value='Quit Game']").click(function() {
+                            $('.replay').click(function() {
                                 quitGame()
                             })
                             $('.messageContent').fadeIn(500)
@@ -196,8 +191,8 @@ function gameDeath() {
     $gameBoxDiv.css('cursor', 'not-allowed')
     playing = false
     $messageDisplayBox.html('<div class="message"><h4>Uh-oh, you touched the sides!</h4><h5>Click start to try again</h5>' +
-        '<div class="button"><input type="button" value="Quit Game" class="messageButton"></div></div>')
-    $(".messageButton[value='Quit Game']").click(function() {
+        '<div class="button"><input type="button" value="Quit Game" class="messageButton quit"></div></div>')
+    $('.quit').click(function() {
         quitGame()
     })
 }
@@ -211,7 +206,7 @@ function bigInstruct() {
             height: "360px"
         },
         function() {
-            $(".messageButton[value='Hide Instructions']").click(function() {
+            $('.hide').click(function() {
                 smallInstruct()
             })
             $('.messageContent').fadeIn(500)
