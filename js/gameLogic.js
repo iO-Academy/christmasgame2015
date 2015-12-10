@@ -14,7 +14,7 @@ var attemptsCount = 0
  * checks if level number is valid or sets error message
  * if first level, loads gameVisuals, sets variables and registers event handlers
  * Displays generic error is load fails
- * @number levelNumber
+ * @param number levelNumber
  */
 function loadLevel(levelNumber) {
 
@@ -56,6 +56,18 @@ function loadLevel(levelNumber) {
                         if (playing) {
                             finishLevel()
                         }
+                    })
+                    $(".messageButton[value='Open']").click(function() {
+                        bigInstruct()
+                    })
+                    $(".messageButton[value='Hide Instructions']").click(function() {
+                        smallInstruct()
+                    })
+                    $(".messageButton[value='Restart']").click(function() {
+                        loadLevel(1)
+                    })
+                    $(".messageButton[value='Quit Game']").click(function() {
+                        quitGame()
                     })
                 }
             })
