@@ -138,50 +138,50 @@
 }
 
 #preloaded-images1 {
-    background-image: url("img/ajax-loader.gif");
+    background-image: url("../img/ajax-loader.gif");
 }
 
 #preloaded-images2 {
-    background-image: url("img/level_bg.png");
+    background-image: url("../img/level_bg.png");
 }
 
 #preloaded-images3 {
-    background-image: url('img/cursor.gif');
+    background-image: url('../img/cursor.gif');
 }
 
 #preloaded-images4 {
-    background-image: url('img/present_1_single.png');
+    background-image: url('../img/present_1_single.png');
 }
 
 #preloaded-images5 {
-    background-image: url('img/presents_1_gap.png');
+    background-image: url('../img/presents_1_gap.png');
 }
 
 #preloaded-images6 {
-    background-image: url('img/presents_2_bottom.png');
+    background-image: url('../img/presents_2_bottom.png');
 }
 
 #preloaded-images7 {
-    background-image: url('img/presents_2_middle.png');
+    background-image: url('../img/presents_2_middle.png');
 }
 #preloaded-image8 {
-    background-image: url('img/presents_2_top.png');
+    background-image: url('../img/presents_2_top.png');
 }
 
 #preloaded-image9 {
-    background-image: url('img/logo_1.png');
+    background-image: url('../img/logo_1.png');
 }
 
 #preloaded-image10 {
-    background-image: url('img/logo_2.png');
+    background-image: url('../img/logo_2.png');
 }
 
 #preloaded-image11 {
-    background-image: url('img/right-border.png');
+    background-image: url('../img/right-border.png');
 }
 
 #preloaded-image12 {
-    background-image: url('img/tree.png');
+    background-image: url('../img/tree.png');
 }
 
 
