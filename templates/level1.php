@@ -40,8 +40,6 @@
 <div class="boundary" id="b114"></div>
 <div class="boundary" id="b115"></div>
 
-<div id="checkpoint1" class="levelImages"></div>
-
 <div id="hanger1" class="levelImages"></div>
 <div id="hanger2" class="levelImages"></div>
 <div id="present_1_single" class="levelImages boundary"></div>

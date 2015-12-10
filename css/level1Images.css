@@ -68,13 +68,6 @@
     left: 187px;
 }
 
-#checkpoint1 {
-    height: 17px;
-    width: 10px;
-    top: 278px;
-    left: 350px;
-}
-
 #road {
     background-image: url('../img/right-border.png');
     width: 11px;
