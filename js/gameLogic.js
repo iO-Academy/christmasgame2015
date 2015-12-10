@@ -1,9 +1,8 @@
 var genericError = 'Sorry there is a problem, please try reloading the page'
 var congratulationsMessage = '<p>Yay you did it!</p>'
 var completedLevelMessage = '<p>Some html about completing level</p>'
-var lastLevel = 1, attemptsCount = 0, playing = false, finished = false, $startSafeZone
+var lastLevel = 1, attemptsCount = 0, playing = false, finished, checkpointPassed = false, $startSafeZone
 var levelNumber = 1, $gameDiv, $gameBoxDiv, $messageDisplayBox, $finishBox
-
 /**
  * checks if level number is valid or sets error message
  * if first level, loads gameVisuals, sets variables and registers event handlers
@@ -45,6 +44,10 @@ function loadLevel(levelNumber) {
                             gameDeath()
                         }
                     })
+                    // make sure they passed the checkpoint
+                    $('#checkpoint').mouseover(function() {
+                        checkpointPassed = true
+                    })
                     //enable finish event
                     $finishBox.mouseover(function() {
                         if (playing) {
@@ -84,35 +87,39 @@ function startLevel() {
  * stops clock, sets playing to false, posts data to api, loads the next level or End of game message box
  */
 function finishLevel() {
-    //stops the clock
-    stopClock()
-    playing = false
-    finished = true
-    //change message box to display level congrats
-    $messageDisplayBox.html(completedLevelMessage)
-    $.post('api/index.php', {
-            'action': 'saveLevel',
-            'level': levelNumber,
-            'attempts': attemptsCount,
-            'time': ticks
-        },
-        function(data) {
-            if ('success' in data && data.success) {
-                if (levelNumber === lastLevel) {
-                    $messageDisplayBox.html(congratulationsMessage)
+    if (checkpointPassed === true) {
+        stopClock()
+        playing = false
+        finished = true
+        //change message box to display level congrats
+        $messageDisplayBox.html(completedLevelMessage)
+        $.post('api/index.php', {
+                'action': 'saveLevel',
+                'level': levelNumber,
+                'attempts': attemptsCount,
+                'time': ticks
+            },
+            function (data) {
+                if ('success' in data && data.success) {
+                    if (levelNumber === lastLevel) {
+                        $messageDisplayBox.html(congratulationsMessage)
+                    }
+                    else {
+                        loadLevel(++levelNumber)
+                    }
                 }
-                else {
-                    loadLevel(++levelNumber)
-                }
-            }
 
-            else {
-                $messageDisplayBox.html(genericError)
+                else {
+                    $messageDisplayBox.html(genericError)
+                }
             }
+        ).fail(function () {
+            $messageDisplayBox.html(genericError)
+        })
+    } else {
+        console.log('cheat')
+        gameDeath()
         }
-    ).fail(function() {
-        $messageDisplayBox.html(genericError)
-    })
 }
 /**
  * stops clock, doesn't reset
