@@ -19,7 +19,6 @@ function loadLevel(levelNumber) {
             $('#game').load('templates/gameVisual.php', function(response, status) {
                 $('#loadingImage').hide()
                     if (status == "error") {
-                        console.log(status)
                         $messageDisplayBox.html(genericError)
                     }
                 resetClock()
@@ -27,25 +26,15 @@ function loadLevel(levelNumber) {
                 $gameBoxDiv = $('#mazeContainer')
 
                 //disable right click on maze container
-                $(document).ready(function() {
-                    $gameBoxDiv.on("contextmenu",function(){
-                        return false;
-                    });
-                });
+                $gameBoxDiv.on("contextmenu",function(){
+                    return false;
+                })
                 $finishBox = $('#finishArea')
                 $gameDiv = $('#game')
                 $messageDisplayBox = $('#message')
                 $presentOne = $('#present_1_single')
                 $road = $('#road')
                 $shifty = $('.shifty')
-
-                //start the game animations
-
-                //$startSafeZone.click( function start() {
-                   // $presentOne.animate({left: "83px"}, 1, 'linear', (function() {
-                      //  $presentOne.animate({left: "109px"}, 1, 'linear', start)
-                    //}))
-                 //})
 
                 //enable start event
                 $startSafeZone.click( function() {
@@ -68,7 +57,6 @@ function loadLevel(levelNumber) {
         } else {
             $gameBoxDiv.load('templates/level' + levelNumber + '.php',
                 function(response, status) {
-                    $('#loadingImage').hide()
                     if (status == 'error') {
                         $messageDisplayBox.html(genericError)
                     }
@@ -110,11 +98,11 @@ function finishLevel() {
         },
         function(data) {
             if ('success' in data && data.success) {
-                levelNumber++
                 if (levelNumber === lastLevel) {
                     $messageDisplayBox.html(congratulationsMessage)
                 }
                 else {
+                    levelNumber++
                     loadLevel(levelNumber)
                 }
             }
@@ -126,13 +114,13 @@ function finishLevel() {
         $messageDisplayBox.html(genericError)
     })
 }
+
 /**
  * stops clock, doesn't reset
  * enables the safezone click event
  * replaces the message in the display box
  * disables the death event
  */
-
 function gameDeath() {
     stopClock()
     $gameBoxDiv.css( 'cursor', 'not-allowed' )
@@ -155,7 +143,6 @@ $(function() {
     $finishBox.mouseover(function() {
         finishLevel()
     })
-
     //enables the death event
     $gameBoxDiv.on('death', function() {
         gameDeath()

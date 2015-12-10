@@ -103,16 +103,17 @@
     animation-direction: reverse;
     animation: mymove 1.5s infinite;
 }
-.colour3 {
-     background-color: #AFCEE4;
-     animation: mymove 1s infinite;
- }
 
 .colour2 {
     background-color: #73B4E0;
     animation-direction: reverse;
     animation: mymove 1.5s infinite;
 }
+
+.colour3 {
+     background-color: #AFCEE4;
+     animation: mymove 1s infinite;
+ }
 
 .colour4 {
     background-color: #73B4E0;
