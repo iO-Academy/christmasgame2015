@@ -27,10 +27,8 @@ function loadLevel(levelNumber) {
                 $gameBoxDiv = $('#mazeContainer')
 
                 //disable right click on maze container
-                $(document).ready(function() {
-                    $gameBoxDiv.on("contextmenu",function(){
-                        return false;
-                    });
+                $gameBoxDiv.on("contextmenu",function(){
+                    return false;
                 });
                 $finishBox = $('#finishArea')
                 $gameDiv = $('#game')
