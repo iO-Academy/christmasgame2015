@@ -19,17 +19,17 @@ function loadLevel(levelNumber) {
         if (levelNumber === 1) {
             $('#game').load('templates/gameVisual.php', function(response, status) {
                 $('#loadingImage').hide();
-                    if (status == "error") {
-                        console.log(status)
-                        $messageDisplayBox.html(genericError)
-                    }
+                if (status == "error") {
+                    console.log(status)
+                    $messageDisplayBox.html(genericError)
+                }
                 resetClock()
                 $startSafeZone = $('#startArea')
                 $gameBoxDiv = $('#mazeContainer')
 
                 //disable right click on maze container
                 $(document).ready(function() {
-                    $gameBoxDiv.on("contextmenu",function(){
+                    $gameBoxDiv.on("contextmenu", function() {
                         return false;
                     });
                 });
@@ -39,29 +39,20 @@ function loadLevel(levelNumber) {
                 $presentOne = $('#present_1_single')
                 $road = $('#road')
                 $shifty = $('.shifty')
-
-                //start the game animations
-
-                //$startSafeZone.click( function start() {
-                   // $presentOne.animate({left: "83px"}, 1, 'linear', (function() {
-                      //  $presentOne.animate({left: "109px"}, 1, 'linear', start)
-                    //}))
-                 //})
-
                 //enable start event
-                $startSafeZone.click( function() {
-                    if(!playing && !finished)
-                    startLevel()
+                $startSafeZone.click(function() {
+                    if (!playing && !finished)
+                        startLevel()
                 })
                 //enable the death event
                 $gameBoxDiv.on('mouseover', '.boundary', function() {
-                    if(playing) {
+                    if (playing) {
                         gameDeath()
                     }
                 })
                 //enable finish event
                 $finishBox.mouseover(function() {
-                    if(playing) {
+                    if (playing) {
                         finishLevel()
                     }
                 })
@@ -89,7 +80,8 @@ function startLevel() {
     startClock()
     playing = true
     $gameBoxDiv.css({
-        'cursor': 'url("img/cursor.gif"), auto'})
+        'cursor': 'url("img/cursor.gif"), auto'
+    })
     //increase attempt counter by 1
     $('#tally').text(++attemptsCount)
 }
@@ -111,19 +103,20 @@ function finishLevel() {
         },
         function(data) {
             if ('success' in data && data.success) {
-                levelNumber++
                 if (levelNumber === lastLevel) {
                     $messageDisplayBox.html(congratulationsMessage)
                 }
                 else {
-                    loadLevel(levelNumber)
+                    loadLevel(++levelNumber)
                 }
             }
+
             else {
                 $messageDisplayBox.html(genericError)
             }
         }
-    ).fail(function() {
+    ).
+    fail(function() {
         $messageDisplayBox.html(genericError)
     })
 }
@@ -136,29 +129,8 @@ function finishLevel() {
 
 function gameDeath() {
     stopClock()
-    $gameBoxDiv.css( 'cursor', 'not-allowed' )
+    $gameBoxDiv.css('cursor', 'not-allowed')
     playing = false
     $messageDisplayBox.html('You have died! Please try again! Click on the start area to start')
 }
 
-$(function() {
-    $gameDiv = $('#game')
-    $gameBoxDiv = $('#mazeContainer')
-    $messageDisplayBox = $('#message')
-    $startSafeZone = $('#startArea')
-    $finishSafeZone = $('someHTMLEntityIDNotDecided#finishSafeZone')
-    $finishBox = $('someHTMLEntityNotDecided')
-    //triggers start event
-    $startSafeZone.click(function() {
-        startLevel()
-    })
-    //triggers finish event
-    $finishBox.mouseover(function() {
-        finishLevel()
-    })
-
-    //enables the death event
-    $gameBoxDiv.on('death', function() {
-        gameDeath()
-    })
-})
