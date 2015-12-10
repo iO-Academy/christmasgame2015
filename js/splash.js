@@ -19,13 +19,13 @@ $(function () {
                 'userEmail': userEmail
             }, function (data) {
                 if ('success' in data && data.success) {
+                    // if Success then set cookie and load first level
                     setChristmasGameCookie(userName, userEmail);
+                    $('#game').addClass('level1')
                     loadLevel(1);
                 } else {
                     $('#form').after("<div id='connectionError'>Error: Please refresh the page and try again.</div>");
                 }
-                // if Success then set cookie and load first level
-
             }).fail(function(){
                 $messageDisplayBox.replaceWith("Error: There appears to be a problem!");
             });

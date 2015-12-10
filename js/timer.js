@@ -1,5 +1,5 @@
-var ticks = 0;
-var clock;
+var ticks = 0
+var clock
 
 /**
  * converts and formats seconds to hh:mm:ss string
@@ -21,8 +21,8 @@ function seconds2time(seconds) {
 }
 
 function startClock() {
-    console.log(document.getElementById('seconds'))
     clock = setInterval(function () {
+        animatePresents()
         document.getElementById('seconds').innerHTML = seconds2time(++ticks);
     }, 1000);
 }
@@ -36,4 +36,5 @@ function resetClock() {
     ticks = 0;
     document.getElementById('seconds').innerHTML = "00:00";
 }
+
 
