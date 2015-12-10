@@ -25,7 +25,7 @@ var bigInstructions = '<div class="message bigMessage"><div class="messageConten
 function loadLevel(levelNumber) {
     if (levelNumber > 0 && levelNumber <= lastLevel) {
         if (levelNumber === 1) {
-            $('#game').load('templates/gameVisual.php', function (response, status) {
+            $('#game').load('templates/gameVisual.php', function(response, status) {
                 $messageDisplayBox = $('#message')
                 if (status == "error") {
                     console.log(status)
@@ -35,7 +35,7 @@ function loadLevel(levelNumber) {
             })
         } else {
             $gameBoxDiv.load('templates/level' + levelNumber + '.php',
-                function (response, status) {
+                function(response, status) {
                     if (status == "error") {
                         $messageDisplayBox.html(genericError)
                     }
@@ -60,7 +60,7 @@ function startLevel() {
     $('#tally').text(++attemptsCount)
     //disable start zone
     $startSafeZone.off('click')
-    $('.die').on('death', function () {
+    $('.die').on('death', function() {
         gameDeath()
     })
 }
@@ -81,7 +81,7 @@ function finishLevel() {
             'attempts': attemptsCount,
             'time': ticks
         }, // put data here from ajax into endOfGame
-        function (data) {
+        function(data) {
 
             if ('success' in data && data.success) {
                 //success function
@@ -99,7 +99,7 @@ function finishLevel() {
                             width: "690px",
                             height: "360px"
                         },
-                        function () {
+                        function() {
                             $('.messageContent').fadeIn(500)
                         })
                 } else {
@@ -110,7 +110,7 @@ function finishLevel() {
                 $messageDisplayBox.html(genericError)
             }
         }
-    ).fail(function () {
+    ).fail(function() {
             $messageDisplayBox.html(genericError)
         })
 }
@@ -125,7 +125,7 @@ function gameDeath() {
         '<h5>Click start to try again</h5><div class="button"><input type="button" value="Quit Game" class="messageButton" onclick="quitGame()"></div></div>')
     $gameBoxDiv.off('death')
 }
-$(function () {
+$(function() {
     $gameDiv = $('#game')
     $gameBoxDiv = $('#mazeContainer')
     $startSafeZone = $('#startArea')
@@ -138,9 +138,9 @@ $(function () {
      * replaces the message in the display box
      * disables the death event
      */
-    $gameBoxDiv.on('death', function () {
+    $gameBoxDiv.on('death', function() {
         stopClock()
-        $startSafeZone.on('click', function () {
+        $startSafeZone.on('click', function() {
             startLevel()
         })
         $messageDisplayBox.html("You have died! Please try again! Click the start area to start")
@@ -148,16 +148,16 @@ $(function () {
     })
 
     //triggers start event
-    $startSafeZone.click(function () {
+    $startSafeZone.click(function() {
         startLevel()
     })
     //triggers finish event
-    $finishBox.mouseover(function () {
+    $finishBox.mouseover(function() {
         finishLevel()
     })
 
     //enables the death event
-    $gameBoxDiv.on('death', function () {
+    $gameBoxDiv.on('death', function() {
         gameDeath()
     })
 
@@ -168,19 +168,19 @@ function bigInstruct() {
             width: "690px",
             height: "360px"
         },
-        function () {
+        function() {
             $('.messageContent').fadeIn(500)
         })
 }
 
 function smallInstruct() {
 
-    $('.messageContent').fadeOut(500, function () {
+    $('.messageContent').fadeOut(500, function() {
         $('#message').html(bigInstructions).animate({
                 width: "215px",
                 height: "160px"
             },
-            function () {
+            function() {
                 $('#message').html(smallInstructions)
             })
     })
