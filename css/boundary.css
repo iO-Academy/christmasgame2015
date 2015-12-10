@@ -96,15 +96,10 @@
 }
 
 #b14 {
-    font-weight: bold;
-    display: block;
-    margin: 0 auto;
     width: 33px;
     height: 20px;
     top: 143px;
     left: 70px;
-    text-align: center;
-    line-height: 300px;
     -webkit-transform: rotate(-20deg);
     -moz-transform: rotate(-20deg);
     -ms-transform: rotate(-20deg);
@@ -113,20 +108,15 @@
 }
 
 #b15 {
-    font-weight: bold;
-    display: block;
-    margin: 0 auto;
     width: 53px;
     height: 20px;
     top: 137px;
     left: 356px;
-    text-align: center;
-    line-height: 300px;
     -webkit-transform: rotate(38deg);
     -moz-transform: rotate(38deg);
     -ms-transform: rotate(38deg);
     -o-transform: rotate(38deg);
-    -ms-filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=1);
+    -ms-filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=0.4);
 }
 
 #b16 {
@@ -242,15 +232,10 @@
 }
 
 #b107 {
-    font-weight: bold;
-    display: block;
-    margin: 0 auto;
     width: 83px;
     height: 19px;
     top: 136px;
     left: -6px;
-    text-align: center;
-    line-height: 300px;
     -webkit-transform: rotate(-41deg);
     -moz-transform: rotate(-41deg);
     -ms-transform: rotate(-41deg);
@@ -259,15 +244,10 @@
 }
 
 #b108 {
-    font-weight: bold;
-    display: block;
-    margin: 0 auto;
     width: 59px;
     height: 20px;
     top: 140px;
     left: 406px;
-    text-align: center;
-    line-height: 300px;
     -webkit-transform: rotate(44deg);
     -moz-transform: rotate(44deg);
     -ms-transform: rotate(44deg);
@@ -276,15 +256,10 @@
 }
 
 #b109 {
-    font-weight: bold;
-    display: block;
-    margin: 0 auto;
     width: 33px;
     height: 20px;
     top: 143px;
     left: 70px;
-    text-align: center;
-    line-height: 300px;
     -webkit-transform: rotate(-20deg);
     -moz-transform: rotate(-20deg);
     -ms-transform: rotate(-20deg);
