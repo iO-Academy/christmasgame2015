@@ -82,10 +82,7 @@ function loadLevel(levelNumber) {
                 })
         }
     } else {
-<<<<<<< HEAD
-=======
         window.location.reload(false)
->>>>>>> f59b2f632201d33fff444bde9db1c074b07ec753
     }
 }
 
@@ -111,8 +108,6 @@ function finishLevel() {
     stopClock()
     playing = false
     finished = true
-    //change message box to display level congrats
-    $messageDisplayBox.html(completedLevelMessage)
     $.post('api/index.php', {
             'action': 'saveLevel',
             'level': levelNumber,
@@ -148,8 +143,13 @@ function gameDeath() {
     stopClock()
     $gameBoxDiv.css('cursor', 'not-allowed')
     playing = false
+<<<<<<< HEAD
+    $messageDisplayBox.html('<div class="message"><h4>Uh-oh, you touched the sides!</h4><h5>Click start to try again</h5>' +
+        '<div class="button"><input type="button" value="Quit Game" class="messageButton" onclick="quitGame()"></div></div>')
+=======
     $messageDisplayBox.html('You have died! Please try again! Click on the start area to start')
     $gameBoxDiv.off('death')
+>>>>>>> a9a8ca681b9a03aba2ca6a314ec05b20e2cd456e
 }
 
 /**
