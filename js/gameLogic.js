@@ -59,7 +59,7 @@ function loadLevel(levelNumber) {
                         gameDeath()
                     }
                 })
-
+                // TODO when the user restarts it needs to move the presents back
                 $('#checkpoint1').mouseover(function() {
                     if (playing) {
                         console.log('move')
