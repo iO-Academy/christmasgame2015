@@ -3,6 +3,7 @@
 <head>
         <link href='https://fonts.googleapis.com/css?family=Roboto:400,100,700' rel='stylesheet' type='text/css'>
         <link type="text/css" href="css/splash.css" rel="stylesheet" media="all">
+        <link type="text/css" href="css/popup.css" rel="stylesheet" media="all">
         <link type="text/css" href="css/layout.css" rel="stylesheet" media="all">
         <link type="text/css" href="css/boundary.css" rel="stylesheet" media="all">
         <link type="text/css" href="css/level1Images.css" rel="stylesheet" media="all">
@@ -24,7 +25,7 @@
         //validating that the device is not touch screen
         var isTouchDevice = 'ontouchstart' in document.getElementById('game')
         if (isTouchDevice) {
-            document.getElementById('game').innerHTML = '<p class="touchDevice"> Error! This game is for use on a device without a touchscreen</p>'
+            document.getElementById('game').innerHTML = '<h1>This game is for use on a device without a touchscreen.</h1>'
         }
     </script>
 <div id="preloaded-images1" class="preloadImgs"></div>
