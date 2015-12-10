@@ -16,7 +16,7 @@ function loadLevel(levelNumber) {
         $('#splashbackground').hide()
         $('#loadingImage').show()
         if (levelNumber === 1) {
-            $('#game').load('templates/gameVisual.php', function(response, status) {
+            $('#game').load('templates/gameVisual.php', function (response, status) {
                 $('#loadingImage').hide()
                 if (status == "error") {
                     $messageDisplayBox.html(genericError)
@@ -25,7 +25,7 @@ function loadLevel(levelNumber) {
                     $startSafeZone = $('#startArea')
                     $gameBoxDiv = $('#mazeContainer')
                     //disable right click on maze container
-                    $gameBoxDiv.on("contextmenu", function() {
+                    $gameBoxDiv.on("contextmenu", function () {
                         return false;
                     })
                     $finishBox = $('#finishArea')
@@ -35,18 +35,18 @@ function loadLevel(levelNumber) {
                     $road = $('#road')
                     $shifty = $('.shifty')
                     //enable start event
-                    $startSafeZone.click(function() {
+                    $startSafeZone.click(function () {
                         if (!playing && !finished)
                             startLevel()
                     })
                     //enable the death event
-                    $gameBoxDiv.on('mouseover', '.boundary', function() {
+                    $gameBoxDiv.on('mouseover', '.boundary', function () {
                         if (playing) {
                             gameDeath()
                         }
                     })
                     //enable finish event
-                    $finishBox.mouseover(function() {
+                    $finishBox.mouseover(function () {
                         if (playing) {
                             finishLevel()
                         }
@@ -55,7 +55,7 @@ function loadLevel(levelNumber) {
             })
         } else {
             $gameBoxDiv.load('templates/level' + levelNumber + '.php',
-                function(response, status) {
+                function (response, status) {
                     if (status == 'error') {
                         $messageDisplayBox.html(genericError)
                     }
@@ -64,9 +64,9 @@ function loadLevel(levelNumber) {
                 })
         }
     } else {
-        $messageDisplayBox.html('<p> Sorry, level does not exist. </p>')
     }
 }
+
 /**
  * starts clock, sets playing to true, add one to attempts counter
  */
@@ -80,6 +80,7 @@ function startLevel() {
     //increase attempt counter by 1
     $('#tally').text(++attemptsCount)
 }
+
 /**
  * stops clock, sets playing to false, posts data to api, loads the next level or End of game message box
  */
@@ -96,7 +97,7 @@ function finishLevel() {
             'attempts': attemptsCount,
             'time': ticks
         },
-        function(data) {
+        function (data) {
             if ('success' in data && data.success) {
                 if (levelNumber === lastLevel) {
                     $messageDisplayBox.html(congratulationsMessage)
@@ -110,10 +111,11 @@ function finishLevel() {
                 $messageDisplayBox.html(genericError)
             }
         }
-    ).fail(function() {
+    ).fail(function () {
         $messageDisplayBox.html(genericError)
     })
 }
+
 /**
  * stops clock, doesn't reset
  * enables the safezone click event
@@ -125,5 +127,44 @@ function gameDeath() {
     $gameBoxDiv.css('cursor', 'not-allowed')
     playing = false
     $messageDisplayBox.html('You have died! Please try again! Click on the start area to start')
+    $gameBoxDiv.off('death')
 }
 
+/**
+ * animates instructions to large format,
+ * fades content in.
+ */
+function bigInstruct() {
+    $('#message').html(bigInstructions).animate({
+            width: "690px",
+            height: "360px"
+        },
+        function() {
+            $('.messageContent').fadeIn(500)
+        })
+}
+
+/**
+ * Fades current message content,
+ * animates the pop out of the large instruction popup to a smaller size,
+ * loads in the small instructions content.
+ */
+function smallInstruct() {
+    $('.messageContent').fadeOut(500, function () {
+        $('#message').html(bigInstructions).animate({
+                width: "215px",
+                height: "160px"
+            },
+            function() {
+                $('#message').html(smallInstructions)
+            })
+    })
+
+}
+
+/**
+ * Quits the game by reloading  the window
+ */
+function quitGame() {
+    window.location.reload(false)
+}
