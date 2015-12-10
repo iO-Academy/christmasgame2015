@@ -118,6 +118,7 @@
 }
 
 #loadingImage {
+    background-image: url("img/ajax-loader.gif");
     position: absolute;
     align-self: center;
     width: 55px;
