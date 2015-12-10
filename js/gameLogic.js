@@ -177,8 +177,8 @@ function finishLevel() {
                         '<h3>It took you a total of ' + attemptsCount + ' attempts!</h3>' +
                         '<h3>Your results have been submitted, to play again click Restart!</h3>' +
                         '<div class="buttonBigMessage">' +
-                        '<input type="button" value="Restart" class="messageButton" onclick="loadLevel(1)"> ' +
-                        '<input type="button" value="Quit Game" class="messageButton" onclick="quitGame()"> </div></div>' +
+                        '<input type="button" value="Restart" class="messageButton"> ' +
+                        '<input type="button" value="Quit Game" class="messageButton"> </div></div>' +
                         '</div>').animate({
                             width: "690px",
                             height: "360px"
