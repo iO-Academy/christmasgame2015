@@ -1,9 +1,9 @@
 $(function () {
 
-    $("#splashbackground").each(function(){
+    $("#splashbackground").each(function () {
         console.log('fish')
-        var randomTopPosition = Math.floor(Math.random()*100).toString();
-        var randomLeftPosition = Math.floor(Math.random()*100).toString();
+        var randomTopPosition = Math.floor(Math.random() * 100).toString();
+        var randomLeftPosition = Math.floor(Math.random() * 100).toString();
         for (var i = 0; i < 3; i++) {
             snow = document.createElement('snow');
             snow.setAttribute('style', 'width:29px; height:29px; top:' + randomTopPosition + '; left:' + randomLeftPosition + '; z-index: 999;');
@@ -24,17 +24,21 @@ $(function () {
         var userName = $('#userName').val()
         var userEmail = $('#userEmail').val()
 
-        if(validate(userName, userEmail)) {
+        if (validate(userName, userEmail)) {
             $.post('api/index.php', {
                 'action': 'createUser',
                 'userName': userName,
                 'userEmail': userEmail
-            }, function () {
+            }, function (data) {
                 // if Success then set cookie and load first level
-                setChristmasGameCookie(userName, userEmail);
-                $('#game').addClass('level1')
-                loadLevel(1);
-            }).fail(function(){
+                if ('success' in data && data.success) {
+                    setChristmasGameCookie(userName, userEmail);
+                    loadLevel(1);
+                } else {
+                    $('#form').after("<div id='connectionError'>Error: Please refresh the page and try again.</div>");
+                }
+
+            }).fail(function () {
                 $messageDisplayBox.replaceWith("Error: There appears to be a problem!");
             });
         }

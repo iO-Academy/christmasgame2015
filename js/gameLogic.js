@@ -124,12 +124,42 @@ function finishLevel() {
     })
 }
 /**
+<<<<<<< HEAD
  * stop the clock, set playing to false, displays message
+=======
+ * stops clock, doesn't reset
+ * enables the safezone click event
+ * replaces the message in the display box
+ * disables the death event
+>>>>>>> af4d5c967bd8a54d66a8dbb7ef6c82a026757150
  */
+
 function gameDeath() {
     stopClock()
     playing = false
     $messageDisplayBox.html('You have died! Please try again! Click on the start area to start')
 }
+
+$(function() {
+    $gameDiv = $('#game')
+    $gameBoxDiv = $('#mazeContainer')
+    $messageDisplayBox = $('#message')
+    $startSafeZone = $('#startArea')
+    $finishSafeZone = $('someHTMLEntityIDNotDecided#finishSafeZone')
+    $finishBox = $('someHTMLEntityNotDecided')
+    //triggers start event
+    $startSafeZone.click(function() {
+        startLevel()
+    })
+    //triggers finish event
+    $finishBox.mouseover(function() {
+        finishLevel()
+    })
+
+    //enables the death event
+    $gameBoxDiv.on('death', function() {
+        gameDeath()
+    })
+})
 
 
