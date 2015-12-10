@@ -116,8 +116,7 @@ function finishLevel() {
                 $messageDisplayBox.html(genericError)
             }
         }
-    ).
-    fail(function() {
+    ).fail(function() {
         $messageDisplayBox.html(genericError)
     })
 }
