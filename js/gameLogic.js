@@ -64,7 +64,7 @@ function loadLevel(levelNumber) {
                 })
         }
     } else {
-        $messageDisplayBox.html('<p> Sorry, level does not exist. </p>')
+        window.location.reload(false)
     }
 }
 /**
