@@ -113,7 +113,7 @@ function loadLevel(levelNumber) {
                 })
         }
     } else {
-        window.location.reload(false)
+        quitGame()
     }
 }
 
@@ -176,8 +176,8 @@ function finishLevel() {
             }
         }
     ).fail(function() {
-            $messageDisplayBox.html(genericError)
-        })
+        $messageDisplayBox.html(genericError)
+    })
 }
 /**
  * stops clock, doesn't reset
