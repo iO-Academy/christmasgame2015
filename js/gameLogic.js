@@ -1,9 +1,8 @@
-var $gameDiv, $gameBoxDiv, $messageDisplayBox, $finishBox, levelNumber = 1
+var $gameDiv, $gameBoxDiv, $messageDisplayBox, $finishBox, levelNumber, lastLevel = 1
 var congratulationsMessage = '<p>Yay you did it!</p>'
 var completedLevelMessage = '<p>Some html about completing level</p>'
-var $startSafeZone, lastLevel = 2, attemptsCount = 0, playing = false, finished = false
+var $startSafeZone = 2, attemptsCount = 0, playing = false, finished = false
 var genericError = 'Sorry there is a problem, please try reloading the page'
-
 
 /**
  * checks if level number is valid or sets error message
@@ -19,20 +18,21 @@ function loadLevel(levelNumber) {
         if (levelNumber === 1) {
             $('#game').load('templates/gameVisual.php', function(response, status) {
                 $('#loadingImage').hide();
-                if (status == "error") {
-                    console.log(status)
-                    $messageDisplayBox.html(genericError)
-                }
+                    if (status == "error") {
+                        $messageDisplayBox.html(genericError)
+                    }
                 resetClock()
                 $startSafeZone = $('#startArea')
                 $gameBoxDiv = $('#mazeContainer')
-
                 //disable right click on maze container
                 $(document).ready(function() {
                     $gameBoxDiv.on("contextmenu", function() {
                         return false;
                     });
                 });
+                $gameBoxDiv.on("contextmenu",function(){
+                    return false;
+                })
                 $finishBox = $('#finishArea')
                 $gameDiv = $('#game')
                 $messageDisplayBox = $('#message')
@@ -60,7 +60,6 @@ function loadLevel(levelNumber) {
         } else {
             $gameBoxDiv.load('templates/level' + levelNumber + '.php',
                 function(response, status) {
-                    $('#loadingImage').hide()
                     if (status == 'error') {
                         $messageDisplayBox.html(genericError)
                     }
@@ -126,7 +125,6 @@ function finishLevel() {
  * replaces the message in the display box
  * disables the death event
  */
-
 function gameDeath() {
     stopClock()
     $gameBoxDiv.css('cursor', 'not-allowed')
