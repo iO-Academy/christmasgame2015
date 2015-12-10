@@ -15,17 +15,20 @@ function setChristmasGameCookie(userName, userEmail) {
  * @returns mixed array with user's name and email values
  */
 function getChristmasGameCookie() {
-    var cookie = document.cookie.split(';')
-    var cookieName = cookie[0].split('=')
-    if (cookieName[0] == "christmasGameUser") {
-        var user = cookieName[1].split(',')
-        if (
-            user.length == 2 &&
-            validateName(user[0]) &&
-            validateEmail(user[1])
-        ) {
-            return user
+    var cookies = document.cookie.split(';')
+    var result = false
+    for (var i = 0; i < cookies.length; i++) {
+        var cookie = cookies[i].split('=')
+        if (cookie[0] == "christmasGameUser" || cookie[0] == " christmasGameUser") {
+            var user = cookie[1].split(',')
+            if (
+                user.length == 2 &&
+                validateName(user[0]) &&
+                validateEmail(user[1])
+            ) {
+                result = user
+            }
         }
     }
-    return false
+    return result
 }
