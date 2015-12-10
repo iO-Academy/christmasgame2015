@@ -17,4 +17,3 @@ catch(PDOException $e)
 	header('Content-Type: application/json');
 	die(json_encode($response));
 }
-?> 
