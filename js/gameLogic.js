@@ -5,10 +5,10 @@ var $gameBoxDiv
 var $messageDisplayBox
 var $finishBox
 var levelNumber = 1
-var completedLevelMessage = '<div class="message"><h4>You did it!</h4><h5>Click the Start area to continue playing.</h5><div class="button"><input type="button" value="Quit Game" class="quit messageButton"></div></div>'
+var completedLevelMessage = '<div class="message"><h4>You did it!</h4><h5>Click the Start area to continue playing.</h5><div class="button"><input type="button" value="Quit Game" class="messageButton" onclick="quitGame()"></div></div>'
 var $startSafeZone
 var lastLevel = 2
-var genericError = '<div class="message"><h4>Oops!</h4><h5>Please try reloading the page</h5><div class="button"><input type="button" value="Quit Game" class="quit messageButton"></div></div>'
+var genericError = '<div class="message"><h4>Oops!</h4><h5>Please try reloading the page</h5><div class="button"><input type="button" value="Quit Game" class="messageButton" onclick="quitGame()"></div></div>'
 var attemptsCount = 0
 var smallInstructions = '<div class="message"><h4>To see the Instructions</h4><h5>Click the Open button</h5><div class="button">' +
     '<input type="button" value="Open" class="messageButton" onclick="bigInstruct()"></div></div>'
@@ -96,12 +96,12 @@ function finishLevel() {
                         '<input type="button" value="Restart" class="messageButton" onclick="loadLevel(1)"> ' +
                         '<input type="button" value="Quit Game" class="messageButton" onclick="quitGame()"> </div></div>' +
                         '</div>').animate({
-                                width: "690px",
-                                height: "360px"
-                            },
-                            function () {
-                                $('.messageContent').fadeIn(500)
-                            })
+                            width: "690px",
+                            height: "360px"
+                        },
+                        function () {
+                            $('.messageContent').fadeIn(500)
+                        })
                 } else {
                     loadLevel(levelNumber)
                 }
@@ -115,14 +115,14 @@ function finishLevel() {
         })
 }
 /**
- * stop the clock, enable start button, displays message, todo turns off death
+ * stop the clock, enable start button, displays message
  */
 function gameDeath() {
     $messageDisplayBox = $('#message')
     stopClock();
     $startSafeZone.on('click', startLevel);
     $messageDisplayBox.html('<div class="message"><h4>Uh-oh, you touched the sides!</h4>' +
-        '<h5>Click start to try again</h5><div class="button"><input type="button" value="Quit Game" class="messageButton"></div></div>')
+        '<h5>Click start to try again</h5><div class="button"><input type="button" value="Quit Game" class="messageButton" onclick="quitGame()"></div></div>')
     $gameBoxDiv.off('death')
 }
 $(function () {
@@ -131,8 +131,7 @@ $(function () {
     $startSafeZone = $('#startArea')
     $finishSafeZone = $('someHTMLEntityIDNotDecided#finishSafeZone')
     $finishBox = $('someHTMLEntityNotDecided')
-    $quit = $('.quit')
-    /**
+     /**
      * triggered on death event
      * stops clock, doesn't reset
      * enables the safezone click event
@@ -162,10 +161,6 @@ $(function () {
         gameDeath()
     })
 
-    //triggers replay/quit to registration page
-    $quit.click(function () {
-        $('#game').load('templates/splash.html')
-    })
 })
 
 function bigInstruct() {
@@ -182,17 +177,16 @@ function smallInstruct() {
 
     $('.messageContent').fadeOut(500, function () {
         $('#message').html(bigInstructions).animate({
-            width: "215px",
-            height: "160px"
-        },
-            function(){
+                width: "215px",
+                height: "160px"
+            },
+            function () {
                 $('#message').html(smallInstructions)
             })
     })
 
 }
 function quitGame() {
-    //link to game welcome screen TODO:put correct link
-    window.location.href = "http://academy.vagrant/christmasgame2015/"
+    window.location.reload(false)
 }
 
