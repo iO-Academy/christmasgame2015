@@ -117,7 +117,6 @@ function finishLevel() {
             $messageDisplayBox.html(genericError)
         })
     } else {
-        console.log('cheat')
         gameDeath()
         }
 }
