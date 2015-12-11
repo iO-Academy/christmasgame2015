@@ -47,7 +47,7 @@ function loadLevel(levelNumber) {
                             startLevel()
                     })
                     //enable the death event
-                    $gameBoxDiv.on('mouseover, mouseout', '.boundary', function() {
+                    $gameBoxDiv.on('mouseover mouseout', '.boundary', function() {
                         if (playing) {
                             gameDeath()
                         }
