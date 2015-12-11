@@ -26,7 +26,8 @@ $(function () {
                 } else {
                     $('#form').after("<div id='connectionError'>Error: Please refresh the page and try again.</div>");
                 }
-            }).fail(function(){
+            },
+            'json').fail(function(){
                 $messageDisplayBox.replaceWith("Error: There appears to be a problem!");
             });
         }

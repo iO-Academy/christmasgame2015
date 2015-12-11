@@ -143,7 +143,8 @@ function finishLevel() {
                 else {
                     $messageDisplayBox.html(genericError)
                 }
-            }
+            },
+            'json'
         ).fail(function () {
             $messageDisplayBox.html(genericError)
         })
