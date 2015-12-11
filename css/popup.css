@@ -80,6 +80,11 @@ h2 {
     margin-top: 67px;
 }
 
+.messageContent1 {
+    display: none;
+    margin-top:47px;
+}
+
 h4 > span {
     font-size: 25px;
 }

@@ -119,7 +119,7 @@ function finishLevel() {
                     if (levelNumber === lastLevel) {
 
                         $('#message').html('<div class="message bigMessage">' +
-                            '<div class="messageContent"><h2>Congratulations!</h2> <h3>You finished the game in: ' + seconds2time(ticks) + '</h3>' +
+                            '<div class="messageContent1"><h2>Congratulations!</h2> <h3>You finished the game in: ' + seconds2time(ticks) + '</h3>' +
                             '<h3>and it took you a total of ' + attemptsCount + ' attempts!</h3>' +
                             '<h3>Your results have been submitted</h3>' +
                             '<div class="buttonBigMessage">' +
