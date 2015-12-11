@@ -162,7 +162,7 @@ function gameDeath() {
     $gameBoxDiv.css('cursor', 'not-allowed')
     playing = false
     $messageDisplayBox.html('<div class="message"><h4>Uh-oh, you touched the sides!</h4><h5>Click <span>start</span> to try again</h5>' +
-        '<div class="button"><input type="button" value="Instructions" class="messageButton open"></div></div>')
+        '<div class="button"><input type="button" value="How To Play" class="messageButton open"></div></div>')
     $('.open').click(function() {
         bigInstruct()
     })
