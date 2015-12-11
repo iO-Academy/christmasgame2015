@@ -202,5 +202,11 @@ if (!empty($_POST['action'])) {
 
 }
 
-header('Content-Type: application/json');
+$ie_user = !!preg_match('/MSIE (6|7|8)/', $_SERVER['HTTP_USER_AGENT']);
+
+if ($ie_user) {
+    header('Content-Type: text/html');
+} else {
+    header('Content-Type: application/json');
+}
 echo json_encode($response);
