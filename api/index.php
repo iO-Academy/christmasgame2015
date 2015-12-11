@@ -69,10 +69,9 @@ if (!empty($_POST['action'])) {
             $attempts = $_POST['attempts'];
             $time = $_POST['time'];
             $user = $_SESSION['id'];
-            $try = $_SESSION['attempts'];
 			$maxLevel = 1;
 			
-			if (empty($user) || empty($try)) {
+			if (empty($user)) {
                 $response = array(
                     'success' => false,
                     'message' => 'User not registered'
@@ -82,57 +81,15 @@ if (!empty($_POST['action'])) {
 			
 
             try {
-                $query = 'SELECT 1 FROM `levels` WHERE `user` = ' . $user . ' AND `try` = ' . $try . ' AND `level` = ' . $level . ';';
-                $conn = $db->prepare($query);
-                $conn->execute();
-                $previousSave = $conn->fetch();
-
-                if ($previousSave) {
-                    $response['message'] = 'Error occurred: level already saved';
-                    break;
-                }
-
                 // save current level details
-                $query = 'INSERT INTO `levels` (`level`, `user`, `attempts`, `time`, `try`)
-                        VALUES ("' . $level . '", "' . $user . '", "' . $attempts . '", "' . $time . '", "' . $try . '")';
+                $query = 'INSERT INTO `levels` (`level`, `user`, `attempts`, `time`)
+                        VALUES ("' . $level . '", "' . $user . '", "' . $attempts . '", "' . $time . '")';
                 $db->exec($query);
 
                 $response = array(
                     'success' => true,
                     'message' => 'Level saved'
                 );
-
-                if ($maxLevel == $level) {
-                    // add all level times together and save
-                    $query = 'SELECT SUM(`time`) AS \'time\' FROM `levels` WHERE `user` = ' . $user . ' AND `try` = ' . $try . ';';
-                    $conn = $db->prepare($query);
-                    $conn->execute();
-                    $totalTime = $conn->fetch(PDO::FETCH_ASSOC);
-                    $totalTime = $totalTime['time'];
-
-                    $query = 'SELECT SUM(`attempts`) AS \'attempts\' FROM `levels` WHERE `user` = ' . $user . ' AND `try` = ' . $try . ';';
-                    $conn = $db->prepare($query);
-                    $conn->execute();
-                    $totalAttempts = $conn->fetch(PDO::FETCH_ASSOC);
-                    $response['totalAttempts'] = $totalAttempts['attempts'];
-
-                    $query = 'SELECT `pb` FROM `users` WHERE `id` = ' . $user . ';';
-                    $conn = $db->prepare($query);
-                    $conn->execute();
-                    $pb = $conn->fetch(PDO::FETCH_ASSOC);
-                    $pb = $pb['pb'];
-
-                    if (!empty($totalTime) && !empty($pb) && $totalTime < $pb) {
-                        $query = 'UPDATE `users` SET `pb` = ' . $totalTime . ' WHERE `id` = ' . $user . ';';
-                        $db->exec($query);
-                        $response['totalTime'] = $totalTime;
-                    } else if (!empty($pb)) {
-                    	$response['totalTime'] = $pb;
-                    } else {
-                    	$response['totalTime'] = $totalTime;
-                    }
-
-                }
             } catch (Exception $e) {
                 $response = array(
                     'success' => false,
