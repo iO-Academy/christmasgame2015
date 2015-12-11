@@ -70,7 +70,7 @@ if (!empty($_POST['action'])) {
             $time = $_POST['time'];
             $user = $_SESSION['id'];
 			$maxLevel = 1;
-			
+
 			if (empty($user)) {
                 $response = array(
                     'success' => false,
@@ -78,7 +78,6 @@ if (!empty($_POST['action'])) {
                 );
 				break;
 			}
-			
 
             try {
                 // save current level details

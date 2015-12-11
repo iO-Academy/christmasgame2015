@@ -12,6 +12,9 @@
     margin: auto;
 }
 
+.centre {
+   margin-top: 50px;
+}
 .message {
     background-color: #004f76;
     color: #ffffff;
@@ -30,6 +33,7 @@
     min-height: 100%;
     font-size: 30px;
     padding-top: 20px;
+    text-align: center;
 }
 
 .ie8 .bigMessage {
@@ -73,4 +77,17 @@ h2 {
 
 .messageContent {
     display: none;
+    margin-top: 67px;
+}
+
+.messageContent1 {
+    margin-top:47px;
+}
+
+h4 > span {
+    font-size: 25px;
+}
+
+h5 > span {
+    font-size: 20px;
 }
