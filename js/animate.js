@@ -8,3 +8,8 @@ function animatePresents() {
         $shifty.animate({left: "-=6"}, 1000, 'linear')
     }
 }
+
+function resetPresents() {
+    $presentOne.attr('style', '')
+    $shifty.attr('style', '')
+}
