@@ -2,9 +2,9 @@ var genericError = '<div class="message"><h4>Oops!</h4><h5>Please try reloading 
 var smallInstructions = '<div class="message"><div>' +
     '<input type="button" value="How To Play" class="messageButton centre open"></div></div>'
 var bigInstructions = '<div class="message bigMessage"><div class="messageContent"><h2>How To Play</h2>' +
-    '<h4>Follow the path with your mouse cursor to make it down the first</h4>' +
-    '<h4> chimney, avoiding touching the sides and looking out for obstacles.</h4>' +
-    '<h4>Close the instructions then click <span>​Start</span>​ to begin!</h4> <input type="button" value="Close" class="messageButton hide"> </div></div>'
+    '<h4>Follow the path with your mouse cursor to make it down the first chimney, through the office and ' +
+    'up out of the second chimney as quickly and with as few attempts as possible, avoiding touching the ' +
+    'sides and looking out for obstacles.</h4><h4>Close the instructions then click <span>Start</span> to begin!</h4><input type="button" value="Close" class="messageButton hide"> </div></div>'
 var lastLevel = 1, playing = false, finished, checkpointPassed = false, $startSafeZone
 var levelNumber = 1, $gameDiv, $gameBoxDiv, $messageDisplayBox, $finishBox
 var attemptsCount = 0
