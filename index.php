@@ -25,7 +25,7 @@
     </body>
     <script>
         //validating that the device is not touch screen
-        var isTouchDevice = 'ontouchstart' in document.getElementById('game')
+        var isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints;
         if (isTouchDevice) {
             document.getElementById('game').innerHTML = '<h1>This game is for use on a device without a touchscreen.</h1>'
         }
