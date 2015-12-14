@@ -90,6 +90,7 @@ function loadLevel(levelNumber) {
  */
 function startLevel() {
 //Start Clock
+    resetClock()
     startClock()
     $messageDisplayBox.html(smallInstructions)
     playing = true
