@@ -1,10 +1,10 @@
 var genericError = '<div class="message"><h4>Oops!</h4><h5>Please try reloading the page</h5></div>'
-var smallInstructions = '<div class="message"><h4>To see the Instructions</h4><h5>Click the Open button</h5><div class="button">' +
-    '<input type="button" value="Open" class="messageButton open"></div></div>'
-var bigInstructions = '<div class="message bigMessage"><div class="messageContent"<h2>Instructions</h2>' +
-    '<h3>Follow the path with your mouse cursor to make it to the safe zone.</h3>' +
-    '<h3>Try to complete it as fast as possible with as few attempts as possible.</h3>' +
-    '<h3>Hide the instructions and click Start to begin.</h3> <input type="button" value="Hide Instructions" class="messageButton hide"> </div></div>'
+var smallInstructions = '<div class="message"><div>' +
+    '<input type="button" value="How To Play" class="messageButton centre open"></div></div>'
+var bigInstructions = '<div class="message bigMessage"><div class="messageContent"><h2>How To Play</h2>' +
+    '<h4>Follow the path with your mouse cursor to make it down the first chimney, through the office and ' +
+    'up out of the second chimney as quickly and with as few attempts as possible, avoiding touching the ' +
+    'sides and looking out for obstacles.</h4><h4>Close the instructions then click <span>Start</span> to begin!</h4><input type="button" value="Close" class="messageButton hide"> </div></div>'
 var lastLevel = 1, playing = false, finished, checkpointPassed = false, $startSafeZone
 var levelNumber = 1, $gameDiv, $gameBoxDiv, $messageDisplayBox, $finishBox
 var attemptsCount = 0
@@ -47,7 +47,7 @@ function loadLevel(levelNumber) {
                             startLevel()
                     })
                     //enable the death event
-                    $gameBoxDiv.on('mouseover', '.boundary', function() {
+                    $gameBoxDiv.on('mouseover mouseout', '.boundary', function() {
                         if (playing) {
                             gameDeath()
                         }
@@ -90,6 +90,8 @@ function loadLevel(levelNumber) {
  */
 function startLevel() {
 //Start Clock
+    resetClock()
+    resetPresents()
     startClock()
     $messageDisplayBox.html(smallInstructions)
     playing = true
@@ -119,12 +121,11 @@ function finishLevel() {
                     if (levelNumber === lastLevel) {
 
                         $('#message').html('<div class="message bigMessage">' +
-                            '<div class="messageContent"><h2>Congratulations!</h2> <h3>You finished the game!</h3>' +
-                            '<h3>You completed it in a time of: ' + seconds2time(ticks) + '</h3>' +
-                            '<h3>It took you a total of ' + attemptsCount + ' attempts!</h3>' +
-                            '<h3>Your results have been submitted, to play again click Replay!</h3>' +
+                            '<div class="messageContent1"><h2>Congratulations!</h2> <h4>You finished the game in: ' + seconds2time(ticks) + '</h4>' +
+                            '<h4>and it took you a total of ' + attemptsCount + ' attempts!</h4>' +
+                            '<h4>Your results have been submitted</h4>' +
                             '<div class="buttonBigMessage">' +
-                            '<input type="button" value="Replay" class="messageButton replay"> </div></div>' +
+                            '<input type="button" value="Play Again!" class="messageButton replay"> </div></div>' +
                             '</div>').animate({
                                 width: "690px",
                                 height: "360px"
@@ -143,7 +144,8 @@ function finishLevel() {
                 else {
                     $messageDisplayBox.html(genericError)
                 }
-            }
+            },
+            'json'
         ).fail(function () {
             $messageDisplayBox.html(genericError)
         })
@@ -161,8 +163,11 @@ function gameDeath() {
     stopClock()
     $gameBoxDiv.css('cursor', 'not-allowed')
     playing = false
-    $messageDisplayBox.html('<div class="message"><h4>Uh-oh, you touched the sides!</h4><h5>Click start to try again</h5>' +
-        '<div class="button"><input type="button" value="Quit Game" class="messageButton quit"></div></div>')
+    $messageDisplayBox.html('<div class="message"><h4>Uh-oh, you touched the sides!</h4><h5>Click <span>start</span> to try again</h5>' +
+        '<div class="button"><input type="button" value="How To Play" class="messageButton open"></div></div>')
+    $('.open').click(function() {
+        bigInstruct()
+    })
     $('.quit').click(function() {
         quitGame()
     })
@@ -196,6 +201,9 @@ function smallInstruct() {
             },
             function() {
                 $('#message').html(smallInstructions)
+                $('.open').click(function() {
+                    bigInstruct()
+                })
             })
     })
 }
